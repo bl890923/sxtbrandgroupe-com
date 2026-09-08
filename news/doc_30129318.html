@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>捧回亚洲首个“阿巴&#12539;利希滕斯坦奖”的工程背后的宣传构思 · 新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../news.html" class="active">新闻中心</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>新闻<span>详情</span></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../news.html">新闻中心</a> &gt; <span>捧回亚洲首个“阿巴&#12539;利希滕斯坦奖”的工程背后的宣传构思</span>
+        </div>
+        <article class="detail-card">
+          <h1 class="detail-title">捧回亚洲首个“阿巴&#12539;利希滕斯坦奖”的工程背后的宣传构思</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>新闻中心</span>
+          </div>
+          <div class="detail-body">
+<p><p><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;"><span leaf="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-size: 15px; color: rgb(0, 0, 0); box-sizing: border-box !important; overflow-wrap: break-word !important;">北京时间</span><span leaf="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-size: 15px; color: rgb(0, 0, 0); box-sizing: border-box !important; overflow-wrap: break-word !important;">7月16日，2025年国际桥梁大会在美国匹兹堡举行，由宜宾市公路局投资建设、四川公路院设计、四川路桥桥梁公司特种工程分公司施工的“宜宾市岷江大桥加固改造工程”荣获阿巴&#12539;利希滕斯坦奖。阿巴&#12539;利希滕斯坦奖设立专为表彰在历史悠久桥梁的修复重建中，展现卓越美学价值与创新理念的杰出工程，有桥梁修复重建诺贝尔之誉。这是该奖项自2012年设立以来，首次授予北美地区之外的建设团队，岷江大桥加固改造工程也成为首个荣获该殊荣的亚洲桥梁项目。</span></span></p><p><span style="font-family: 方正仿宋_GB2312; letter-spacing: 0.544px; text-align: justify; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-size: 15px; color: rgb(0, 0, 0); box-sizing: border-box !important; overflow-wrap: break-word !important;"></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1757668546410893.png" title="1757668546410893.png" alt="1757668546410893.png" width="550" height="414" border="0" vspace="0" style="width: 550px; height: 414px;"/></p><p style="margin: 0px; text-align: center;"><span style="font-family: &quot;PingFang SC&quot;, system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 14px; letter-spacing: 0.544px; text-align: center; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); color: rgb(127, 127, 127);">颁奖现场</span></p><p><span style="font-family: 方正仿宋_GB2312; letter-spacing: 0.544px; text-align: justify; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); -webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-size: 15px; color: rgb(0, 0, 0); box-sizing: border-box !important; overflow-wrap: break-word !important;"></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">三希堂品牌管理作为国资品牌文化一体化塑造领航者，</span></span></span></span><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">宜宾市岷江大桥加固改造工程即将进入规模化作业伊始，施工方四川路桥桥梁公司特种工程分公司选择与三希堂品牌管理合作，以品牌化思维助力工程品宣，那么捧回亚洲首个</span></span></span><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">“阿巴&#12539;利希滕斯坦奖”的工程背后的宣传构思是怎样的呢？</span></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">史蒂芬</span></span></span><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important">·柯维在《</span><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;color: var(--weui-LINK);cursor: default">高效人士的七个习惯<em style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;display: inline-block;vertical-align: super;font-size: 10px;width: 1.2em;height: 1.2em;mask-position: 50% 50%;mask-repeat: no-repeat;mask-size: 100%;background-color: var(--weui-LINK)"></em></span><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important">》中提到的第二个习惯是“以终为始”。以终为始，这个习惯讲的是：先在脑海里酝酿，然后进行实质创造，换句话说，就是想清楚了目标，然后努力实现之。宜宾市岷江大桥加固改造工程的品牌宣传锚定的是怎样的目标？</span></span></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">当三希堂品牌管理团队接到项目后深入项目实地了解工程概况、推进控制性难点、工程创新点等后发现</span></span></span><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important">G247线岷江大桥加固改造工程造价规模为1.27亿，分为岷江新桥和老桥两部分两个阶段，1.老桥主拱圈加固、拆除并新建拱上结构、拆除原桥面系加宽改造为钢混桥面系及桥墩基础处置；2.新桥拆除原人行道，加宽改造</span></span></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important">为钢结构人行道及桥面车行道改造，同步完成桥墩防撞设施和</span><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;color: var(--weui-LINK);cursor: default">桥梁健康监测系统<em style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;display: inline-block;vertical-align: super;font-size: 10px;width: 1.2em;height: 1.2em;mask-position: 50% 50%;mask-repeat: no-repeat;mask-size: 100%;background-color: var(--weui-LINK)"></em></span><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important">。宜宾岷江大桥作为中心城区最早的公路桥梁，是核心过江通道之一需要保障通行的同时进行桥梁手术，是时属城市公路桥梁加固规模最大，技术难度要求最高，风险性最大项目。</span></span></span></span></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1757668619752392.png" style="width: 448px; height: 276px;" title="1757668619752392.png" width="448" height="276" border="0" vspace="0" alt="1757668619752392.png"/>&nbsp;<img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1757668621311256.png" title="1757668621311256.png" width="450" height="277" border="0" vspace="0" alt="1757668621311256.png" style="width: 450px; height: 277px;"/></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="letter-spacing: 0.544px; font-family: 方正仿宋_GB2312; -webkit-tap-highlight-color: transparent; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">川桥特种不仅是单一针对宜宾岷江大桥加固改造，还是宜宾岷江大桥安全运行的长期护航单位，我们发现此项目是扩大由三希堂品牌管理为川桥特种公司新锚定的品牌战略</span></span></span><span style="letter-spacing: 0.544px; font-family: 方正仿宋_GB2312; -webkit-tap-highlight-color: transparent; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important">——道路桥梁全生命周期智慧建护驱动者的重要契机，同时也具备成为行业典型经验，所以三希堂品牌管理认为项目品牌宣传是立足宜宾岷江大桥，站位川桥特种、乃至四川路桥、</span><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;color: var(--weui-LINK);cursor: default">蜀道集团<em style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;display: inline-block;vertical-align: super;font-size: 10px;width: 1.2em;height: 1.2em;mask-position: 50% 50%;mask-repeat: no-repeat;mask-size: 100%;background-color: var(--weui-LINK)"></em></span><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important">，依托岷江大桥加固改造向外界传达两个核心，对外塑造两个核心形象：</span></span><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(160, 32, 37);font-weight: bold">1.川桥特种——公路桥梁加固改造行业领航者；2.川桥特种——道路桥梁全生命周期智慧建护驱动者。</span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">依托四川路桥桥梁领域对外建立起的固有认知</span></span></span><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">——川桥这一个文化母体和心智认知，结合岷江大桥的工程特性与川桥特种公司特性，我们凝练宣传的</span><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(160, 32, 37);font-weight: bold">核心价值主张为：善固精护 川桥担当</span><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">。以此价值主张延展将岷江大桥加固改造项目打造成川桥特种公司的一张闪亮名片，借助项目的宣传将公司的全新理念和品牌形象进行展示，借助工程的推进体现川桥特种担当，也彰显川桥特种兵的团队文化，干事作风等。</span></span></span></span></p><p style="text-align: center;"><embed type="application/x-shockwave-flash" class="edui-faked-video" pluginspage="http://www.macromedia.com/go/getflashplayer" src="http://cdn.sxtbrandgroupe.com/%E5%AE%9C%E5%AE%BE%E5%B2%B7%E6%B1%9F%E5%A4%A7%E6%A1%A5%E9%80%9A%E8%BD%A6%E7%BA%AA%E5%BD%95%E7%89%87.mp4" width="960" height="540" wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" poster=""/></p><p><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;"><span leaf="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span textstyle="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; color: rgb(0, 0, 0);"><br/></span></span></span></p><p><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;"><span leaf="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span textstyle="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; color: rgb(0, 0, 0);">在创意叙事方面，我们立足项目工程推进节点，围绕</span></span></span><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;"><span leaf="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span textstyle="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; color: rgb(0, 0, 0);">“破茧、破晓、曙光、蝶变、新生”的逻辑，紧扣“善固精护·川桥担当”核心价值主张，突显项目三个基本维度：一场竞速时间赛跑的角逐、一个彰显智慧建护的工程、一次刷新行业标杆的探索，同时也借项目团队凝聚呈现的“川桥特种·岷江力量”诠释公司的道路桥梁全生命周期智慧建护的价值驱动。</span></span></span></p><p><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;"><span leaf="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span textstyle="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; color: rgb(0, 0, 0);"><br/></span></span></span></p><p style="text-align: center;"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; text-wrap-mode: wrap; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;"><span leaf="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span textstyle="" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; color: rgb(0, 0, 0);"><embed type="application/x-shockwave-flash" class="edui-faked-video" pluginspage="http://www.macromedia.com/go/getflashplayer" src="http://cdn.sxtbrandgroupe.com/001%E5%B7%9D%E6%A1%A5%E7%89%B9%E7%A7%8D%C2%B7%E5%B2%B7%E6%B1%9F%E5%8A%9B%E9%87%8F%20%E5%9B%A2%E9%98%9F%E5%BD%A2%E8%B1%A1%E5%AE%A3%E4%BC%A0%E7%89%87%20.mp4" width="960" height="540" wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" poster=""/></span></span></span></p><p><br/></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">2023年9月12日，岷江大桥改造后通车，这座承载宜宾人半个世纪记忆的“城市脊梁”焕发新生</span></span></span><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">，工程的竣工不是品宣终点，而是拐点！生动体现在岷江大桥加固改造工程。亮相四川省第二届普通公路养护管理技术交流大会、荣获中国公路学会养护与管理分会举办的第三届公路养护工程创新大赛品质工程一等奖、再到如今斩获国际桥梁大会阿巴&#12539;利希滕斯坦奖</span></span></span><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">……</span></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">回顾岷江大桥加固改造工程品牌宣传，虽有遗憾：一场涵盖音画图文、媒体、行业品宣战役的</span></span></span><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">#宜宾岷江大桥加固日记 虽然因不可抗力因素搁浅，但行业品牌影响力成效却超出预期，有哪些好的实践经验呢？</span></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(160, 32, 37);font-weight: bold">三希堂品牌管理认为有三个方面值得分享：</span></span></span><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><br/></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(160, 32, 37);font-weight: bold">1.协力同心的齐发力。</span><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">我们说工程项目宣传不是一个部门的事情，也不是几个人的事情，是一个团队加多个团队的事情。岷江大桥加固改造工程宣传项目团队发力、公司高度重视，地方业主与设计单位也高度重视，为宣传奠定了坚实基础，而不像有的工程项目嘴上说的重视，实际上就安排一两个人着手发力，双拳怎敌十手；</span></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(160, 32, 37);font-weight: bold">2.以终为始的目标感。</span><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">城市公路桥梁加固规模最大，技术难度要求最高，风险性最大项目这些标签为岷江大桥加固改造赋能了价值点，但不是说没有这些闪亮的标签就没法宣传，我们做好宣传是基于工程项目的社会民生价值、行业价值、技术价值等多维度凝练，锚定适宜的目标，围绕目标倒退举措，正如岷江大桥加固改造是建立了打造行业典型经验的目标，那么全节点时段的工程记录也就成为服务宣传的必然；</span></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span style="font-family:方正仿宋_GB2312;-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(160, 32, 37);font-weight: bold">3.品牌管理的使命感</span><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(160, 32, 37)">。</span><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(0, 0, 0)">很多时候工程项目团队选择合作伙伴点线思维为主，围绕事件本身展开，虽然同样能解决事件，但是正如每一个广告都是品牌资产的累积，岷江大桥加固改造选择锚定川桥特种公司新品牌战略的三希堂品牌管理的初衷在于具有品牌管理的使命感。选择真正懂品牌管理的团队不仅能够保持品牌调性输出品牌价值，还能够提高协同作业效率。</span></span></span></span></p><p style="-webkit-tap-highlight-color: transparent;margin-top: 0px;margin-bottom: 24px;padding: 0px;outline: 0px;max-width: 100%;clear: both;min-height: 1em;color: rgba(0, 0, 0, 0.9);font-family: &#39;PingFang SC&#39;, system-ui, -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei UI&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif;font-size: 17px;letter-spacing: 0.544px;text-align: justify;text-wrap-mode: wrap;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important"><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px">中国基建从跟跑到领跑，工程项目也当</span></span><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px">从“沉默的建设者”转型为“主动的价值讲述者”，如果你正为工程项目宣传破局苦恼，不妨和</span></span><span leaf="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important"><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px;color: rgb(160, 32, 37);font-weight: bold">与杰出国资品牌共兴</span><span textstyle="" style="-webkit-tap-highlight-color: transparent;padding: 0px;outline: 0px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;font-size: 15px">的三希堂品牌管理聊聊！</span></span></p><p><br/></p><p><br/></p><p><br/></p><p></p></embed></embed></img></img></p>
+          </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../news.html">返回新闻列表</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>良心企业创造共同价值的四大原则 · 新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../news.html" class="active">新闻中心</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>新闻<span>详情</span></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../news.html">新闻中心</a> &gt; <span>良心企业创造共同价值的四大原则</span>
+        </div>
+        <article class="detail-card">
+          <h1 class="detail-title">良心企业创造共同价值的四大原则</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>新闻中心</span>
+          </div>
+          <div class="detail-body">
+<p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); color: rgb(100, 98, 98); box-sizing: border-box !important; overflow-wrap: break-word !important;"></span></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgb(123, 123, 111); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 14px; letter-spacing: 1.5px; text-align: justify; white-space: normal; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">有良知的企业文化是一股强大的力量和稳定的源泉，确保目标和核心价值观不随时间的推移和领导层的转变而变化。<br/></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgb(123, 123, 111); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 14px; letter-spacing: 1.5px; text-align: justify; white-space: normal; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgb(123, 123, 111); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 14px; letter-spacing: 1.5px; text-align: justify; white-space: normal; box-sizing: border-box !important; overflow-wrap: break-word !important;">有良知的企业文化能够自然地从企业的承诺逐步发展到崇高的目标、相互依存的利益相关者和良心领导者。</p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; background-color: rgb(255, 255, 255); color: rgb(69, 66, 66); font-family: PingFangTC-light; font-size: 12px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">作者：</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; background-color: rgb(255, 255, 255); color: rgb(69, 66, 66); font-family: PingFangTC-light; font-size: 12px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">[美]约翰·麦基、[美]拉金德拉·西索迪亚</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); color: rgb(100, 98, 98); box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></span><br/></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); color: rgb(100, 98, 98); box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></span></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); color: rgb(100, 98, 98); box-sizing: border-box !important; overflow-wrap: break-word !important;">想象一下，一个公司的诞生源于一个梦想，这个梦想是关于世界会变成以及应该变成什么样。创始人无比兴奋，想创办一个真正有意义的、激发共鸣的、永恒的公司，一个能为所有人带来真正价值的公司，一个不单纯为了赚钱的公司，一个以提高社会福祉为使命的公司。</span></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); color: rgb(100, 98, 98); box-sizing: border-box !important; overflow-wrap: break-word !important;">想象一下，一个建立在爱和关心而不是压力和恐惧之上的公司，团队成员充满激情并致力于自己的工作。他们每天全神贯注、通力协作、互相关爱。</span></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); color: rgb(100, 98, 98); box-sizing: border-box !important; overflow-wrap: break-word !important;">想象一下，一家企业深切地关心顾客的福利，不只是把顾客当作消费者，而是有幸为之服务的鲜活的人，企业的团队成员体验到服务的乐趣，以及因丰富他人的生活而带来的愉悦。</span></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(100, 98, 98);"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; font-family: Optima-Regular, PingFangTC-light;">想象一下，一家企业对员工关爱有加，</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; letter-spacing: 1px; caret-color: rgb(51, 51, 51); font-family: Optima-Regular, PingFangTC-light;">选择和提拔领导者是因为这些领导者有智慧，具备热爱和关怀的能力，善于通过指导和激励，而不是胡萝卜加大棒进行管理。这些领导者对于个人和企业的使命充满热情，但是很少关心个人权力的获得。</span></span></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); color: rgb(100, 98, 98); box-sizing: border-box !important; overflow-wrap: break-word !important;">想象一个在多方面创造价值，并处于良性循环的企业，它为每个所接触的人创造社会的、知识的、情感的、精神的、文化的、物质的以及生态上的财富和福利，同时，数十年如一日，每次都能交出优异的财务成果。</span></p><p><br/></p><p><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">这样的企业拥有崇高的目标，充满关怀，有影响力并且鼓舞人心，主张平等并致力于追求卓越，透明而且值得信赖，受人爱戴和尊重，被人效仿。它们不是乌托邦里的虚幻实体，而是存在于现实世界中，今天有几十家，但很快就会有成百上千家，</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">它们包括全食超市、</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">巴塔哥尼亚</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; text-align: justify; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; color: rgb(108, 106, 106); font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;">（Patagonia）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">、伊顿公司、塔塔集团</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; text-align: justify; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; color: rgb(108, 106, 106); font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;">（Tata Group）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">、谷歌、</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">西南航空公司、</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">星巴克、</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">好市多</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; text-align: justify; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; color: rgb(108, 106, 106); font-size: 12px; box-sizing: border-box !important; overflow-wrap: break-word !important;">（Costco）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">、</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">Twitter</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(34, 34, 34); text-align: justify; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">等。在未来的几十年里，这样的企业将改变世界，并将人类的精神健康、身体活力和物质富足提升到一个新的高度。</span></p><p><br/></p><p style="text-align: center;"><strong data-brushtype="text" style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(255, 255, 255); font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 1.5px; text-align: center; white-space: normal; background-color: rgb(172, 29, 16); box-sizing: border-box !important; overflow-wrap: break-word !important;">良心企业创造共同价值的四大原则</strong></p><p><strong data-brushtype="text" style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(255, 255, 255); font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 1.5px; text-align: center; white-space: normal; background-color: rgb(172, 29, 16); box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></strong></p><p><br/></p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-size: 17px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">良心企业是一种不断演变的商业范式，它同时为所有利益相关者创造金融、智力、物质、生态、社会、文化、情感、伦理甚至精神上的财富。这种新的商业运作制度与我们的时代精神和不断进化的生物本质更加和谐。</span></section><p></p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-size: 17px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-size: 17px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">良心企业有四大原则：<strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">崇高的目标、利益相关者的整合、良心领导者以及有良知的企业文化和管理方式</strong>（见图1）。</span></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-size: 17px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-size: 17px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">这四者是相互联系、相辅相成的。我们把这些当作原则，因为它们是基础性的，而不是战术或战略。它们代表了一个综合的经营理念，必须得到全面的理解才能有效地显现出来。</span></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-size: 17px; text-align: center; white-space: normal; color: rgb(34, 34, 34); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1716173935433049.jpg" title="1716173935433049.jpg" alt="1716173935433049.jpg" width="500" height="485" border="0" vspace="0" style="width: 500px; height: 485px;"/></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);">图1：良心企业的四大原则</span></p><p><br/></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; color: rgb(193, 10, 15); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; white-space: normal; background-color: rgb(255, 255, 255); font-size: 15px; letter-spacing: 1px; visibility: visible; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: Optima-Regular, PingFangTC-light; visibility: visible;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(255, 255, 255); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 54px; letter-spacing: 0.544px; -webkit-text-stroke: 1px rgb(102, 102, 102); visibility: visible;">1</strong></span></strong></span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; white-space: normal; font-size: 15px; letter-spacing: 1px; visibility: visible; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 18px; font-family: Optima-Regular, PingFangTC-light; visibility: visible;">原则1：崇高的目标</span></strong></span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; white-space: normal; font-size: 15px; letter-spacing: 1px; visibility: visible; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 18px; font-family: Optima-Regular, PingFangTC-light; visibility: visible;"><br/></span></strong></span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"></span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">当企业是基于一个崇高的目标建立的，而不仅仅是为了产生利润和创造股东价值时，它能对世界产生更广泛的积极影响。目标是公司存在的原因。一种强烈的为崇高目标奋斗的感觉，会在所有利益相关者中间产生令人意想不到的参与度，并激发他们的创造力和对组织的承诺。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">目标远大的企业会问这样的问题：<strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">企业为什么存在？为什么需要存在？是什么赋予企业生命力，并团结所有的利益相关者？</strong>崇高的目标和共同的核心价值观能让整个企业团结在一起，并提升企业的激励水平绩效和道德承诺。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">如1所示，崇高的目标和核心价值观是一个良心企业的核心，其他原则都与这些基本的价值观联系在一起。</span></p><p><br/></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; color: rgb(193, 10, 15); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; white-space: normal; background-color: rgb(255, 255, 255); font-size: 15px; letter-spacing: 1px; visibility: visible; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: Optima-Regular, PingFangTC-light; visibility: visible;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(255, 255, 255); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 54px; letter-spacing: 0.544px; -webkit-text-stroke: 1px rgb(102, 102, 102); visibility: visible;">2</strong></span></strong></span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"></span></p><p style="margin: 8px 16px 24px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-size: 17px; letter-spacing: 0.544px; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; visibility: visible; line-height: 1.6em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-size: 15px; letter-spacing: 1px; visibility: visible;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 18px; font-family: Optima-Regular, PingFangTC-light; visibility: visible;">原则2：利益相关者整合</span></strong></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">利益相关者是影响或受企业影响的所有实体。良心企业认识到，每一个利益相关者都很重要，他们相互联系并相互依存，企业必须设法为他们带来最优的价值创造。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">在一个良心企业中，所有利益相关者都会被共同的使命感和核心价值观所激励。当主要利益相关者之间出现冲突和取舍时，良心企业会充分发挥人类无限的创造力，开创</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; color: rgb(0, 0, 0);"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">赢–赢–赢–赢–赢–赢</strong></span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; font-size: 12px; color: rgb(108, 106, 106);"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">（简称六赢）</strong></span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">的解决方案，超越这些潜在冲突，并给这些相互依存的利益相关者带来和谐的利益。</span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><br/></span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-size: 17px; letter-spacing: 0.544px; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; visibility: visible; line-height: 1.6em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible; color: rgb(193, 10, 15);"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word !important; font-size: 15px; letter-spacing: 1px; visibility: visible;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: Optima-Regular, PingFangTC-light; visibility: visible;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(255, 255, 255); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 54px; letter-spacing: 0.544px; -webkit-text-stroke: 1px rgb(102, 102, 102); visibility: visible;">3</strong></span></strong></span></p><p style="margin: 8px 16px 24px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-size: 17px; letter-spacing: 0.544px; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; visibility: visible; line-height: 1.6em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-size: 15px; letter-spacing: 1px; visibility: visible;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 18px; font-family: Optima-Regular, PingFangTC-light; visibility: visible;">原则3：良心领导者</span></strong></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">缺乏良心领导者，良心企业就不会产生。<strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">良心领导者的主要动机是为企业的崇高目标服务，为所有利益相关者创造价值。</strong>他们拒绝用零和、取舍的观点来管理一个企业，而是寻找有创意和协同效应的六赢方法，在同一时间产生多种价值。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">除了高层次的分析、情感和精神智能之外，良心企业领导者拥有一套高度发达的系统智能，能够理解所有相互依存的利益相关者之间的关系。这套智能根本上是更高级、更复杂的商业思维方式，克服了专注于差异、冲突和权衡取舍的分析思维固有的局限性。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-size: 17px; letter-spacing: 0.544px; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; visibility: visible; line-height: 1.6em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible; color: rgb(193, 10, 15);"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word !important; font-size: 15px; letter-spacing: 1px; visibility: visible;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: Optima-Regular, PingFangTC-light; visibility: visible;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(255, 255, 255); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 54px; letter-spacing: 0.544px; -webkit-text-stroke: 1px rgb(102, 102, 102); visibility: visible;">4</strong></span></strong></span></p><p style="margin: 8px 16px 24px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-size: 17px; letter-spacing: 0.544px; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; text-align: center; visibility: visible; line-height: 1.6em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-size: 15px; letter-spacing: 1px; visibility: visible;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 18px; font-family: Optima-Regular, PingFangTC-light; visibility: visible;">原则4：有良知的企业文化和管理方式</span></strong></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">有良知的企业文化是一股强大的力量和稳定的源泉，确保目标和核心价值观不随时间的推移和领导层的转变而变化。</span></strong></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">有良知的企业文化能够自然地从企业的承诺逐步发展到崇高的目标、相互依存的利益相关者和良心领导者。这种文化可能多种多样，通常有许多共同的特征，如信任、担当、透明、诚信、忠诚、平等、公平、个人成长及关爱。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">良心企业采用与文化相一致的管理方式，并以分权、授权和协作为基础。</span></strong><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;"></span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">这增强了组织不断创新的能力，为所有利益相关者创造了多种价值。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">拥抱良心企业的原则，企业可以使自己与整个社会的利益和谐一致，并与人类所经历的、逐渐发展的变化相协调。良心企业提供了对于企业来说非常必要但是目前很大程度上缺失的道德基础。我们认为企业应该在提高世界的觉悟方面起带头作用。企业规模越大，影响范围越大，对世界的责任也就越大。</span></section></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><strong data-brushtype="text" style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(255, 255, 255); font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 1.5px; text-align: center; white-space: normal; background-color: rgb(172, 29, 16); box-sizing: border-box !important; overflow-wrap: break-word !important;">良心企业的财务业绩</strong><br/></span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><br/></span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"></span></p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">像所有的企业一样，良心企业也要遵从市场规律，需要交出漂亮的财务成果。除了为所有利益相关者创造社会、文化、知识、物质、生态、情感和精神方面的价值外，良心企业也擅长于创造长期而卓越的财务业绩。例如，在15年的时间里，代表良心企业的样本以10.5：1的整体成绩跑赢了股票市场，产生超过16倍的总回报率，远远超过市场上同期150%的涨幅。</span></section><p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section></p><p style="margin: 0px 16px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">正如美敦力前首席执行官比尔·乔治所说：</span></p><p><section style="margin: 0px 15px 24px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); overflow-wrap: break-word !important;"><section data-tools="135编辑器" data-id="7" style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><section style="margin: 10px auto; padding: 0px 0px 0px 10px; outline: 0px; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word !important; border-left: 5px solid rgb(170, 170, 170);"><section style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 13px; letter-spacing: 1px; line-height: 1.75em; color: rgba(102, 102, 102, 0.8);"><p data-autoskip="1" style="margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgb(102, 102, 102); font-size: 14px; letter-spacing: 1.5px; caret-color: red; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(108, 106, 106);">“有些人可能会认为良心企业这个概念特别虚。其实一点儿也不虚。相反，这个概念实际上很艰难，极具挑战性。你必须同时做好两件事情：一方面，你必须有业绩，另外一方面，你必须是为了一个崇高的目标而创造业绩。这就像一支运动队。你确实很在乎大家是否众志成城，但在比赛结束时，你仍然希望能赢”。</span></p></section></section></section></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); visibility: visible; line-height: normal; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">良心企业会赢，但它们赢的方式要比传统意义上关于赢的定义更丰富，更具多面性。在传统的定义中，赢就意味着有些人必须输。</span></section></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><br/></span><strong data-brushtype="text" style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(255, 255, 255); font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 1.5px; text-align: center; white-space: normal; background-color: rgb(172, 29, 16); box-sizing: border-box !important; overflow-wrap: break-word !important;">正确的行动总会带来积极的结果</strong></p><p></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"></span></p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">良心企业有一个简单但强大的信念：</span><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; letter-spacing: 0.544px;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">随着时间的推移，出于正确的理由而采取的正确行动往往会带来良好的结果。</span></strong></section><p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">如果我们过于执着于“正果”，就很有可能采取在短期内起作用、长期来看可能会产生有害后果的行动。良心企业做正确的事情，因为它们认为这是正确的。它们善待所有的利益相关者，因为这是正确的、人道的、明智的事情，也因为这样做是精明的商业手段。它们树立崇高的目标，因为那就是让员工兴高采烈上班的原因。<strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">良心领导者在乎为他人服务，因为就是这些服务最终会带来成就和价值创造。</strong></span></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">我们根本无法完全控制生活中的结果，但是在企业中，我们创造了一种根深蒂固的幻觉，认为我们能够做到。我们所能做的就是学会控制自己的行动和反应。传统的企业给管理者制定诸如市场份额、利润率和每股收益等硬性指标。这些指标混淆了因果关系。为了实现那些抽象数字，管理者往往有意地采取对利益相关者有害的行动，最终也会损害股东的利益。例如，管理者可能会挤压团队成员或供应商的利益。</span></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">我们要把关注的焦点放在能控制的事情上，</span></strong><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">那就是我们的行动和反应，并且要坚信正确的行动总是会带来积极的结果，虽然未必总在当下兑现，但是长远来看，必然如此。积极的结果可能并非和我们想象中完全一样，这取决于我们行动的质量和外部因素，最终结果可能不同，但一定会好得多。</span></section></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><br/></span><strong data-brushtype="text" style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(255, 255, 255); font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 1.5px; text-align: center; white-space: normal; background-color: rgb(172, 29, 16); box-sizing: border-box !important; overflow-wrap: break-word !important;">良心企业≠企业社会责任</strong></p><p></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"></span></p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">一个优秀的企业不需要做任何特殊的事情来承担社会责任。</span></strong><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">当企业为主要利益相关者创造价值时，就已经在履行社会责任了。总体而言，<strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">正常的市场交换是全世界最伟大的价值创造机制。</strong>这种价值创造是构成企业社会责任的最重要方面。</span></section><p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">企业社会责任的整体理念是基于这样一种谬论，即企业的基本架构如果不是有污点，最多也就是处于道德的中立状态。其实并非如此。正如第1章所展示的那样，市场经济已经用很多种方式让世界得以改善。</span></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">虽然企业不需要通过在世界上做善事来实现自我救赎，但企业把一部分注意力集中在社会和环境挑战上并没有错。</span></strong><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">良心企业认为，为所有利益相关者创造价值是企业成功的内在因素，他们认为社区和环境都是重要的利益相关者。因此，为这些利益相关者创造价值是一个良心企业的经营理念和经营模式的有机组成部分。</span></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">相比之下，主要以利润驱动的企业往往将社会和环境项目嫁接到传统的利润最大化模式中，这样做的目的通常是为了提高企业的声誉，或者是避免批评。许多这样的努力实际上都属于公共关系层面，并且被公开地视为一种“漂绿”</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible; font-size: 12px; color: rgb(108, 106, 106);">（green-washing）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">行为。</span></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">企业真正需要的是一个整体的观点，<strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">采取对所有利益相关者负责任的行为，并且把这种行为作为商业哲学和战略的核心要素。</strong>与其被企业社会责任理念拴住，企业应该将以公民和社会为导向的思维嵌入核心战略之中。图2总结了良心企业和企业社会责任之间的关键差异。</span></section></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><br/></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1716174068291879.jpg" title="1716174068291879.jpg" alt="2.jpg"/></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);">图2：良心企业与企业社会责任的差异</span><br/></span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><br/></span></p><p><span style="color: rgb(100, 98, 98); font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; font-size: 14px; letter-spacing: 1px; text-align: center; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);"><strong data-brushtype="text" style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; color: rgb(255, 255, 255); font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 1.5px; text-align: center; white-space: normal; background-color: rgb(172, 29, 16); box-sizing: border-box !important; overflow-wrap: break-word !important;">释放人类天然的创新精神</strong></span></p></section><p></p><p><br/></p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">每个人都拥有无限的成长潜力。同样，企业和市场经济也可以演变，最终拥有更崇高的目标和非同寻常的积极影响。良心企业把我们迅速提高的觉悟和对充满生命力的市场经济核心原则的热切欣赏结合起来，使我们能够更好地利用这一社会合作制度，让生活变得更好，并且为仍然生活在贫困和匮乏中的数十亿人带来机会和希望。</span></section><p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">在21世纪初，我们越来越强烈地意识到自然资源是有限的，但也逐渐认识到，企业家的创造力是无限的。当我们学会如何大规模地展示创造力时，当70亿人中有更多的人能够有信心并且有力量去创造时，我们将发现地球上没有无法解决的问题，没有无法克服的障碍。</span></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">良心企业提供了充满前景的方式去开发人类潜能，这种方式很少有企业能做到。</span><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; letter-spacing: 0.544px;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 15px; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; caret-color: rgb(51, 51, 51); visibility: visible;">企业一定不要把人当作资源，而是当作一个来源。</span></strong></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">&nbsp;<br/></section><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; font-size: 17px; text-align: justify; white-space: normal; font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.578px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); line-height: 1.6em; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: &quot;Lucida Sans Unicode&quot;, Optima-Regular, PingFangTC-light; letter-spacing: 1px; font-size: 15px; caret-color: rgb(51, 51, 51); visibility: visible;">世界上并不缺少商业机会，因为还有几十亿人的基本需求没有得到充分满足。<strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;">我们需要重新考虑如何用更可持续的方式，给业已繁荣的社会锦上添花，继续满足人们的需求。</strong>如果一个企业认识到这一点，把人类天然具有的创新精神释放出来以应对这些挑战，并且利用好这些机会，那么这样的企业就能够在很长时间内蓬勃发展。</span></section></p><p><br/></p><p><br/></p><p><br/></p></img></img> </p>
+          </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../news.html">返回新闻列表</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

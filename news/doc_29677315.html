@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《哪吒2》的魔童美学、《小丑2》的癫狂色彩：光影魔术师如何让电影封神？ · 新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../news.html" class="active">新闻中心</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>新闻<span>详情</span></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../news.html">新闻中心</a> &gt; <span>《哪吒2》的魔童美学、《小丑2》的癫狂色彩：光影魔术师如何让电影封神？</span>
+        </div>
+        <article class="detail-card">
+          <h1 class="detail-title">《哪吒2》的魔童美学、《小丑2》的癫狂色彩：光影魔术师如何让电影封神？</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>新闻中心</span>
+          </div>
+          <div class="detail-body">
+<p><p><br/></p><section data-role="title" data-tools="135编辑器" data-id="145055"><section style="margin: 10px auto;display: flex;justify-content: center;"><section><section style="width: 100%;height: 4px;background-color: rgb(254, 204, 70);" data-width="100%"><br/></section><section style="background-color: rgb(79, 129, 189);padding: 5px 20px;"><section style="text-align: center; color: rgb(31, 73, 125);"><strong data-brushtype="text">一、以光影为笔，书写银幕魔法</strong></section></section></section></section></section><section data-role="paragraph"><p><br/></p><p>电影摄影是导演的第二支笔，是雕刻时空的魔杖。在每秒24帧的方寸之间，四大造型手段——光学、光线、运动、色彩——构建起电影的视觉基因。斯托拉罗曾说：“电影是用光线书写的文学&quot;，这四种元素正是光影诗人的语法体系。</p><p><br/></p></section><section data-role="title" data-tools="135编辑器" data-id="145055"><section style="margin: 10px auto; display: flex; justify-content: center;"><section><section data-width="100%" style="width: 264px; height: 4px; background-color: rgb(254, 204, 70);"><br/></section><section style="background-color: rgb(79, 129, 189); padding: 5px 20px;"><section style="text-align: center; color: rgb(31, 73, 125);"><strong data-brushtype="text">二、视觉四重奏的魔力法则</strong></section></section></section></section></section><p><br/></p><section data-role="paragraph"><section data-tools="135编辑器" data-id="127678"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section style="display: flex;align-content: center;"><section style="flex-shrink: 0;"><section style="font-size: 20px;letter-spacing: 1.5px;color: #4f81bd;"><strong>01</strong></section></section><section style="color: rgb(79, 129, 189); text-align: center; border-top: 1px solid rgb(79, 129, 189); border-bottom: 1px solid rgb(79, 129, 189); letter-spacing: 1.5px; padding-right: 5px; padding-left: 5px; display: flex; align-items: center;"><strong data-brushtype="text">光学：构图里的东方密码</strong></section></section></section></section><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646238656459.png" style="width: 500px; height: 281px;" title="1747646238656459.png" width="500" height="281" border="0" vspace="0" alt="1747646238656459.png"/></p><p style="margin: 0px;"><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646241870398.png" style="width: 400px; height: 168px;" title="1747646241870398.png" width="400" height="168" border="0" vspace="0" alt="1747646241870398.png"/>&nbsp;<img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646243261768.png" title="1747646243261768.png" width="400" height="169" border="0" vspace="0" alt="1747646243261768.png" style="width: 400px; height: 169px;"/></p><p style="margin: 0px;"><br/></p></section><p>《封神2》中，乌尔善用鱼眼镜头扭曲朝歌城的巍峨宫殿，广角畸变下扭曲的廊柱暗喻权力异化。在姜子牙布阵段落，黄金螺旋构图中旋转的八卦阵图，将东方玄学融入西方构图法则。正如黑泽明所说：“镜头框住的不仅是画面，更是世界观。&quot;</p><p><br/></p><section data-tools="135编辑器" data-id="127678"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section style="display: flex;align-content: center;"><section style="flex-shrink: 0;"><section style="font-size: 20px;letter-spacing: 1.5px;color: #4f81bd;"><strong>0</strong><strong data-num="3">2</strong></section></section><section style="color: rgb(79, 129, 189); text-align: center; border-top: 1px solid rgb(79, 129, 189); border-bottom: 1px solid rgb(79, 129, 189); letter-spacing: 1.5px; padding-right: 5px; padding-left: 5px; display: flex; align-items: center;"><strong data-brushtype="text">光线：情绪的温度计</strong></section></section></section></section><p><br/></p><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646356775573.png" style="width: 500px; height: 366px;" title="1747646356775573.png" width="500" height="366" border="0" vspace="0" alt="1747646356775573.png"/></p><p style="margin: 0px;"><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646359745991.png" style="width: 400px; height: 167px;" title="1747646359745991.png" width="400" height="167" border="0" vspace="0" alt="1747646359745991.png"/>&nbsp;<img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646361298556.png" title="1747646361298556.png" width="400" height="167" border="0" vspace="0" alt="1747646361298556.png" style="width: 400px; height: 167px;"/></p><p><br/></p><p>《<span class="">小小的我</span>》用自然光写就童年诗篇。晨光中母亲逆光的剪影，是记忆里永远温暖的剪影；暴雨夜手电筒划破黑暗的光锥，照见成长必经的孤独。摄影师罗攀刻意保留的曝光过度，让光影成为流淌的眼泪。这种用光方式，恰如维米尔画作中窗棂投射的圣光。</p><p><br/></p><section data-tools="135编辑器" data-id="127678"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section style="display: flex;align-content: center;"><section style="flex-shrink: 0;"><section style="font-size: 20px;letter-spacing: 1.5px;color: #4f81bd;"><strong>03</strong></section></section><section style="color: rgb(79, 129, 189); text-align: center; border-top: 1px solid rgb(79, 129, 189); border-bottom: 1px solid rgb(79, 129, 189); letter-spacing: 1.5px; padding-right: 5px; padding-left: 5px; display: flex; align-items: center;"><strong data-brushtype="text">运动：时空的舞蹈家</strong></section></section></section></section><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646427380370.png" style="width: 650px; height: 199px;" title="1747646427380370.png" width="650" height="199" border="0" vspace="0" alt="1747646427380370.png"/></p><p style="margin: 0px;"><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646429171408.png" style="width: 400px; height: 172px;" title="1747646429171408.png" width="400" height="172" border="0" vspace="0" alt="1747646429171408.png"/>&nbsp;<img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646432386575.png" title="1747646432386575.png" width="400" height="168" border="0" vspace="0" alt="1747646432386575.png" style="width: 400px; height: 168px;"/></p><p><br/></p><p>《哪吒2》开场10分钟的长镜头堪称动画奇迹。镜头从九重天外俯冲直下，穿透云层掠过<span class="">陈塘关</span>，最终定格在莲花池中重生的哪吒瞳孔。这种运动轨迹暗合<span class="">《庄子》</span>“扶摇直上九万里&quot;的哲学意境，让机械运动拥有了诗性灵魂。</p><section data-role="paragraph"><p><br/></p></section><section data-tools="135编辑器" data-id="127678"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section style="display: flex;align-content: center;"><section style="flex-shrink: 0;"><section style="font-size: 20px;letter-spacing: 1.5px;color: #4f81bd;"><strong>04</strong></section></section><section style="color: rgb(79, 129, 189); text-align: center; border-top: 1px solid rgb(79, 129, 189); border-bottom: 1px solid rgb(79, 129, 189); letter-spacing: 1.5px; padding-right: 5px; padding-left: 5px; display: flex; align-items: center;"><strong data-brushtype="text">色彩：心灵的显影液</strong></section></section></section></section><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646529241981.png" title="1747646529241981.png" style="text-align: center; text-wrap-mode: wrap; width: 500px; height: 262px;" width="500" height="262" border="0" vspace="0" alt="1747646529241981.png"/>&nbsp;</p><p style="text-align:center"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646528980748.png" title="1747646528980748.png" width="400" height="216" border="0" vspace="0" alt="1747646528980748.png" style="width: 400px; height: 216px;"/>&nbsp;<img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646529458421.png" title="1747646529458421.png" width="400" height="216" border="0" vspace="0" alt="1747646529458421.png" style="width: 400px; height: 216px;"/></p><p style="text-align: center;margin:0;"><br/></p><p>《<span class="">小丑2</span>》用色谱解构疯狂。亚瑟变身小丑时，绿色头发在冷蓝地铁灯光下泛着毒液般的荧光，血红嘴角在暖黄路灯中撕裂暗夜。这种色彩对冲比《搏击俱乐部》更暴烈，比<span class="">《黑天鹅》</span>更癫狂，让精神分裂有了可见的色谱。</p><p><br/></p><section data-role="title" data-tools="135编辑器" data-id="145055"><section style="margin: 10px auto; display: flex; justify-content: center;"><section><section data-width="100%" style="width: 264px; height: 4px; background-color: rgb(254, 204, 70);"><br/></section><section style="background-color: rgb(79, 129, 189); padding: 5px 20px;"><section style="text-align: center; color: rgb(31, 73, 125);"><strong data-brushtype="text">三、修炼光影之道的三重门</strong></section></section></section></section></section><p><br/></p><p>王家卫御用摄影师杜可风常揣着测光表逛街，他说：“要训练眼睛像胶片般敏感&quot;。从业者需建立三种思维：&nbsp;物理眼&nbsp;（掌握F值、色温等硬知识）、心理眼如《教父》低照度用光暗示权力阴影、哲学眼《东邪西毒》运动镜头中的存在主义。建议每天用手机拍摄30张“情绪照片&quot;，训练视觉思维。</p><p style="text-align:center"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646678284479.png" title="1747646678284479.png" width="400" height="218" border="0" vspace="0" alt="1747646678284479.png" style="text-align: center; text-wrap-mode: wrap; width: 400px; height: 218px;"/></p><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646677237725.png" style="width: 500px; height: 300px;" title="1747646677237725.png" width="500" height="300" border="0" vspace="0" alt="1747646677237725.png"/></p><p style="text-align: center;margin:0;"><br/></p><section data-role="title" data-tools="135编辑器" data-id="145055"><section style="margin: 10px auto; display: flex; justify-content: center;"><section><section data-width="100%" style="width: 264px; height: 4px; background-color: rgb(254, 204, 70);"><br/></section><section style="background-color: rgb(79, 129, 189); padding: 5px 20px;"><section style="text-align: center; color: rgb(31, 73, 125);"><strong data-brushtype="text">四、AI时代的光影革命</strong></section></section></section></section></section><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646814892354.png" style="width: 400px; height: 401px;" title="1747646814892354.png" width="400" height="401" border="0" vspace="0" alt="1747646814892354.png"/>&nbsp;<img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646816333311.png" title="1747646816333311.png" width="400" height="400" border="0" vspace="0" alt="1747646816333311.png" style="width: 400px; height: 400px;"/></p><p style="text-align: center;"><span style="font-size: 13px;">Midjourney已能生成《银翼杀手》级概念图</span></p><p><br/></p><p>Sora可创建超现实运镜。但这不意味着摄影师失业——AI是新的画笔而非画家。就像《封神2》用AI生成10万件青铜器纹理，但构图灵魂仍来自《永乐宫壁画》。未来摄影师将成为&quot;视觉DJ&quot;，混合实拍、CG、AI生成，创造《普罗米修斯》式的视觉交响。</p><p><br/></p><p>当《小丑2》的癫狂紫撞上《哪吒2》的玄黑金，当AI算法开始解构伦勃朗光，这个时代的银幕正在上演前所未有的视觉狂欢。记住：技术会迭代，但那些让瞳孔震颤、让灵魂共振的视觉魔法，永远来自人类凝视世界的深情目光。</p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p></img></img></img></img></img></img></img></img></img></img></img></p>
+          </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../news.html">返回新闻列表</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

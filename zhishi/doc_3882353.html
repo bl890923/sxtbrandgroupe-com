@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新品类落地策划五点 · 挚识 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  
+    /* ===== 挚识 二级栏目导航 ===== */
+    .zs-subnav {
+      margin: 22px 0 30px;
+      background: #0f0f0f;
+      border: 1px solid rgba(196,26,26,0.25);
+      border-radius: 14px;
+      padding: 18px 20px 20px;
+      box-shadow: 0 10px 34px rgba(0,0,0,0.18);
+    }
+    .zs-subnav-head {
+      display: flex; align-items: center; gap: 8px;
+      color: #eaeaea; font-size: 0.86rem; letter-spacing: 3px;
+      padding-bottom: 13px; margin-bottom: 14px;
+      border-bottom: 1px solid rgba(196,26,26,0.18);
+    }
+    .zs-subnav-head i { color: var(--red); }
+    .zs-subnav-head .zs-sn-count {
+      margin-left: auto; color: var(--red); font-size: 0.78rem; letter-spacing: 2px;
+    }
+    .zs-subnav-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .zs-subnav-item {
+      display: flex; align-items: center; gap: 10px;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 9px 12px;
+      transition: all .3s ease;
+    }
+    .zs-subnav-item .zs-sn-no {
+      flex: none;
+      min-width: 26px; height: 26px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: rgba(196,26,26,0.15); color: var(--red);
+      font-size: 0.72rem; font-weight: 700; border-radius: 6px;
+    }
+    .zs-subnav-item .zs-sn-t {
+      color: #c9c9c9; font-size: 0.84rem; letter-spacing: 0.5px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .zs-subnav-item:hover {
+      background: #241010; border-color: rgba(196,26,26,0.5); transform: translateY(-1px);
+    }
+    .zs-subnav-item:hover .zs-sn-t { color: #fff; }
+    .zs-subnav-item.active {
+      background: var(--red); border-color: var(--red);
+      box-shadow: 0 4px 18px var(--red-glow);
+    }
+    .zs-subnav-item.active .zs-sn-no { background: rgba(255,255,255,0.22); color: #fff; }
+    .zs-subnav-item.active .zs-sn-t { color: #fff; font-weight: 600; }
+    @media (max-width: 1024px) {
+      .zs-subnav-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .zs-subnav-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .zs-subnav { padding: 14px 12px 16px; }
+      .zs-subnav-head { font-size: 0.8rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../zhishi.html" class="active">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>挚识<span> · 思想</span></h1>
+        <p>三希堂品牌思想 · 观点洞察</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../zhishi.html">挚识</a> &gt; <span>新品类落地策划五点</span>
+        </div>
+        <div class="zs-subnav">
+<div class="zs-subnav-head"><i class="fas fa-book-open"></i>挚识专栏 · 全部文章<span class="zs-sn-count">01 — 11</span></div>
+      <div class="zs-subnav-list">
+          <a class="zs-subnav-item" href="doc_3882351.html">
+            <span class="zs-sn-no">01</span>
+            <span class="zs-sn-t">品类之争是品牌竞争的实质</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882352.html">
+            <span class="zs-sn-no">02</span>
+            <span class="zs-sn-t">心智，商业竞争的终极战场</span>
+          </a>
+          <a class="zs-subnav-item active" href="doc_3882353.html">
+            <span class="zs-sn-no">03</span>
+            <span class="zs-sn-t">新品类落地策划五点</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882354.html">
+            <span class="zs-sn-no">04</span>
+            <span class="zs-sn-t">新品类落地执行六要</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882355.html">
+            <span class="zs-sn-no">05</span>
+            <span class="zs-sn-t">德鲁克事业理论</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882356.html">
+            <span class="zs-sn-no">06</span>
+            <span class="zs-sn-t">德鲁克解析企业基业长青的法则</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882357.html">
+            <span class="zs-sn-no">07</span>
+            <span class="zs-sn-t">品牌核心价值的基本原理</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882358.html">
+            <span class="zs-sn-no">08</span>
+            <span class="zs-sn-t">品牌核心价值的推导法则</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882359.html">
+            <span class="zs-sn-no">09</span>
+            <span class="zs-sn-t">社会问题就是企业的最大机会</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882360.html">
+            <span class="zs-sn-no">10</span>
+            <span class="zs-sn-t">商业创新就是企业家的灵魂</span>
+          </a>
+          <a class="zs-subnav-item" href="doc_3882361.html">
+            <span class="zs-sn-no">11</span>
+            <span class="zs-sn-t">创新是商业周期的分水岭</span>
+          </a>
+      </div>
+    </div>
+        <article class="detail-card">
+          <h1 class="detail-title">新品类落地策划五点</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>挚识 · 思想专栏</span>
+          </div>
+          <div class="detail-body">
+            <p style="text-align: center; line-height: 2em;"><strong><span style="color: rgb(0, 0, 0); font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 16px;"></span></strong></p><h4 class="center" style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;, Montserrat; line-height: 30px; color: rgb(22, 22, 22); margin: 0px; font-size: 26px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; text-align: center; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-size: 24px;">三希堂思想基石：新品类落地策划五点</span></h4><p style="text-align: center; line-height: 2em;"><br/></p><p style="line-height: normal;"><span style="font-family: &quot;Microsoft YaHei&quot;; background-color: rgb(255, 255, 255); font-size: 14px;">品类化的五大要点：启用新品牌、为新品类命名、为新品牌命名、标志性视觉（视觉锤）、聚焦核心品项。</span></p><p style="line-height: normal;"><span style="font-family: &quot;Microsoft YaHei&quot;; background-color: rgb(255, 255, 255); font-size: 14px;"></span></p><p style="text-align: center;margin:0;"><br/></p><p style="line-height: normal;"><span style="font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; background-color: rgb(255, 255, 255);"></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1710295776261811.png" title="1710295776261811.png" alt="1710295776261811.png" width="600" height="674" border="0" vspace="0" style="width: 600px; height: 674px;"/></p><p style="line-height: normal;"><span style="font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; background-color: rgb(255, 255, 255);"></span><br/></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">1、启用新品牌</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">企业推出新品类时在品牌策略上有两种选择：一种是启用新品牌，另一种是将老品牌延伸到新品类中使用。企业最佳的选择是启用新品牌，这是因为：首先，品牌是某一品类的代表，在消费者的心智中，一个品牌名通常最能代表的只是某一品类；其次，当品牌名称在心智中和某个品类紧密挂钩时，品牌将无法被移动。此外，消费者的心智更容易接受一个标注新品类的新品牌，新品牌可以带来新奇效应，令消费者和媒体更容易关注，同时也更容易引发对新品类的话题和口碑效应。而采用老品牌的新品类产品则常常容易被忽略。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">案例：</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">蒙牛开创了高端牛奶新品类“特仑苏”。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">娃哈哈近年来推出的最成功产品营养快线</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">丰田推出的高端汽车雷克萨斯；</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">奔驰的超高档汽车作迈巴赫。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">高端的白酒产品“水井坊”采用了新品牌。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">2、为新品类命名</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">每个创新品类的品牌都面临两种命名考虑：一种是品类名，另一种是品牌名，二者命名的要求截然相反：品类名要求通俗、容易理解、具有通用性；品牌名则要求独特、简单、顺口、寓意品类的某种特性。品类名通常要避免太有创意，品牌名则需要有创意。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">3、为新品牌命名</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">品牌名则要求独特、简单、顺口，寓意品类某种特性。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">好的品牌名如可口可乐、白加黑、喜力、百威、帮宝适、格力等。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">“真功夫”寓意厨艺出众，因此是一个更好的名字。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">4、标志性视觉（视觉锤）</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">建立视觉锤的目的在于强化品类的独特性，令其更容易进入消费者心智，同时也使得品牌在与竞争品牌的竞争中占据更有利的地位，成为潜在消费者心智中品类的稳固代表。视觉锤包括独特的外观、色彩、包装、LOGO、经典广告形象等。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">独特外观</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">独特外观的例子如可口可乐的裙形瓶子、茅台的白瓷瓶子红瓶贴、Thinkpad的经典黑色等。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">独特外观也包括采用独特的容量，在美国，酒吧和餐馆里几乎每种饮料都是12盎司罐装或20盎司瓶装的。作为新品类，能量饮料在包装上应该做到不同。因此，红牛推出了8.3盎司的罐装。脉动开创了维生素水新品类，采用了大于400毫升的大包装，达到了强烈提示消费者与众不同的作用。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">独特的色彩</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">如宜家的黄、可口可乐的红白等，需要强调的原则是“差异比美观更重要”，重要的是与竞争对手相区隔和突出，例如可口可乐是红白，百事可乐则是蓝白，尽管蓝白色被认为属于冷色调，也并不美观，但蓝白体现对立性的品类战略，因此更加有效。这正是“蓝色经典”所采用的策略。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">品牌的经典广告形象</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">也有利于强化品类的独特性，万宝路的牛仔形象强烈地传递了“男子气”香烟的品类特征；宝马汽车蜿蜒盘旋的道路则强化了“驾驶乐趣”的品类战略。换言之，品牌应当长期坚持经典广告形象，以使之成为品牌标志性视觉的组成部分。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">产品独特的外观设计</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">对于街头能见度高的产品尤其重要，如宝马汽车设计了独特的隔栅，使品牌在车流中易于识别；再如LV的箱包保持了独特的格子图案，在人群中一目了然。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">品牌的标志性视觉</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">是品牌独特性的重要组成部分，除非品牌确立了新的标志性视觉，否则不应该被稀释和破坏。Thinkpad是否应该改变一贯坚持的黑色外观，推出各种各样的彩色产品？答案当然是否定的，黑色代表了商务和高档，它已经成为了Thinkpad与其他品牌相比最为显著的差异，消费者甚至称之为“小黑”；彩色则代表个人和娱乐，这与Thinkpad的定位明显相悖。</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="box-sizing: border-box; font-family: inherit; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bolder; font-stretch: inherit; line-height: inherit; vertical-align: baseline; font-size: 14px;">5、聚焦核心品项</span></p><p style="box-sizing: border-box; font-family: &quot;Microsoft YaHei&quot;; margin-top: 0px; margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; vertical-align: baseline; white-space: normal; background-color: rgb(255, 255, 255); line-height: normal;"><span style="font-size: 14px;">聚焦一款产品有利于品类品牌在消费者心智中清晰地树立新品类的认知。为了确保品牌占据品类最有价值的部分，同时也使新品类在发展初期获得较快的发展，核心品项应该把握品类中最主流的市场。</span></p><p style="line-height: 2em;"><br/></p>
+        </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../zhishi.html">返回挚识</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

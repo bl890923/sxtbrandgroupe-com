@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>国资委最新定调！2025年央企投资重点将发生哪些变化？ · 新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../news.html" class="active">新闻中心</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>新闻<span>详情</span></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../news.html">新闻中心</a> &gt; <span>国资委最新定调！2025年央企投资重点将发生哪些变化？</span>
+        </div>
+        <article class="detail-card">
+          <h1 class="detail-title">国资委最新定调！2025年央企投资重点将发生哪些变化？</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>新闻中心</span>
+          </div>
+          <div class="detail-body">
+<p><p style="text-align:center"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1735118235818250.jpg" title="1735118235818250.jpg" alt="1735118235818250.jpg" width="550" height="342" border="0" vspace="0" style="width: 550px; height: 342px;"/></p><p><br/></p><p><span style="font-size: 14px;">2025年是新一轮国有企业改革深化提升行动的收官之年，新一轮改革方案已部署。</span></p><p><span style="font-size: 14px;"></span><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">12月23日至24日，国务院国资委召开中央企业负责人会议（以下简称“会议”），总结2024年国资央企工作，研究部署2025年重点任务。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="text-align:center"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1735118310719646.jpg" title="1735118310719646.jpg" alt="2.jpg" style="text-align: center; white-space: normal;"/></p><p style="text-align: center;"><span style="font-size: 14px;">图源：国务院国资委官网</span></p><p><span style="font-size: 14px;"><br/></span></p><p><span style="font-size: 14px;"></span></p><section style="box-sizing: border-box;"><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">明年是国企改革深化提升行动收官之年。会议中提到，扩大有效投资，树牢科学市值管理理念，更好维护资本市场稳定；持续做好“两拖欠”清理工作，更好发挥在保持经济稳定增长中的重要作用；加大力度推进战略性重组和专业化整合。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><section style="text-align: center;justify-content: center;display: flex;flex-flow: row;margin: 10px 0px;box-sizing: border-box;"><section style="display: inline-block;width: auto;vertical-align: top;align-self: flex-start;flex: 0 0 auto;min-width: 5%;max-width: 100%;height: auto;line-height: 0;margin: 0px;box-sizing: border-box;"><section style="text-align: right;margin: 0px 0px -13px;transform: translate3d(5px, 0px, 0px);-webkit-transform: translate3d(5px, 0px, 0px);-moz-transform: translate3d(5px, 0px, 0px);-o-transform: translate3d(5px, 0px, 0px);box-sizing: border-box;"><section style="display: inline-block;width: 12px;height: 12px;vertical-align: top;overflow: hidden;border-width: 0px;border-radius: 0%;border-style: none;border-color: rgb(62, 62, 62);background-color: rgb(255, 198, 90);box-sizing: border-box;"><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section><section style="justify-content: center;display: flex;flex-flow: row;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 15px;align-self: center;flex: 0 0 auto;height: auto;margin: 0px -10px 0px 0px;box-sizing: border-box;"><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section><section style="display: inline-block;vertical-align: middle;width: auto;align-self: center;flex: 0 0 auto;min-width: 5%;max-width: 100%;height: auto;padding: 5px 15px 5px 20px;border-style: solid;border-width: 1px;border-color: rgb(198, 25, 29);box-sizing: border-box;"><section style="color: rgb(198, 25, 29); line-height: 1.6; box-sizing: border-box;"><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><strong style="box-sizing: border-box;">实现增加值9.3万亿元</strong></p></section></section></section></section></section></section><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">2024年，中央企业运行顶住压力、稳中有进，经济效益总体平稳。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">会议上发布信息显示，1月至11月中央企业实现增加值9.3万亿元，完成固定资产投资4.2万亿元，同比增长2.2%，年化全员劳动生产率、研发经费投入强度持续提升，资产负债率总体稳定。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">结合当前形势任务，国务院国资委研究决定，2025年“<span class="">一利五率</span>”经营指标体系总体稳定、个别优化，“一利”仍为利润总额，用“营业收现率”替换“营业现金比率”，总要求是“一增一稳四提升”，即利润总额稳定增长，资产负债率保持总体稳定，<span class="">净资产收益率</span>、研发经费投入强度、全员劳动生产率、营业收现率同比提升。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">中国企业研究院首席研究员李锦分析，用“营业收现率”替换“营业现金比率”，可以帮助我们了解企业的收入质量。这说明高质量的要求更加具体，针对性更强了。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">中国企业联合会特约高级研究员<span class="">刘兴国</span>表示，当前阶段中央企业的增长受到整体经济环境不佳的影响，增速与以往相比有所下滑。需要开辟新的增长点，找到新的增长动能，再次焕发高速增长的生机，并有力推动宏观经济走出中低速增长困境、迎来新的增长周期。</p><section style="text-align: right;margin: 0px 0px -13px;transform: translate3d(5px, 0px, 0px);-webkit-transform: translate3d(5px, 0px, 0px);-moz-transform: translate3d(5px, 0px, 0px);-o-transform: translate3d(5px, 0px, 0px);box-sizing: border-box;"><br/><p><br/></p></section><section style="text-align: center;justify-content: center;display: flex;flex-flow: row;margin: 10px 0px;box-sizing: border-box;"><section style="display: inline-block;width: auto;vertical-align: top;align-self: flex-start;flex: 0 0 auto;min-width: 5%;max-width: 100%;height: auto;line-height: 0;margin: 0px;box-sizing: border-box;"><section style="text-align: right;margin: 0px 0px -13px;transform: translate3d(5px, 0px, 0px);-webkit-transform: translate3d(5px, 0px, 0px);-moz-transform: translate3d(5px, 0px, 0px);-o-transform: translate3d(5px, 0px, 0px);box-sizing: border-box;"><section style="display: inline-block;width: 12px;height: 12px;vertical-align: top;overflow: hidden;border-width: 0px;border-radius: 0%;border-style: none;border-color: rgb(62, 62, 62);background-color: rgb(255, 198, 90);box-sizing: border-box;"><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section><section style="justify-content: center;display: flex;flex-flow: row;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 15px;align-self: center;flex: 0 0 auto;height: auto;margin: 0px -10px 0px 0px;box-sizing: border-box;"><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section><section style="display: inline-block;vertical-align: middle;width: auto;align-self: center;flex: 0 0 auto;min-width: 5%;max-width: 100%;height: auto;padding: 5px 15px 5px 20px;border-style: solid;border-width: 1px;border-color: rgb(198, 25, 29);box-sizing: border-box;"><section style="color: rgb(198, 25, 29); line-height: 1.6; box-sizing: border-box;"><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><strong style="box-sizing: border-box;">战略性新兴产业投资仍是重要看点</strong></p></section></section></section></section></section><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">近年来，中央企业坚持在战略性新兴产业和传统产业“两端发力”，新兴产业布局节奏加快。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><span style="color: rgb(133, 131, 131);box-sizing: border-box;"><em style="box-sizing: border-box;"><strong style="box-sizing: border-box;">航天科技圆满完成探月工程嫦娥六号任务，国家电投300兆瓦F级重型燃机点火成功，中国电科0.13微米光刻机启动上线验证，中国星网卫星互联网正式进入批量组网阶段……</strong></em></span></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">2024年，中央企业重大创新成果不断涌现，创新动能更加充沛。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">与此同时，中央企业坚守实体经济，深入实施产业焕新行动、未来产业启航行动，扎实推进“AI+”专项行动，产业升级不断取得新成效。新兴产业布局节奏加快。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">1至11月中央企业完成战略性新兴产业投资2万亿元，同比增长18.7%,占投资总额比重首次突破40%。中央企业深入推进改革深化提升行动，加大重点改革任务落实力度，截至11月底，主体任务平均完成率已超过70%。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">按照国资委此前制定的目标，到2025年，中央企业战新产业收入占比要达到35%。国务院国资委将加大力度推进战略性重组和专业化整合，不断增强<span class="">产业控制力</span>影响力。推动重点产业提质升级，以制造业为重点，以大规模设备更新为抓手，深入实施国有企业数字化转型行动计划，深化“AI+”专项行动，加速智改数转。加大战略性产业、物资储备基地和基础设施投入力度，共同建设一批世界级优势产业集群。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">刘兴国表示，当前中央企业发力重组整合，目的是增强发展动能，提升核心竞争力，培育新质生产力，掌握发展主动权。预计未来一段时间，国有企业的投资将大量集中在战略性新兴产业和未来产业，譬如<span class="">工业母机</span>、数字技术、人工智能、量子技术、工业机器人、大健康等产业。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><section style="text-align: center;justify-content: center;display: flex;flex-flow: row;margin: 10px 0px;box-sizing: border-box;"><section style="display: inline-block;width: auto;vertical-align: top;align-self: flex-start;flex: 0 0 auto;min-width: 5%;max-width: 100%;height: auto;line-height: 0;margin: 0px;box-sizing: border-box;"><section style="text-align: right;margin: 0px 0px -13px;transform: translate3d(5px, 0px, 0px);-webkit-transform: translate3d(5px, 0px, 0px);-moz-transform: translate3d(5px, 0px, 0px);-o-transform: translate3d(5px, 0px, 0px);box-sizing: border-box;"><section style="display: inline-block;width: 12px;height: 12px;vertical-align: top;overflow: hidden;border-width: 0px;border-radius: 0%;border-style: none;border-color: rgb(62, 62, 62);background-color: rgb(255, 198, 90);box-sizing: border-box;"><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section><section style="justify-content: center;display: flex;flex-flow: row;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 15px;align-self: center;flex: 0 0 auto;height: auto;margin: 0px -10px 0px 0px;box-sizing: border-box;"><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section><section style="display: inline-block;vertical-align: middle;width: auto;align-self: center;flex: 0 0 auto;min-width: 5%;max-width: 100%;height: auto;padding: 5px 15px 5px 20px;border-style: solid;border-width: 1px;border-color: rgb(198, 25, 29);box-sizing: border-box;"><section style="color: rgb(198, 25, 29); line-height: 1.6; box-sizing: border-box;"><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><strong style="box-sizing: border-box;">多项“硬指标”促实力升级</strong></p></section></section></section></section></section><p><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">2024年是国有企业改革深化提升行动落地实施的关键之年，力争完成70%以上主体任务，明年将迎来全面收官。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">国资委表示，下一步将聚焦重点难点，进一步健全企业科技创新体制机制，优化布局推动构建现代化产业体系，完善中国特色现代公司治理，深化市场化经营机制改革，完善国资国企管理监督体制机制。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">实施深化提升行动有“两类任务”。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">第一类任务是功能使命性任务，包括三个核心内容：一是完善科技创新机制，更好服务实现高水平科技自立自强；二是优化国有经济布局，更好促进现代化产业体系建设；三是强化重点领域保障，更好支撑国家战略安全。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">第二类任务是体制机制性任务，也包括三个核心内容：一是围绕优化资源配置深化改革，进一步加大市场化整合重组力度；二是围绕提升活力效率深化改革，进一步完善中国特色国有企业现代公司治理和市场化运营机制；三是围绕完善监管服务深化改革，进一步健全以管资本为主的国资监管体制。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">国资委表示，明年要切实抓好国有企业改革深化提升行动高质量完成，推动中国特色现代企业制度落深落实，深化企业三项制度改革，以穿透式监管为抓手完善监管体系，国务院国资委将深入推进“一业一策、一企一策”考核，聚焦科技创新强化出资人政策支持，健全全级次穿透式监管体系，更好发挥在构建新型生产关系中的重要作用。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;">清华大学中国现代国有企业研究院研究总监周丽莎表示，国有企业作为国家战略科技力量的重要组成部分，承担着推动高质量发展的重任。而经济体制改革是全面深化改革的重点，旨在通过优化资源配置、完善市场机制和激发经济活力，推动经济社会持续健康发展。会议强调，要发挥经济体制改革的牵引作用。这意味着改革不仅要在微观层面推动企业发展，更要在宏观层面优化经济结构，提升整体经济运行效率。</p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><br/></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><span style="color: rgb(160, 160, 160); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 12px; letter-spacing: 2px; text-align: center; background-color: rgb(255, 255, 255);">来源 | 中经传媒智库综合自国务院国资委网站、第一财经、中国新闻网、经济参考报、上海证券报、光明日报、证券时报等</span></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><span style="color: rgb(160, 160, 160); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 12px; letter-spacing: 2px; text-align: center; background-color: rgb(255, 255, 255);"><br/></span></p><p style="white-space: normal; margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box;"><span style="color: rgb(160, 160, 160); font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 12px; letter-spacing: 2px; text-align: center; background-color: rgb(255, 255, 255);"><br/></span></p><p><br/></p><p><br/></p></img></img></p>
+          </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../news.html">返回新闻列表</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

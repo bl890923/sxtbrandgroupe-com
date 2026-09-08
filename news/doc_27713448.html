@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>抢占电动市场，奔驰宝马也得抱团 · 新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../news.html" class="active">新闻中心</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>新闻<span>详情</span></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../news.html">新闻中心</a> &gt; <span>抢占电动市场，奔驰宝马也得抱团</span>
+        </div>
+        <article class="detail-card">
+          <h1 class="detail-title">抢占电动市场，奔驰宝马也得抱团</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>新闻中心</span>
+            <span><i class="far fa-calendar-alt"></i>2023年11月30</span>
+          </div>
+          <div class="detail-body">
+<p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">北京市商务局消息，3月4日，梅赛德斯-奔驰（下称“奔驰”）与宝马合资成立的北京逸安启新能源科技有限公司（下称“合资公司”）正式落户北京市朝阳区，将在中国市场运营超级充电网络。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">新的合资公司源于2023年奔驰、宝马的一项合作。在2023年11月30日，梅赛德斯-奔驰（中国）投资有限公司与华晨宝马汽车有限公司宣布签署合作协议，双方在中国成立合资公司，在中国市场运营超级充电网络。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">具体而言，合资公司将利用奔驰、宝马在全球市场和中国市场的充电运营经验及对新能源汽车行业的理解，向梅赛德斯-奔驰集团和宝马集团的客户提供如即插即充、线上预约等无缝数字化充电体验的专属服务。同时，该公司的充电网络也将向公众开放。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);"><strong style="box-sizing: border-box;">1、联手</strong></p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">在中国市场，合资公司是奔驰、宝马两大一线豪华车企近年来少有的重要合作成果之一。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">天眼查工商信息显示，北京逸安启新能源科技有限公司成立于2024年3月4日，注册资金1亿元，法定代表人为吴思。奔驰方面表示，在新合资公司中，双方股比为50:50。业务方面，合资公司主营新兴能源技术研发、电动汽车充电基础设施运营、集中式快速充电站等。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">对于此次双方合作运营充电网络，宝马方面向时代财经表示：“宝马和梅赛德斯-奔驰将利用其在全球和中国市场的充电运营经验及对中国新能源汽车市场的洞察，为中国客户量身定制快速、便捷、可靠的充电解决方案。双方希望此次合作能够进一步提升客户的公共充电体验。”</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">官方信息显示，随着此次合资公司落户北京市朝阳区，奔驰、宝马将以北京朝阳为起点，进一步拓展在中国市场的超级充电网络布局，以满足国内客户对充电服务日益增长的需求。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">携手合作的背后，是奔驰、宝马在中国市场面临的竞争压力。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">官方数据显示，2023年宝马集团在中国市场共交付824932辆BMW和MINI汽车，同比增长4.2%，位居豪华车细分市场首位。其中，BMW品牌纯电动车型全年共交付99972辆，同比增长超过138%。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">梅赛德斯-奔驰2023年在华累计交付约76.5万辆新车，较2022年增长1.7%；纯电车型全年交付量翻番。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">尽管整体销量都有所增长、电动化车型表现也在改善，但相较于比亚迪、吉利汽车、长安汽车等自主品牌新能源汽车销量，奔驰和宝马仍有明显差距。在2023年，上述三家车企分别销售302万辆、48.8万辆、47.4万辆新能源汽车。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">如何实现更好的电动化转型，成了传统一线豪华车企的当务之急。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">“在电动化产品之外，充足的补能网络是新能源汽车的必要使用场景。”一位业内不具名人士对时代财经表示：“补能网络也是新能源车企吸引消费者的关键之一，因而当下众多车企都在加速布局补能网络。”</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">以蔚来、特斯拉为例，截至今年3月初，蔚来已在国内布局换电站超2300座、充电站超3700座、充电桩超21600根。特斯拉截至今年1月也已在大陆建设超1900座超级充电站、超11000根超级充电桩。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">大量充电站、充电桩的存在显著提升了新能源车主的出行体验，也成为潜在消费者购车时的主要考虑因素之一。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">相较之下，奔驰、宝马的合作充电网络布局时间稍晚、规模稍小。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">根据奔驰、宝马双方合作信息，至2026年底，合资公司计划在国内建设至少1000座具备先进技术的超级充电站，约7000根超充桩。首批充电站计划于2024年在中国重点新能源汽车城市开始运营，后续充电站建设将覆盖全国其他城市和地区。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);"><strong style="box-sizing: border-box;">2、存变？</strong></p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">在成立合资公司的同时，来自奔驰的一则消息给双方合作带来了不确定性。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">奔驰方面近日在2023年年度股东大会上宣布，到2027年将推出全新的内燃机车型阵容，使内燃机能够持续到2030年。这被业内视作奔驰放弃了“全面电动”的战略布局。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">对此，奔驰相关负责人对时代财经表示：“关于电动化计划，我们会更务实和灵活地应对。”奔驰方面表示至2030年，电动汽车销量将占奔驰整体的50%，包括混合动力产品。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">当下在中国市场，奔驰共有7款纯电车型，以及5款插电混动车型，燃油车型则超过17款。无论是产品数量，还是市场销量，燃油车型仍是奔驰的*主力。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">奔驰首次提出“全面电动”是在2021年。彼时，奔驰宣布在未来10年内提速电动化，将“电动优先”转向“全面电动”。其中最受外界关注的是，奔驰表示从2025年起，其所有新车型将均将来自纯电平台；2030年前，奔驰将在条件允许的市场内做好全面纯电动的准备。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">不过自2023年开始，奔驰方面开始强调“油电双行”。梅赛德斯-奔驰集团股份公司董事会主席、首席执行官康林松（Ola K&#228;llenius）在2024年为企业发展定调时表示，公司将采取灵活的战略，以应对向电动汽车转型的“高峰和低谷”。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">对于公司战略层面的变化是否会影响奔驰与宝马在中国市场的合作，时代财经联系奔驰方面了解具体情况。奔驰方面表示，当下合资公司已经获得营业执照，并会在不久的将来开始运营，合资公司的总部设立在北京。“稍后等合适的时机，应该会有更多信息公布。”</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">在海外市场，奔驰与宝马曾多次进行合作，包括合作开车车型、共享自动驾驶技术等。时代财经从奔驰内部人士处获悉，这也是近三年来，双方在国内市场的首次合作。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">在业内人士看来，双方携手布局充电网络凸显其对中国新能源汽车市场的重视。</p><p style="box-sizing: border-box; margin-bottom: 26px; overflow-wrap: break-word; text-indent: 2em; color: rgb(53, 53, 53); font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: 17px; text-align: justify; white-space: normal; background-color: rgb(255, 255, 255);">“在2023年，我国汽车市场新能源汽车渗透率接近35%，预计今年单月渗透率将达到50%。新能源汽车市场拥有巨大的增长空间。”上述分析人士称：“这意味着在中国市场，奔驰、宝马的电动化车型拥有广阔的发展前景。”</p><p><br/></p></p>
+          </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../news.html">返回新闻列表</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《工程企业宣传片升级指南：从“施工流水账”到品牌价值传递的5个关键帧》 · 新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../news.html" class="active">新闻中心</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>新闻<span>详情</span></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../news.html">新闻中心</a> &gt; <span>《工程企业宣传片升级指南：从“施工流水账”到品牌价值传递的5个关键帧》</span>
+        </div>
+        <article class="detail-card">
+          <h1 class="detail-title">《工程企业宣传片升级指南：从“施工流水账”到品牌价值传递的5个关键帧》</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>新闻中心</span>
+          </div>
+          <div class="detail-body">
+<p><h3 style="font-size: 17px;line-height: 1.6em;text-align: center;"><span style="font-weight: 400;text-shadow: none;letter-spacing: 1.5px;font-size: 15px;color: rgb(145, 29, 33);">痛点诊断：为什么你的宣传片成了</span></h3><h3 style="font-size: 17px;line-height: 1.6em;text-align: center;"><span style="font-weight: 400;text-shadow: none;letter-spacing: 1.5px;font-size: 15px;color: rgb(145, 29, 33);"><span leaf=""><span textstyle="" style="font-weight: bold;">“无效流水账”</span></span></span></h3><h3 style="font-size: 17px; line-height: 1.6em;"><span style="font-weight: 400;text-shadow: none;letter-spacing: 1.5px;font-size: 15px;color: rgb(145, 29, 33);"><br/></span></h3><p style="text-indent: 2em;font-size: 14px;"><span leaf="">说到工程企业的宣传片，是不是经常遇到这样的尴尬：片子一放，领导点头，观众打哈欠；画面全是钢筋水泥，解说词堆满“国际领先”，但合作方看完只记住</span><span style="color:#911d21;"><strong>“你们挺忙的</strong></span><span leaf="">”；砸钱拍的片子，最后成了内部年会背景墙，对外传播根本拿不出手……</span></p><p><span leaf=""><br/></span></p><p style="text-align:center;"><span style="color:#911d21;"><strong>问题出在哪儿？</strong></span></p><p><span style="font-size:14px;"><span leaf="">说白了，太多宣传片拍成了“施工流水账+技术说明书”！</span><span leaf=""><br/></span><span leaf="">只拍“做了什么”，没讲“凭什么选你”；</span><span leaf=""><br/></span><span leaf="">只顾着秀设备参数，忘了观众想看“人的故事”；</span><span leaf=""><br/></span><span leaf="">这种模式不仅让外行观众感到枯燥，更让企业错失了通过宣传片传递品牌理念、技术优势和社会价值的绝佳机会。</span></span></p><p><span leaf=""><br/></span></p><p style="text-align:center;"><span style="color: rgb(145, 29, 33);"><strong>症结核心：</strong></span></p><p><strong><span style="font-size:14px;">视角单一</span></strong><span style="font-size:14px;">：仅展示“做了什么”，未回答“为什么做”“有何不同”；</span></p><p><strong><span style="font-size:14px;">缺乏共情</span></strong><span style="font-size:14px;">：忽视观众对技术创新、社会价值、人文关怀的深层需求；</span></p><p><strong><span style="font-size:14px;">视觉雷同</span></strong><span style="font-size:14px;">：千篇一律的工地航拍+机械特写，难以建立品牌辨识度。</span></p><p><span leaf=""><br/></span></p><p><span style="font-size: 14px;color: rgb(145, 29, 33);">如何破局？<span class="">三希堂</span>总结出“5个关键帧”升级法则，助力企业将宣传片从“施工记录”转变为“品牌价值放大器”。</span></p><p><br/></p><section data-tools="135编辑器" data-id="120326"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section><section style="display: flex;align-items: center;justify-content: flex-start;"><section style="background-color: rgb(145, 29, 33); color: rgb(255, 255, 255); padding: 4px 10px; box-sizing: border-box; text-align: center;"><strong data-brushtype="text">开篇定调</strong></section><section style="letter-spacing: 1.5px; color: rgb(145, 29, 33); padding: 0px 0px 0px 5px; box-sizing: border-box; text-align: center;"><strong>关键帧1</strong></section><section style="flex-shrink: 0;display: flex;"><section style="width: 0px;height: 1px;border-left: 7px solid #ffd015;border-top: 3px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-5px, -13px) rotate(9deg);-webkit-transform: translate(-5px, -13px) rotate(9deg);-moz-transform: translate(-5px, -13px) rotate(9deg);-o-transform: translate(-5px, -13px) rotate(9deg);"><span leaf=""><br/></span></section><section style="width: 0px;height: 1px;border-right: 8px solid #ff8e15;border-top: 4px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-6px, -9px) rotate(15deg);-webkit-transform: translate(-6px, -9px) rotate(15deg);-moz-transform: translate(-6px, -9px) rotate(15deg);-o-transform: translate(-6px, -9px) rotate(15deg);"><span leaf=""><br/></span></section></section></section><section><section style="color: rgb(51, 51, 51); text-align: center; padding: 5px 15px 5px 10px; box-sizing: border-box;"><strong data-brushtype="text"><h3 style="margin-left: 0px; font-size: 17px;"><strong><span style="color: rgb(64, 64, 64); letter-spacing: 0px; font-family: 微软雅黑;">30秒锚定战略高度</span></strong></h3></strong></section><section style="max-width: 100% !important;width: 100%;box-sizing:border-box;" data-width="100%"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 547.05 10.44" style="display: block;" xml:space="default"><g><g><path style="fill:none;stroke:#911d21;stroke-miterlimit:10;" d="M0,6.22c13-.14,13.06,3.85,26.08,3.71s13-4.14,26-4.28S65.16,9.5,78.18,9.36s13-4.14,26-4.28,13.07,3.85,26.09,3.71,13-4.14,26-4.29,13.06,3.86,26.09,3.72,13-4.14,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.29S534,4.36,547.05,4.22"></path></g></g></svg></section></section></section></section></section><p><br/></p><p><strong><span style="font-size:14px;">传统操作</span></strong><span style="font-size:14px;"><span leaf="">：以企业大楼或领导致辞开篇，陷入“汇报片”套路。</span><span leaf=""><br/></span></span><strong><span style="font-size:14px;">升级玩法</span></strong><span style="font-size:14px;">：来点&quot;国家大事+人间烟火&quot;混搭，快速建立品牌格局。</span></p><p><strong><span style="font-size:14px;">参考案例</span></strong><span style="font-size:14px;">：中国交建《深中通道》纪录片，开篇交代深中通道横跨伶仃洋的艰难环境，配合&quot;建造珠江口百年门户工程&quot;的logan，将工程价值锚定在粤港澳大湾区发展战略。就像电影开场要有爆点，工程片开头得让观众秒懂：</span><span style="color:#911d21;"><strong><span style="font-size: 14px;">这项目，牛在改变时代！</span></strong></span></p><p><span style="color:#911d21;"><strong><span style="font-size: 14px;"><br/></span></strong></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747726908515911.png" title="1747726908515911.png" alt="1747726908515911.png" width="500" height="281" border="0" vspace="0" style="width: 500px; height: 281px;"/></p><p style="margin: 0px;"><br/></p><section data-tools="135编辑器" data-id="120326"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section><section style="display: flex;align-items: center;justify-content: flex-start;"><section style="background-color: rgb(145, 29, 33); color: rgb(255, 255, 255); padding: 4px 10px; box-sizing: border-box;"><strong data-brushtype="text">价值锚点</strong></section><section style="letter-spacing: 1.5px; color: rgb(145, 29, 33); padding: 0px 0px 0px 5px; box-sizing: border-box;"><strong>关键帧2</strong><strong data-num="3"></strong></section><section style="flex-shrink: 0;display: flex;"><section style="width: 0px;height: 1px;border-left: 7px solid #ffd015;border-top: 3px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-5px, -13px) rotate(9deg);-webkit-transform: translate(-5px, -13px) rotate(9deg);-moz-transform: translate(-5px, -13px) rotate(9deg);-o-transform: translate(-5px, -13px) rotate(9deg);"><span leaf=""><br/></span></section><section style="width: 0px;height: 1px;border-right: 8px solid #ff8e15;border-top: 4px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-6px, -9px) rotate(15deg);-webkit-transform: translate(-6px, -9px) rotate(15deg);-moz-transform: translate(-6px, -9px) rotate(15deg);-o-transform: translate(-6px, -9px) rotate(15deg);"><span leaf=""><br/></span></section></section></section><section><section style="color: rgb(51, 51, 51); text-align: center; padding: 5px 15px 5px 10px; box-sizing: border-box;"><strong data-brushtype="text">用核心技术讲差异化故事</strong></section><section style="max-width: 100% !important;width: 100%;box-sizing:border-box;" data-width="100%"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 547.05 10.44" style="display: block;" xml:space="default"><g><g><path style="fill:none;stroke:#911d21;stroke-miterlimit:10;" d="M0,6.22c13-.14,13.06,3.85,26.08,3.71s13-4.14,26-4.28S65.16,9.5,78.18,9.36s13-4.14,26-4.28,13.07,3.85,26.09,3.71,13-4.14,26-4.29,13.06,3.86,26.09,3.72,13-4.14,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.29S534,4.36,547.05,4.22"></path></g></g></svg></section></section></section></section></section><p><br/></p><p><strong><span style="font-size:14px;">传统操作</span></strong><span style="font-size:14px;"><span leaf="">：用“国内领先”“国际一流”等空泛词汇标榜技术实力。</span><span leaf=""><br/></span></span><strong><span style="font-size:14px;">升级玩法</span></strong><span style="font-size:14px;">：</span><strong><span style="font-size:14px;">可视化呈现“人无我有”的技术细节</span></strong><span style="font-size:14px;">，让专业成就可感可知。</span></p><p><strong><span style="font-size:14px;">实战技巧</span></strong><span style="font-size:14px;">：微距镜头拍焊接火花，比说&quot;焊接精度0.1mm&quot;直观100倍</span></p><p><span style="font-size:14px;">给盾构机做&quot;X光透视&quot;：让观众看清刀盘怎么&quot;啃&quot;岩石</span></p><p><strong><span style="font-size:14px;">参考案例</span></strong><span style="font-size:14px;">：大国重器《加快形成新质生产力》中《工业脊梁》，通过&quot;显微镜级技术拆解+工程师人格化叙事&quot;的组合拳，将重型模锻压机技术转化为具象化品牌资产，为工程企业提供了核心技术传播的教科书级示范。</span><span leaf=""><img data-src="https://mmbiz.qpic.cn/mmbiz_gif/g9zPJlcZfwEOdnOs65Zia9h9vtax1R3NFWLiamica3t6Qd5Fe2uQCMVF7ibl2H7VeA0u1vhJQawf8Iib6RqW5sdI2SA/640?wx_fmt=gif&amp;from=appmsg" class="rich_pages wxw-img __bg_gif" data-ratio="1" data-type="gif" data-w="1" style="vertical-align: baseline; height: auto !important; visibility: visible !important; width: 1px !important;" data-imgfileid="100001694" data-original-style="vertical-align:baseline;" data-index="2" src="https://mmbiz.qpic.cn/mmbiz_gif/g9zPJlcZfwEOdnOs65Zia9h9vtax1R3NFWLiamica3t6Qd5Fe2uQCMVF7ibl2H7VeA0u1vhJQawf8Iib6RqW5sdI2SA/640?wx_fmt=gif&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1" _width="1px" __sec_open_place_holder__="true" data-order="1" alt="图片" data-before-load-time="1747726781116" data-report-img-idx="2" data-fail="0"/></span></p><p><span leaf=""><br/></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747727026969099.png" title="1747727026969099.png" alt="1747727026969099.png" width="500" height="323" border="0" vspace="0" style="width: 500px; height: 323px;"/></p><p><br/></p><section data-tools="135编辑器" data-id="120326"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section><section style="display: flex;align-items: center;justify-content: flex-start;"><section style="background-color: rgb(145, 29, 33); color: rgb(255, 255, 255); padding: 4px 10px; box-sizing: border-box;"><strong data-brushtype="text">人文温度</strong></section><section style="letter-spacing: 1.5px; color: rgb(145, 29, 33); padding: 0px 0px 0px 5px; box-sizing: border-box;"><strong>关键帧3</strong><strong data-num="4"></strong></section><section style="flex-shrink: 0;display: flex;"><section style="width: 0px;height: 1px;border-left: 7px solid #ffd015;border-top: 3px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-5px, -13px) rotate(9deg);-webkit-transform: translate(-5px, -13px) rotate(9deg);-moz-transform: translate(-5px, -13px) rotate(9deg);-o-transform: translate(-5px, -13px) rotate(9deg);"><span leaf=""><br/></span></section><section style="width: 0px;height: 1px;border-right: 8px solid #ff8e15;border-top: 4px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-6px, -9px) rotate(15deg);-webkit-transform: translate(-6px, -9px) rotate(15deg);-moz-transform: translate(-6px, -9px) rotate(15deg);-o-transform: translate(-6px, -9px) rotate(15deg);"><span leaf=""><br/></span></section></section></section><section><section style="color: rgb(51, 51, 51); text-align: center; padding: 5px 15px 5px 10px; box-sizing: border-box;"><strong data-brushtype="text">让工程与“人”产生链接</strong></section><section style="max-width: 100% !important;width: 100%;box-sizing:border-box;" data-width="100%"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 547.05 10.44" style="display: block;" xml:space="default"><g><g><path style="fill:none;stroke:#911d21;stroke-miterlimit:10;" d="M0,6.22c13-.14,13.06,3.85,26.08,3.71s13-4.14,26-4.28S65.16,9.5,78.18,9.36s13-4.14,26-4.28,13.07,3.85,26.09,3.71,13-4.14,26-4.29,13.06,3.86,26.09,3.72,13-4.14,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.29S534,4.36,547.05,4.22"></path></g></g></svg></section></section></section></section></section><p><br/></p><p><strong><span style="font-size:14px;">数据洞察</span></strong><span style="font-size:14px;">：72%的观众对“工程建设者故事”的关注度高于工程本身（来源：央视受众调查报告）。</span></p><p><span style="font-size:14px;"><br/></span></p><p><span style="font-size:14px;"><span leaf=""><span textstyle="" style="font-size: 15px;font-weight: bold;">执行要点：</span></span></span></p><p><strong><span style="font-size:14px;">人物跟踪</span></strong><span style="font-size:14px;">：跟拍工程师解决技术难题的纪实</span></p><p><strong><span style="font-size:14px;">民生关联</span></strong><span style="font-size:14px;">：演示工程如何改变沿线居民生活场景；</span></p><p><strong><span style="font-size:14px;">代际传承</span></strong><span style="font-size:14px;">：呈现老一辈工程师与青年团队的技艺传承。</span></p><p><strong><span style="font-size:14px;">参考案例</span></strong><span style="font-size:14px;">：星球研究所《走出大凉山 有多难？》的破圈密码：用悬崖上的&quot;人链&quot;重构工程叙事逻辑，将企业社会责任转化为具象化的人文图景。</span></p><p><span style="font-size:14px;"><br/></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747727110985042.png" title="1747727110985042.png" alt="1747727110985042.png" width="500" height="258" border="0" vspace="0" style="width: 500px; height: 258px;"/></p><section data-tools="135编辑器" data-id="120326"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section><section style="display: flex;align-items: center;justify-content: flex-start;"><section style="background-color: rgb(145, 29, 33); color: rgb(255, 255, 255); padding: 4px 10px; box-sizing: border-box;"><strong data-brushtype="text">战略视野</strong></section><section style="letter-spacing: 1.5px; color: rgb(145, 29, 33); padding: 0px 0px 0px 5px; box-sizing: border-box;"><strong>关键帧4</strong><strong data-num="5"></strong><strong data-num="5"></strong><strong data-num="5"></strong></section><section style="flex-shrink: 0;display: flex;"><section style="width: 0px;height: 1px;border-left: 7px solid #ffd015;border-top: 3px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-5px, -13px) rotate(9deg);-webkit-transform: translate(-5px, -13px) rotate(9deg);-moz-transform: translate(-5px, -13px) rotate(9deg);-o-transform: translate(-5px, -13px) rotate(9deg);"><span leaf=""><br/></span></section><section style="width: 0px;height: 1px;border-right: 8px solid #ff8e15;border-top: 4px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-6px, -9px) rotate(15deg);-webkit-transform: translate(-6px, -9px) rotate(15deg);-moz-transform: translate(-6px, -9px) rotate(15deg);-o-transform: translate(-6px, -9px) rotate(15deg);"><span leaf=""><br/></span></section></section></section><section><section style="color: rgb(51, 51, 51); text-align: center; padding: 5px 15px 5px 10px; box-sizing: border-box;"><strong data-brushtype="text">从单个项目到企业生态</strong></section><section style="max-width: 100% !important;width: 100%;box-sizing:border-box;" data-width="100%"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 547.05 10.44" style="display: block;" xml:space="default"><g><g><path style="fill:none;stroke:#911d21;stroke-miterlimit:10;" d="M0,6.22c13-.14,13.06,3.85,26.08,3.71s13-4.14,26-4.28S65.16,9.5,78.18,9.36s13-4.14,26-4.28,13.07,3.85,26.09,3.71,13-4.14,26-4.29,13.06,3.86,26.09,3.72,13-4.14,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.29S534,4.36,547.05,4.22"></path></g></g></svg></section></section></section></section></section><p><br/></p><p><strong><span style="font-size:14px;">高阶价值传递</span></strong><span style="font-size:14px;">：</span></p><p><span style="font-size:14px;">通过BIM模型演示企业在建/已建项目的全国分布图；</span></p><p><span style="font-size:14px;">这个工程养活了多少家庭？拉动多少GDP？</span></p><p><strong><span style="font-size:14px;">案例参考</span></strong><span style="font-size:14px;">：同样参考星球研究所《海上风电 巨人的远征》，从&quot;点状工程&quot;到&quot;<span class="">能源矩阵</span>&quot;、从&quot;发电机组&quot;到&quot;生态引擎&quot;、从&quot;当下施工&quot;到&quot;未来基建&quot;，将单个风电场项目转化为中国新能源产业生态的立体图谱，使单个项目成为企业战略的载体。</span><span leaf=""><img data-src="https://mmbiz.qpic.cn/mmbiz_gif/g9zPJlcZfwEOdnOs65Zia9h9vtax1R3NFWLiamica3t6Qd5Fe2uQCMVF7ibl2H7VeA0u1vhJQawf8Iib6RqW5sdI2SA/640?wx_fmt=gif&amp;from=appmsg" class="rich_pages wxw-img __bg_gif" data-ratio="1" data-type="gif" data-w="1" style="vertical-align: baseline; height: auto !important; visibility: visible !important; width: 1px !important;" data-imgfileid="100001693" data-original-style="vertical-align:baseline;" data-index="5" src="https://mmbiz.qpic.cn/mmbiz_gif/g9zPJlcZfwEOdnOs65Zia9h9vtax1R3NFWLiamica3t6Qd5Fe2uQCMVF7ibl2H7VeA0u1vhJQawf8Iib6RqW5sdI2SA/640?wx_fmt=gif&from=appmsg&tp=wxpic&wxfrom=5&wx_lazy=1" _width="1px" __sec_open_place_holder__="true" data-order="2" alt="图片" data-before-load-time="1747726782700" data-report-img-idx="5" data-fail="0"/></span></p><p><span leaf=""><br/></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747727150384725.png" title="1747727150384725.png" alt="图片 4.png"/></p><p><br/></p><section data-tools="135编辑器" data-id="120326"><section style="margin: 10px auto;display: flex;justify-content: flex-start;"><section><section style="display: flex;align-items: center;justify-content: flex-start;"><section style="background-color: rgb(145, 29, 33); color: rgb(255, 255, 255); padding: 4px 10px; box-sizing: border-box;"><strong data-brushtype="text">品牌烙印</strong></section><section style="letter-spacing: 1.5px; color: rgb(145, 29, 33); padding: 0px 0px 0px 5px; box-sizing: border-box;"><strong>关键帧5</strong><strong data-num="6"></strong></section><section style="flex-shrink: 0;display: flex;"><section style="width: 0px;height: 1px;border-left: 7px solid #ffd015;border-top: 3px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-5px, -13px) rotate(9deg);-webkit-transform: translate(-5px, -13px) rotate(9deg);-moz-transform: translate(-5px, -13px) rotate(9deg);-o-transform: translate(-5px, -13px) rotate(9deg);"><span leaf=""><br/></span></section><section style="width: 0px;height: 1px;border-right: 8px solid #ff8e15;border-top: 4px solid transparent;border-bottom: 4px solid transparent;box-sizing:border-box;transform: translate(-6px, -9px) rotate(15deg);-webkit-transform: translate(-6px, -9px) rotate(15deg);-moz-transform: translate(-6px, -9px) rotate(15deg);-o-transform: translate(-6px, -9px) rotate(15deg);"><span leaf=""><br/></span></section></section></section><section><section style="color: rgb(51, 51, 51); text-align: center; padding: 5px 15px 5px 10px; box-sizing: border-box;"><strong data-brushtype="text">打造专属视觉符号系统</strong></section><section style="max-width: 100% !important;width: 100%;box-sizing:border-box;" data-width="100%"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 547.05 10.44" style="display: block;" xml:space="default"><g><g><path style="fill:none;stroke:#911d21;stroke-miterlimit:10;" d="M0,6.22c13-.14,13.06,3.85,26.08,3.71s13-4.14,26-4.28S65.16,9.5,78.18,9.36s13-4.14,26-4.28,13.07,3.85,26.09,3.71,13-4.14,26-4.29,13.06,3.86,26.09,3.72,13-4.14,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.07,3.86,26.09,3.72,13-4.15,26-4.29,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.06,3.86,26.09,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.28,13.07,3.85,26.1,3.71,13-4.14,26-4.29S534,4.36,547.05,4.22"></path></g></g></svg></section></section></section></section></section><p><br/></p><p><strong><span style="font-size:14px;">长效价值：</span></strong><span style="font-size:14px;">通过重复强化的视觉元素，建立品牌条件反射。</span></p><p><strong><span style="font-size:14px;">定制化设计</span></strong><span style="font-size:14px;"><span leaf="">：让人一看画面就条件反射：</span><strong><span style="color: rgb(145, 29, 33);"><span leaf="">“这色调/音效/符号，肯定是XX公司的片子！”</span></span></strong></span></p><p><strong><span style="font-size:14px;">色彩体系</span></strong><span style="font-size:14px;">：根据企业VI色延展宣传片主色调（如中交蓝、中铁橙）；</span></p><p><strong><span style="font-size:14px;">符号植入</span></strong><span style="font-size:14px;">：将企业LOGO元素转化为动态图形（如齿轮咬合、钢轨延伸）；</span></p><p><strong><span style="font-size:14px;">听觉标识</span></strong><span style="font-size:14px;">：为不同工程类型定制专属音效（如地铁隧道的轰鸣节奏、风电叶片划破空气的声波）。</span></p><p><span style="font-size:14px;"><span textstyle="" style="font-weight: bold;">效果验证</span>：某工程集团宣传片使用专属符号系统后，受众品牌识别度大幅提升，合作方直接引用片中视觉元素作为讨论基点。</span></p><p><span leaf=""><br/></span></p><h3 style="font-size:17px;"><span style="font-size:16px;"><strong>写在最后：你的宣传片，不该是成本，而是投资</strong></span></h3><p><span leaf=""><br/></span></p><h3 style="font-size:17px;"><strong><span style="font-size:14px;">当你在为下一个标书熬夜秃头时，有没有想过：</span></strong></h3><p><span style="font-size:14px;">为什么有的企业光靠宣传片就能让评审专家多打10分？</span></p><p><span style="font-size:14px;">为什么有的工程纪录片能直接推动地方政府开绿色通道？</span></p><p><span style="font-size:14px;">为什么有的技术微电影能让合作方追着问“专利卖不卖”？</span></p><p><span leaf=""><br/></span></p><p><strong><span style="font-size:14px;">答案很简单：</span></strong><span style="font-size:14px;"><span leaf=""><br/></span><span leaf="">新时代的工程品牌战，早就不拼谁家吊车大，而是拼“谁能把专业变成故事，把技术变成共情，把项目变成传奇”。</span></span></p><p><span leaf=""><br/></span></p><p style="text-align:center;"><span style="font-size: 14px;color: rgb(145, 29, 33);">三希堂团队，专注干一件事</span></p><p style="text-align:center;"><span style="color:#911d21;"><strong>让工程企业“说得清实力，讲得好故事，留得下品牌”。</strong></span></p><p><br/></p><p><br/></p><p><br/></p></img></img></img></img></img></img></p>
+          </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../news.html">返回新闻列表</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

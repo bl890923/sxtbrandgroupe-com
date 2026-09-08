@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>品牌热衷的情感营销大法，究竟有多上头？ · 新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../news.html" class="active">新闻中心</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>新闻<span>详情</span></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../news.html">新闻中心</a> &gt; <span>品牌热衷的情感营销大法，究竟有多上头？</span>
+        </div>
+        <article class="detail-card">
+          <h1 class="detail-title">品牌热衷的情感营销大法，究竟有多上头？</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>新闻中心</span>
+          </div>
+          <div class="detail-body">
+<p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255); line-height: 2em;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 16px;"></span></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none; line-height: 2em;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">“心价比”，近几年一个新的营销概念，是指消费者愿意为产品给自己带来的“感受与体验”支付溢价。现代营销学之父菲利普·科特勒将消费者行为的成长分为量的消费、质的消费和情感消费三个阶段，在第三消费阶段需由品牌立足于消费者情感与心理视角提供产品与服务。</span></p><p><br/></p><p><br/></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">“心价比”便属于情感消费阶段，随着功能性消费需求的满足，更深层次的情感需求正在等待着品牌来挖掘。因此，情感营销对品牌而言就具有了必要性。</span></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255); line-height: 2em;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 16px;"></span><br/></p><p style="margin: 0px; text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709779574666001.png" title="1709779574666001.png" alt="1.png"/></p><p style="margin: 0px; text-align: center;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);">品牌为什么热衷社交平台？</span></p><p style="margin: 0px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);"><br/></span></p><p style="margin:0;"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; background-color: rgb(255, 255, 255);">社交平台的属性、用户和内容，让其成为品牌的情感营销主战场。</span></p><p style="margin:0;"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; background-color: rgb(255, 255, 255);"><br/></span></p><p style="margin:0;"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; background-color: rgb(255, 255, 255);">1.天然话题属性</span></span></p><p style="margin:0;"><span style="background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; font-weight: 700;">上个月的上海万圣节被玩出了花样，在各大社交平台都是热门话题。年轻人穿着个性十足的服装走上街头，把各种社交平台的梗扮“活”了。肯德基每周四的“疯四文学”到现在依旧活跃在各个社交平台上。对于这些现象，有人总结为“找个发疯的理由罢了”，深究其背后关注的其实是</span><span style="background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; font-weight: 700; box-sizing: border-box; padding: 0px; margin: 0px; list-style: none;">年轻人的情绪需求</span><span style="background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; font-weight: 700;">。</span></p><p style="margin:0;"><span style="background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; font-weight: 700;"><br/></span></p><p style="margin: 0px; text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778010529263.jpg" title="1709778010529263.jpg"/><br/></p><p style="margin: 0px; text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778274281824.jpg" title="1709778274281824.jpg" alt="12.jpg"/><br/></p><p style="margin: 0px;"><br/></p><p style="margin:0;"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; font-variant-ligatures: none; background-color: rgb(255, 255, 255);">另一个值得关注的点，所有的话题都离不开社交平台的身影。社交平台已经成为人们日常表达情感、分享生活和互动的主要平台。品牌如果能</span><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; font-variant-ligatures: none; background-color: rgb(255, 255, 255);">为用户打造“社交币”</span><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; font-variant-ligatures: none; background-color: rgb(255, 255, 255);">，便可进一步驱动用户的分享欲，实现用户的自主传播，达到营销目的。</span></p><p style="margin:0;"><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">2.海量用户流量池</span></span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><p><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">2023年，“全民社交”时代来临，全球社交网络用户数量近50亿，中国移动社交网络用户10.3亿。</span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">以国内几个主流社交平台为例，微博月活用户突破6亿，小红书月活用户达2.6亿，B站月活用户3.41亿，知乎月活用户1.1亿……从这几个数字就可以看到<span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">社交平台庞大的用户群体</span>，也就是我们说的用户流量池。</span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">在社交平台成为年轻人消费主阵地的当下，品牌必须思考的是如何争夺“情感”阵地，挖掘理解消费者的诉求，引发共鸣。</span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">3.持续可裂变的内容生态</span></span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">以流量为基础，社交平台构建了内容生态，用户在不同平台上生成信息作为情感表达的载体。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">品牌根据平台内容特性，以不同形式的内容讲述品牌故事，传递价值观，并通过社交平台与消费者进行互动，让消费者参与到品牌的宣传推广中，那么他们对于品牌的认可度就会提升，品牌以此获得口碑增长和裂变传播。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">各大社交平台特征和优势有所不同，在微思敦深耕社交营销领域的过程中，我们观察总结了微博、小红书、B站、知乎等主流平台的营销生态。微博作为一个热点舆论场，内容生态以用户分享实时资讯，围观讨论热搜话题为主；小红书定位于种草平台，内容多是生活分享类型，已然成为当下年轻人消费决策的百科全书；Z世代聚集的B站，内容生态发展偏向社区文化，用户圈层文化明显；知乎一直以来主打高质量问答社区，用户群体特征为高消费能力的高知人士，热爱深度知识分享。</span></section><p><br/></p><p><br/></p><p style="margin: 0px; text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709779586111463.png" title="1709779586111463.png" alt="3.png"/></p><p style="margin: 0px; text-align: center;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);">那些让消费者“上头”的品牌营销案例</span></p><p style="margin:0;"><br/></p><p style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">品牌营销过去卷产品、卷价格，现在卷情绪。</span></span></p><p style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;"><br/></span></span></p><p style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="text-align: center; box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">谈到情感营销，似乎也不是什么新鲜事，喜怒哀乐的情绪已经被各大品牌玩过了，但只要消费者有情感诉求，这个玩法就依旧能让消费者“上头”。比如消费者可以为了“感动”在鸿星尔克直播间进行不需要发货的“野性消费“，可以为了“爱国情怀”为老牌国货买单，也会在“多巴胺情绪”中快乐种草。</span></p><p style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255); text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778011536869.jpg" title="1709778011536869.jpg" style="text-align: center; font-family: sans-serif;"/></p><p style="margin: 0px; text-align: center;"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 12px; text-align: center; background-color: rgb(255, 255, 255);">小红书流行“年轻人的足力健”</span></p><p style="margin:0;"><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">精神文化圈层正逐渐影响年轻人的消费决策</span>，从“年轻人的足力健”到“多巴胺穿搭”，之所以能全网风靡，离不开情感营销的作用。</span></section><p><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">在工作生活压力大的今天，<span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">“开心哲学”</span>更让消费者上头。年轻人追捧色彩多样的Happy Socks的袜子，偏爱舒适的Lululemon，种草蕉下的生活方式美学都是为了悦己。</span></section><p><br/></p><p style="margin:0;"><br/></p><p style="margin: 0px; text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778012537600.jpg" title="1709778012537600.jpg"/><br/></p><p style="margin: 0px; text-align: center;"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 12px; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);">Happy Socks推出的“多巴胺穿搭”系列袜子</span></p><p style="margin:0;"><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">从20年开始，一双色彩鲜艳的袜子Happy Socks在手账圈和时尚圈走红，并在社交媒体留下一句话：“开心不开心，sock一定要开心”。</span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><p><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">Happy Socks为此都做了哪些营销呢？</span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">Happy Socks品牌营销的核心一直都是致力于用彩色的袜子为生活增加一份色彩，传递快乐和幸福的理念。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">在品牌营销上，Happy Socks推崇“有趣”最重要。和迪士尼、星球大战、披头士、辛普森、甲壳虫乐队、史努比等知名IP进行联名合作，和众多KOC、KOL合作进行内容种草，甚至巨石强森、彭于晏、周洁琼等明星同款穿搭推广，达成不同兴趣爱好领域粉丝群体的圈层传播。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">Happy Socks将产品打造成社交货币，将品牌故事和品牌理念融入产品，成功影响用户心智，将产品和快乐深度绑定。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">还有火遍全网的Lululemon，今年秋冬推出的休闲胶囊系列“Casual”，场景不再局限于瑜伽馆，反而开始营销打工人的通勤衣柜，就是迎合打工人对生活方式的懒人心态。</span></section><p><br/></p><p style="margin:0;"><br/></p><p style="margin: 0px; text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778012218047.jpg" style="" title="1709778012218047.jpg"/></p><p style="margin:0;"><br/></p><p style="margin: 0px; text-align: center;"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 12px; text-align: center; background-color: rgb(255, 255, 255);">Lululemon休闲胶囊系列“Casual”</span></p><p style="margin:0;"><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">Lululemon是从小红书出圈的，分析其原因，<span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">一是对平台的正确选择，二是选择差异化营销玩法。</span></span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><p><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">Lululemon的主要消费群体是24岁到36岁的中产女性，她们有一个专属名称“Super Girls”，渴望获得价值认同，拥有舒适的生活方式，追求不同的审美。同时有个明显特征——社交软件重度使用者。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">在国内几个主流社交平台中，小红书平台的社交属性、用户群体特征（男女比例3:7，70%的用户为90后），无疑是Lululemon最合适的选择。选择流量明星、垂直运动领域、时尚穿搭等不同赛道KOL合作，在平台打造优质内容对粉丝进行营销种草，传递给这些不同圈层用户“穿了这个衣服我就属于某类人群或拥有不同的生活方式”的心理暗示，满足用户的情感需求。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">同时，品牌通过不定期的营销活动保持高活跃度，引导用户参与，进行自传播扩大传播范围，影响用户的消费决策。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><p style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">截止目前，在小红书#Lululemon 话题下已有64万+篇笔记，#Lululemon日常穿搭 拥有8万+篇笔记，内容以不同场景的穿搭分享为主，如运动、上班、旅游等等，覆盖更多消费者群体。</span></p><p style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><br/></span></p><p style="margin: 0px; text-align: center;"><br/></p><p style="text-align:center"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778013639497.jpg" title="1709778013639497.jpg"/></p><p style="margin: 0px; text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778013108693.jpg" style="" title="1709778013108693.jpg"/></p><p style="margin:0;"><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">此外，Lululemon在产品营销策略上也是以品类种草为主，选择瑜伽服的单品切入。这一策略分析源于品牌对消费群体的需求洞察。在运动赛道，Lululemon很难与已经深入人心的专业运动品牌打擂台，选择运动时尚穿搭细分赛道，避开竞争对手的优势，以差异化玩法营销出圈。</span></section><p><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">目前，用户在小红书搜索“瑜伽服”，二级关联搜索词就是“瑜伽服lululemon”，搜索展示页面的关联品牌也在第二位，实现了与瑜伽服这一品类的深度绑定。</span></section><p><br/></p><p style="margin:0;"><br/></p><p style="text-align:center"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778013921326.jpg" title="1709778013921326.jpg"/></p><p style="margin:0;"><br/></p><p style="margin:0;"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 14px; background-color: rgb(255, 255, 255);">Lululemon的出圈，正是抓住消费者对价值认同、理想生活的情感追求，让消费者对品牌产生价值认同，从而为此买单。毕竟，当倦怠感席卷而来，对于“打扮不了一点”却又想保留一点点体面的打工人而言，这无疑是个不错的选择。</span></p><p style="margin:0;"><br/></p><p style="text-align:center"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709779600561583.png" title="1709779600561583.png" alt="10.png"/></p><p style="text-align: center;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);">品牌情感营销的关键</span></p><p><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);"><br/></span></p><p><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">品牌营销怎么打好“感情牌”？我们总结了三条经验。</span><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none;"><br/></p></section><p><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">选对社交平台，与消费者共建内容。</span>上文我们提到过微博、小红书、B站、知乎等不同社交平台营销生态有不同的特点，品牌在选择平台时需要与营销内容相匹配。例如热点营销选择微博，以肯德基“疯四文学”为例，就是从微博的话题引爆，借助热点造梗，引导用户进行二创内容，让用户与品牌产生情感关联，将“段子”塑造成品牌符号，深入人心。</span></section><p><br/></p><p><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);"><br/></span></p><p style="text-align: center;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709778014673312.jpg" title="1709778014673312.jpg"/><br/></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255); text-align: center;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 16px;"></span><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 12px; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);">微博话题#肯德基疯狂星期四 中的“疯四文学”</span></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 12px; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);"><br/></span></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; font-size: 12px; font-variant-ligatures: none; text-align: center; background-color: rgb(255, 255, 255);"></span></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">对品牌营销而言，消费者参与互动创造的内容赋予广告内容更有价值的内涵，即我们常说的UGC内容，能让消费者感受到自己与品牌的紧密联系，产生归属感。而这些UGC内容在二次传播的过程中也会给这些消费者获得被认同、被重视的价值感受，增强对品牌的忠诚度。</span></section><p><br/></p><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">讲好品牌故事，打造“社交币”。</span>情感营销中最核心的就是情感内容的表达，品牌故事更能体现品牌价值，带给用户强有力的情绪共鸣。一直以来，情绪是社交平台最能引发讨论的核心，当品牌广告内容成为社交货币，才是最让人“上头”的营销。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-weight: 700;">情绪和内容种草的玩法。</span>从成功的情感营销案例中，我们总结了一套营销玩法：洞察消费者情绪诉求，挖掘产品与其的共感元素，将情感植入产品，利用社交平台进行内容种草，放大情绪，激发消费者情感共鸣，实现营销目标。</span></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></section><section style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-size: 14px;">情感消费时代，“人们80%的营销决策是由情绪决定的”，品牌想要成功，情感营销依旧是必不可少的营销利器。</span></section><p><br/></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><br/></p><p style="box-sizing: border-box; padding: 0px; margin-top: 0px; margin-bottom: 0px; list-style: none; font-variant-ligatures: none; color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Microsoft YaHei&quot;, &quot;HanHei SC&quot;, &quot;Helvetica Neue&quot;, &quot;Open Sans&quot;, Arial, &quot;Hiragino Sans GB&quot;, 微软雅黑, STHeiti, &quot;WenQuanYi Micro Hei&quot;; white-space: normal; background-color: rgb(255, 255, 255);"><span style="box-sizing: border-box; padding: 0px; margin: 0px; list-style: none; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 16px;"><br/></span></p><p><br/></p></img></img></img></img></img></img></img></img></img></img></img></img></p>
+          </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../news.html">返回新闻列表</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

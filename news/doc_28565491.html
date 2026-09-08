@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>干货必读丨4步创建你的「品牌接触点轮盘」 · 新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="../jingdiananli.html">经典案例</a></li>
+        <li><a href="../news.html" class="active">新闻中心</a></li>
+        <li><a href="../zhishi.html">挚识</a></li>
+        <li><a href="../guanyuwomen.html">关于我们</a></li>
+        <li><a href="../recruit.html">人才招聘</a></li>
+        <li><a href="../lianxiwomen.html">联系我们</a></li>
+        <li><a href="../hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page case-detail-page">
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>新闻<span>详情</span></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container">
+        <div class="breadcrumb">
+          当前位置：<a href="../index.html">首页</a> &gt; <a href="../news.html">新闻中心</a> &gt; <span>干货必读丨4步创建你的「品牌接触点轮盘」</span>
+        </div>
+        <article class="detail-card">
+          <h1 class="detail-title">干货必读丨4步创建你的「品牌接触点轮盘」</h1>
+                    <div class="detail-attr">
+            <span><i class="fas fa-folder-open"></i>来源：三希堂品牌战略咨询</span>
+            <span><i class="fas fa-tag"></i>新闻中心</span>
+          </div>
+          <div class="detail-body">
+<p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715373629223.jpg" title="1723715373629223.jpg" alt="1723715373629223.jpg" width="500" height="332" border="0" vspace="0" style="width: 500px; height: 332px;"/></p><p><br/></p><section style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); line-height: 1.75em; visibility: visible;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">企业品牌建设是企业发展战略的关键，是成就企业基业长青的基础支撑。随着市场化的不断深入，人们越来越强烈的认识到品牌建设在企业经营中的突出作用，对于品牌建设也在不断的探索。</span></section><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">品牌，对于一企业来说是非常重要的，它代表的是一个价值体系，一套视觉符号和一种态度。品牌意味着市场定位，意味着产品质量、性能、技术、装备和服务等等的价值，它最终体现了企业的经营理念。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">在企业品牌化发展的时代里，品牌将是企业不可或缺的财富。可是，很多企业的品牌建设工作，往往容易流于表面，那么如何在懂得顶层设计的同时，了解自上而下的品牌落点，发挥品牌的强大力量呢？品牌接触点就成为一个不可避开的重要知识点。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); line-height: 1.75em; text-align: center; visibility: visible;"><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715403626551.png" title="1723715403626551.png" alt="3.png"/></p><p style="margin: 0px;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">品牌接触点</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; letter-spacing: 1px; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136); box-sizing: border-box !important; overflow-wrap: break-word !important;">（brand touchpoint）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">是指消费者有机会面对一个品牌信息的情景，这些接触点是品牌信息的主要来源。接触是整合营销传播中的核心概念，是指一切将品牌、产品类别以及任何与市场相关的活动等信息传递给顾客或潜在顾客的过程和情景。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"></span></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715420547290.png" title="1723715420547290.png" alt="4.png"/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"></span><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">事实上，在我们生活中，每一次消费体验都包含了一个或者一系列品牌的接触点，而每一个品牌接触点都在传播着品牌信息，同时都会或多或少的影响着消费者的购买决策。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">一般而言，对于复杂程度比较高的品牌，消费者在购买过程中，接触到的品牌接触点就会比较多，因此，这类品牌的品牌传播难度就相应的增大。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">对于复杂程度比较低的品牌，接触点就会相对比较少，但是在有限的接触点上影响消费者的购买决策，其难度也是不言而喻。这就要求品牌管理者，必须找到关键的品牌接触点，然后释放品牌识别等方面的信息，以完成树立品牌形象和提升销售的目的。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">因此，针对不同的接触点，要有目的地释放能够影响品牌认可和购买行为的品牌识别内容，并做好品牌接触点管理工作。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); line-height: 1.75em; text-align: center; visibility: visible;"><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715442988879.png" title="1723715442988879.png" alt="5.png"/></p><p><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">品牌接触点管理就是要重点管理好那些能够直接影响品牌形象，或者为消费者带来美好体验，以及提升销售的“关键”品牌识别。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">在进行品牌传播时，要将品牌识别内容有意识的落实到相应的品牌接触点上，让消费者在接受和体验品牌相关讯息时，清晰、一致的感受到品牌的核心内涵。以使品牌信息持续不断的在所有品牌接触点上传播品牌识别，演绎品牌核心价值及相关识别，在消费者的心智中留下丰富的品牌联想和鲜明、独特的品牌个性。从而提高品牌传播效率，降低品牌建设成本。这就是品牌接触点管理的本质所在。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">同时，需要强调的是，品牌接触点可以是电视广告、平面广告、终端、人员、服务等内容，也可以是消费者的某些需求点。</span></p><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715469415349.png" title="1723715469415349.png" alt="6.png"/></p><p><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">要确定组织的哪些领域和运营流程及实践适合进行文化变革，一种方法就是利用品牌接触点。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">品牌接触点是指外部人士接触和认识我们品牌的方式。某些品牌接触点可能是某个单一元素，如产品或一次通信；还有些接触点则是结合了多种元素的相互作用或体验，如安装设备或参与顾客活动。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">接触点存在于整个客户旅程中， 从发现产品</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: PingFangTC-light; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136);">（电子邮件邀请函、店内的陈列品或名片）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">到购买产品</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: PingFangTC-light; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136);">（销售人员的客户登记、网站出库结账流程、发票）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">，到产品的使用</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-size: 12px; font-family: PingFangTC-light; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible; color: rgb(136, 136, 136);">（设备的按钮、项目计划、手机应用程序）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">，再到提供产品的售后服务和支持</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: PingFangTC-light; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136);">（呼叫中心机构、等待室的一件家具、品牌忠诚度项目等）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">大多数组织都拥有数百个品牌接触点；忽视或低估后台职能部门或是非直接面对顾客的员工对品牌接触点的影响，是常见的事情。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">一家大型建筑公司发现，严格的承包商付款流程是一个直接影响建筑质量的接触点。当公司缩短付款进度并减少需要由承包商填报的表格时，公司便开始吸引更优质的承包商，而后者又直接带来了房屋建造质量的改进。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">不久之前，一家客户关系管理</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: PingFangTC-light; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136);">（CRM）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">软件公司找到了造成合同谈判过程拖延不决的因素，通过消除部分关键点，公司得以缩短销售周期，让公司和顾客都成为受益者。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">通过确定和评估品牌接触点，我们可以确定，哪些接触点对品牌形象的影响最大。为改变对品牌形象有负面影响的接触点，利用可带来正面影响的接触点，我们还需确定组织内对这些接触点负责的人和流程。具体可按如下步骤操作。</span></p><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715491699096.png" title="1723715491699096.png" alt="7.png"/></p><p><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">使用“品牌接触点轮盘”，我们可以对公司内的所有品牌接触点进行分类和可视化，以及对为确保每个接触点均与品牌有关而必须集中起来的所有组织元素进行分类和可视化。这个功能强大的工具有助于对内部工作模式和外部品牌形象进行整合与协调。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715509111004.png" title="1723715509111004.png" alt="1723715509111004.png" width="500" height="482" border="0" vspace="0" style="width: 500px; height: 482px;"/></p><p style="text-align: center;"><span style="font-family: PingFangTC-light; font-size: 12px; letter-spacing: 1px; text-indent: 48px; background-color: rgb(255, 255, 255);">品牌接触点轮盘的示例</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">我们可以通过如下四个步骤创建你的“品牌接触点轮盘”。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">第一步：审核。</span></strong><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">对于你的公司与外部沟通的所有渠道，以及你为顾客及其他外部利益相关者提供的所有体验，进行全面深入的详细审核。这听起来似乎是一项非常艰巨的任务，但如果能组建一支跨职能团队实施这项任务，那么审核过程不仅会更易于管理，还会取得更全面的结果。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">第二步：组织。</span></strong><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;"></span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">按以下方法对你的接触点进行合理组织：</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">根据在顾客体验过程中所处的各个阶段对你的品牌接触点进行分类，如分为购买前、购买时及购买后的接触点。然后，添加与非顾客的交互事件，如年度报告、办公大楼、供应商发票及组织与其他公司之间的接触点。但由于顾客购买旅程的线性程度越来越有限而且影响其购买决策的因素的离散程度越来越低，因此，这种方法要求我们重复列示适用于不止一个职能部门的接触点。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">比如，顾客在“购买前阶段”在考虑是否购买产品时，在“购买时”阶段将要购买的产品放入购物车并结账时，以及在“购买后”阶段对产品做出评论或是需要查询顾客服务电话时，都有可能接触到手机应用软件。因此，我们需要在顾客购买旅程的几个阶段同时列出“手机应用软件”这个品牌接触点。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">将你的全部接触点划分为三大类：对象</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; letter-spacing: 1px; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136); box-sizing: border-box !important; overflow-wrap: break-word !important;">（如广告或包装）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">、人</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; letter-spacing: 1px; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136); box-sizing: border-box !important; overflow-wrap: break-word !important;">（如呼叫中心或销售员）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">及互动或体验</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; letter-spacing: 1px; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136); box-sizing: border-box !important; overflow-wrap: break-word !important;">（如社交媒体或网站）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">可以把接触点划分为公司控制或拥有的接触点&nbsp;</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; letter-spacing: 1px; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136); box-sizing: border-box !important; overflow-wrap: break-word !important;">（如服务申请表格、优惠券及员工与顾客的互动）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">、承担责任的接触点</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; letter-spacing: 1px; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136); box-sizing: border-box !important; overflow-wrap: break-word !important;">（如送货服务和赞助），</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">以及仅存在影响的接触点</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; letter-spacing: 1px; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136); box-sizing: border-box !important; overflow-wrap: break-word !important;">（如点评网站和员工的口碑）。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">无论你采用哪种组织原理，都必须涵盖产品本身，因为产品通常是对品 牌认知最大的影响因素，但是在这种针对品牌接触点的练习中，人们往往会忽略产品自身。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">第三步：绘制地图。</span></strong><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">对每个接触点，我们需要列出相关的内部部门、小组及开发或提供接触点的人员，并确定他们以前实现接触的过程或做法，然后找出存在共同点或重叠之处的区域，将它们组合起来，形成不同的人员层或流程层。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">比如，你的公司可能会采用产品项目团队来管理产品的定价、包装分销和营销及每个区域中的全部接触点，那么在品牌接触点轮盘上，你就可以把识别出的这些接触点并排放置，并在轮盘内添加一个能同时覆盖这些接触点的“产品团队”层。或者，你的销售流程可能覆盖从产品手册到价目表及发票等方面的接触点，因此，你希望将这些接触点组织到“销售流程”层之下。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">在执行这个步骤的过程中，千万不要完全按现有内部部门的设置去创建层，而是要考虑不同部门的人员是如何通过协作影响这些接触点的。由此创造的工具，不仅能清晰地标识出每个接触点所涉及的人和对象，还可以揭示出哪些跨职能协作是不可或缺的，从而有助于打破组织孤岛，实现组织内部的有机协调。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">在上述销售过程的示例中，营销部门负责产品手册，销售部门负责提供价目表，而会计部门则负责发票。通过将所有三个接触点组织到一个层的下面，我们就可以注意到在销售过程中三个部门之间需要达成的协调。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em;"><strong style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">第四步：合理安排。</span></strong><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-indent: 48px; visibility: visible; box-sizing: border-box !important; overflow-wrap: break-word !important;">将接触点、人与流程安排在一个轮盘中，以品牌作为整个轮盘的中心，将所有接触点设置在轮缘上，将按第三步创建的各个小组或流程作为从中心辐射到接触点上的辐条。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; clear: both; min-height: 1em; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); line-height: 1.75em; text-align: center; visibility: visible;"><br/></p><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715611522044.png" title="1723715611522044.png" alt="8.png"/></p><p><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">在建立了形象化的全部品牌接触点之后，我们需要评估每个接触点能在多大程度上反映你的预期品牌形象。利用顾客研究、自我评估及行业报告，我们可以分析出，每个接触点到底能在多大程度上塑造人们如何看待你的品牌。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">接下来，我们优先确定需要反复使用的最关键的接触点，依据是我们目前交付这些接触点的水平与预期交付水平之间的差距有多大，以及弥补差距所需的成本和时间。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">最后，在将一个接触点指定为优先事项后，我们就可以确定，是否需要调整组织设计或组织运营，或是对两者同时进行调整，使之达到最佳状态。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">在销售流程示例中，我们可能会发现，增加一个新职位</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; font-family: PingFangTC-light; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible; font-size: 12px; color: rgb(136, 136, 136);">（如西南航空的“边界管理员”）</span><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">，会有助于在各个业务部门之间共享最佳实践，从而提高推销力度，并实现我们预想的协作型文化。我们还有可能会发 现，建立 更清晰的发票流程，不仅会减少工作中的冗余，还有利于支持透明度这一核心价值观。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">按上述步骤，通过可视化、评估、排序和优化等流程来处理品牌接触点，尤其适用于创建品牌与文化的融合，因为它可以将代表组织内部工作的点与代表外部认识组织的点连接起来。</span></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><br/></p><p style="margin: 0px 16px; padding: 0px; outline: 0px; max-width: 100%; clear: both; min-height: 1em; color: rgba(0, 0, 0, 0.9); font-size: 17px; letter-spacing: 0.544px; text-align: justify; white-space: normal; font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; background-color: rgb(255, 255, 255); visibility: visible; line-height: 1.75em; box-sizing: border-box !important; overflow-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; outline: 0px; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important; color: rgb(0, 0, 0); font-family: PingFangTC-light; font-size: 15px; letter-spacing: 1px; text-align: left; text-indent: 48px; visibility: visible;">如果我们能让这些流程和实践更好地与预期文化相一致，那么，我们的接触点就可以为品牌创造出更清晰、更一致的形象。如果能让全体同事和员工都参与到“品牌接触点轮盘”的开发过程中，并对由此得到的必要运营环节进行适当的改进，那么，我们就可以让整个组织都参与到转型事务中。</span></p><p><br/></p><p style="text-align: center;margin:0;"><img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715658539631.png" title="1723715658539631.png" alt="1723715658539631.png" width="500" height="938" border="0" vspace="0" style="width: 500px; height: 938px;"/></p><p><br/></p></img></img></img></img></img></img></img></img></img></p>
+          </div>
+        </article>
+        <div class="detail-nav">
+          <a class="back-btn" href="../news.html">返回新闻列表</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
