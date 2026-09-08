@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>经典案例 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 (免费版) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="jingdiananli.html" class="active">经典案例</a></li>
+        <li><a href="news.html">新闻中心</a></li>
+        <li><a href="zhishi.html">挚识</a></li>
+        <li><a href="guanyuwomen.html">关于我们</a></li>
+        <li><a href="recruit.html">人才招聘</a></li>
+        <li><a href="lianxiwomen.html">联系我们</a></li>
+        <li><a href="hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 经典案例栏目页 ===== -->
+  <main class="case-page">
+    <!-- 炫彩动画Banner -->
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>经典<span>案例</span></h1>
+        <p>十年深耕，用结果说话</p>
+      </div>
+    </section>
+
+    <!-- 一、品牌文化咨询案例 -->
+    <section class="case-section bg-white">
+      <div class="container">
+        <div class="case-header">
+          <span class="badge">品牌文化咨询案例</span>
+          <h2>品牌文化<span>咨询</span>案例</h2>
+          <p>以战略视角挖掘品牌文化基因，塑造差异化品牌价值</p>
+        </div>
+        <div class="case-grid">
+          <a class="case-card" href="case/doc_30819599.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/11810/23619439_1775025243.jpg" alt="华能岳电 “岳越” 文化" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">01</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>华能岳电 “岳越” 文化</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_30819516.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/11810/23618914_1775024511.jpg" alt="协助重庆云宸在行业建立起混合动力电池技术领导者形象" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">02</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>协助重庆云宸在行业建立起混合动力电池技术领导者形象</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_30819513.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/11809/23617978_1775023250.png" alt="濛溪河 | 从城市文脉探寻农产品区域公用品牌得全品类张力" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">03</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>濛溪河 | 从城市文脉探寻农产品区域公用品牌得全品类张力</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28113532.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8717/17432650_1715677961.png" alt="中科科建集团 | 产业科学引领者企业文化" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">04</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>中科科建集团 | 产业科学引领者企业文化</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28113395.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8739/17476140_1716188099.png" alt="中铁五局六公司 | 铺架王牌军企业文化" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">05</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>中铁五局六公司 | 铺架王牌军企业文化</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28111171.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/11809/23617683_1775022819.png" alt="从川桥加固到川桥特种，通过品类创新升级品牌战略" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">06</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>从川桥加固到川桥特种，通过品类创新升级品牌战略</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28111340.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8715/17428649_1715656691.jpg" alt="观山湖区招商引业服务中心" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">07</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>观山湖区招商引业服务中心</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28113733.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8717/17432851_1715679210.png" alt="路桥集团大桥工程分公司 | 集团组织下专业化公司的子文化" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">08</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>路桥集团大桥工程分公司 | 集团组织下专业化公司的子文化</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28112446.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8716/17430726_1715670232.png" alt="四川路桥青年 IP 形象塑造" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">09</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>四川路桥青年 IP 形象塑造</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28112220.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8716/17430239_1715668127.png" alt="挖掘品牌文化基因，塑造品牌形象" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">10</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>挖掘品牌文化基因，塑造品牌形象</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28112150.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8716/17430126_1715667733.png" alt="协助中国农业增强在世界上的竞争力人对民食的信任度" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">11</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>协助中国农业增强在世界上的竞争力人对民食的信任度</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_29111270.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/9540/19078460_1734935190.jpg" alt="党建品牌 | 【星火耀沿江】如何在工程建设一线燃烧出炙热的橙红火焰" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">12</span>
+                <span class="case-tag">党建品牌</span>
+              </div>
+              <h3>党建品牌 | 【星火耀沿江】如何在工程建设一线燃烧出炙热的橙红火焰</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28110800.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8714/17427682_1715652874.png" alt="醉美井庄，开启乡村振兴品牌 “亿” 时代" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">13</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>醉美井庄，开启乡村振兴品牌 “亿” 时代</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_29111461.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/9540/19079092_1734937731.jpg" alt="“灯塔” 党建品牌 | 【标杆点亮红色灯塔 党建领航桥梁飞越】" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">14</span>
+                <span class="case-tag">党建品牌</span>
+              </div>
+              <h3>“灯塔” 党建品牌 | 【标杆点亮红色灯塔 党建领航桥梁飞越】</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_27975374.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8584/17166434_1713515159.png" alt="蜀道红・耀华东" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">15</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>蜀道红・耀华东</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28113744.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8717/17433017_1715679792.png" alt="阆中燃气 | B2B2C 公司的企业文化" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">16</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>阆中燃气 | B2B2C 公司的企业文化</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_29111003.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/9540/19078016_1734933039.jpg" alt="党建品牌 | 党旗飘扬下步履不停的 “川桥特种兵”" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">17</span>
+                <span class="case-tag">党建品牌</span>
+              </div>
+              <h3>党建品牌 | 党旗飘扬下步履不停的 “川桥特种兵”</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_27713438.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8563/17124624_1713163933.png" alt="团青品牌的 “Young 梦” 之旅" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">18</span>
+                <span class="case-tag">品牌文化咨询</span>
+              </div>
+              <h3>团青品牌的 “Young 梦” 之旅</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 二、传播策划案例 -->
+    <section class="case-section bg-cream">
+      <div class="container">
+        <div class="case-header">
+          <span class="badge">传播策划案例</span>
+          <h2>传播<span>策划</span>案例</h2>
+          <p>线上线下全案传播，让品牌声音精准触达目标受众</p>
+        </div>
+        <div class="case-grid">
+          <a class="case-card" href="case/doc_30820457.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/11812/23623559_1775032340.png" alt="云度汽车" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">01</span>
+                <span class="case-tag">传播策划</span>
+              </div>
+              <h3>云度汽车</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_30820224.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/11812/23623466_1775032053.png" alt="五粮液" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">02</span>
+                <span class="case-tag">传播策划</span>
+              </div>
+              <h3>五粮液</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_30820137.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/11811/23621150_1775027469.jpg" alt="将老酒战略落地双微，展现舍得生态之美、老酒之美等" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">03</span>
+                <span class="case-tag">传播策划</span>
+              </div>
+              <h3>将老酒战略落地双微，展现舍得生态之美、老酒之美等</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28564474.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/9091/18180522_1723704922.png" alt="Ta 被国务院国资委新媒体平台看上了" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">04</span>
+                <span class="case-tag">传播策划</span>
+              </div>
+              <h3>Ta 被国务院国资委新媒体平台看上了</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28117123.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8720/17439303_1715756217.png" alt="四川路桥首个高铁制梁场，西南最大高铁制梁场" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">05</span>
+                <span class="case-tag">传播策划</span>
+              </div>
+              <h3>四川路桥首个高铁制梁场，西南最大高铁制梁场</h3>
+            </div>
+          </a>
+          <a class="case-card" href="case/doc_28115435.html">
+            <div class="case-thumb">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_doc_content/v1/8719/17437552_1715743769.png" alt="攀大高速（四川境内）分布式光伏储能项目整体宣传策划" loading="lazy" />
+              <div class="case-overlay"><span class="more">查看详情</span></div>
+            </div>
+            <div class="case-info">
+              <div class="case-meta">
+                <span class="case-num">06</span>
+                <span class="case-tag">传播策划</span>
+              </div>
+              <h3>攀大高速（四川境内）分布式光伏储能项目整体宣传策划</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>028-60786535 / 13551315662</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>周一至周五（9:30 - 18:00）</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>四川省成都市武侯区二环路莱蒙都会3栋11层</span>
+        </div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label">
+          <i class="fab fa-weixin"></i> 关注微信公众号
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // 移动端菜单
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+          }
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          });
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

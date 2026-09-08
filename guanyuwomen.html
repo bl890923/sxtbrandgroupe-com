@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于我们 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 (免费版) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       关于我们页
+       ================================================================ */
+    .about-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #ffffff;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 公司简介区 (浅色) ---- */
+    .about-intro {
+      padding: 64px 0 56px;
+      background: #ffffff;
+    }
+    .about-intro .intro-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .about-intro .intro-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196, 26, 26, 0.08);
+      padding: 4px 18px;
+      border-radius: 30px;
+      background: rgba(196, 26, 26, 0.02);
+      margin-bottom: 8px;
+    }
+    .about-intro .intro-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .about-intro .intro-header h2 span {
+      color: var(--red);
+    }
+    .about-intro .intro-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .about-intro .intro-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 32px 36px;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .about-intro .intro-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .about-intro .intro-card p {
+      font-size: 1.05rem;
+      color: #3a3a3a;
+      line-height: 2;
+      letter-spacing: 0.5px;
+    }
+    .about-intro .intro-card p .brand-highlight {
+      color: var(--red);
+      font-weight: 700;
+      position: relative;
+    }
+    .about-intro .intro-card p .brand-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(196,26,26,0.15);
+      border-radius: 2px;
+    }
+    .about-intro .intro-card p .keyword {
+      display: inline-block;
+      background: rgba(196,26,26,0.06);
+      padding: 0 8px;
+      border-radius: 4px;
+      color: var(--red);
+      font-weight: 500;
+    }
+    .about-intro .intro-card .desc-icon {
+      display: inline-block;
+      font-size: 1.2rem;
+      color: var(--red);
+      opacity: 0.3;
+      margin-right: 6px;
+    }
+
+    /* ---- 数据统计 (深色) ---- */
+    .about-stats {
+      padding: 64px 0;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-stats::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+      z-index: 1;
+    }
+    .about-stats .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .about-stats .stat-item {
+      text-align: center;
+      padding: 28px 16px 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-stats .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 2px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      opacity: 0.3;
+      transition: all 0.3s ease;
+    }
+    .about-stats .stat-item:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(196,26,26,0.1);
+    }
+    .about-stats .stat-item:hover::before {
+      opacity: 1;
+      width: 50px;
+    }
+    .about-stats .stat-item .stat-num {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .about-stats .stat-item .stat-label {
+      font-size: 0.85rem;
+      color: #aaa;
+      letter-spacing: 1px;
+    }
+
+    /* ---- 核心特色 (浅色) ---- */
+    .about-features {
+      padding: 64px 0;
+      background: #f5f1ea;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .about-features .feature-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .about-features .feature-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.12);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.04);
+      margin-bottom: 10px;
+    }
+    .about-features .feature-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .about-features .feature-header h2 span {
+      color: var(--red);
+    }
+    .about-features .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .about-features .feature-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px 30px;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .about-features .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.05);
+      border-color: rgba(196,26,26,0.1);
+    }
+    .about-features .feature-card .feature-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(196,26,26,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--red);
+    }
+    .about-features .feature-card .feature-body .feature-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .about-features .feature-card .feature-body .feature-title span {
+      color: var(--red);
+    }
+    .about-features .feature-card .feature-body p {
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* ---- 资质荣誉 (浅色) ---- */
+    .about-honor {
+      padding: 64px 0;
+      background: #f5f1ea;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-honor::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+      z-index: 1;
+    }
+    .about-honor .honor-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .about-honor .honor-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.15);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.06);
+      margin-bottom: 10px;
+    }
+    .about-honor .honor-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .about-honor .honor-header h2 span {
+      color: var(--red);
+    }
+    .about-honor .honor-image {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-honor .honor-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+
+    /* ---- 核心业务 ---- */
+    .about-business {
+      padding: 64px 0;
+      background: #fafafa;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-business::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .about-business .biz-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .about-business .biz-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.12);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.04);
+      margin-bottom: 10px;
+    }
+    .about-business .biz-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .about-business .biz-header h2 span {
+      color: var(--red);
+    }
+    .about-business .biz-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .about-business .biz-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .about-business .biz-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.06);
+      border-color: rgba(196,26,26,0.1);
+    }
+    .about-business .biz-card .biz-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .about-business .biz-card .biz-body {
+      padding: 26px 30px 30px;
+    }
+    .about-business .biz-card .biz-body h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .about-business .biz-card .biz-body h3 span {
+      color: var(--red);
+    }
+    .about-business .biz-card .biz-body p {
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.85;
+    }
+
+    /* ---- 三希堂核心方法论 (浅色) ---- */
+    .about-method {
+      padding: 64px 0;
+      background: #fafafa;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-method::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .about-method .method-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .about-method .method-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.15);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.06);
+      margin-bottom: 10px;
+    }
+    .about-method .method-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .about-method .method-header h2 span {
+      color: var(--red);
+    }
+    .about-method .method-body {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-method .method-body .method-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .about-method .method-body .method-slogan {
+      margin-top: 28px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 4px;
+    }
+    .about-method .method-body .method-slogan span {
+      color: var(--red);
+    }
+    .about-method .method-body .method-desc {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.8;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ---- 文化理念 (纯白) ---- */
+    .about-idea {
+      padding: 64px 0;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-idea::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .about-idea .idea-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .about-idea .idea-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.12);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.04);
+      margin-bottom: 10px;
+    }
+    .about-idea .idea-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .about-idea .idea-header h2 span {
+      color: var(--red);
+    }
+    .about-idea .idea-body {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-idea .idea-body .idea-slogan {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 6px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+    .about-idea .idea-body .idea-slogan span {
+      color: var(--red);
+    }
+    .about-idea .idea-body .idea-figure img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 620px;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .about-features .feature-lead {
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.6;
+      margin: -24px 0 36px;
+    }
+    .about-features .feature-lead span {
+      color: var(--red);
+    }
+    @media (max-width: 768px) {
+      .about-features .feature-lead { font-size: 1.05rem; }
+    }
+
+    /* ---- 资质荣誉 内部增强 ---- */
+    .about-honor .honor-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto 44px;
+    }
+    .about-honor .honor-item {
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 26px 20px;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+    .about-honor .honor-item:hover {
+      border-color: rgba(196,26,26,0.45);
+      background: rgba(196,26,26,0.04);
+      transform: translateY(-4px);
+    }
+    .about-honor .honor-item .honor-icon {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,26,26,0.25);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-honor .honor-item .honor-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .about-honor .honor-item .honor-name {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    .about-honor .honor-item .honor-sub {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+    .about-honor .honor-certs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      max-width: 1100px;
+      margin: 0 auto 44px;
+    }
+    .about-honor .honor-cert {
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .about-honor .honor-cert img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+    }
+
+    /* ===== 响应式：新增板块 ===== */
+    @media (max-width: 1024px) {
+      .about-business .biz-grid { grid-template-columns: 1fr; }
+      .about-honor .honor-list { grid-template-columns: repeat(3, 1fr); }
+      .about-honor .honor-certs { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .about-business .biz-header h2 { font-size: 1.8rem; }
+      .about-method .method-header h2 { font-size: 1.8rem; }
+      .about-idea .idea-header h2 { font-size: 1.8rem; }
+      .about-honor .honor-list { grid-template-columns: 1fr; }
+      .about-honor .honor-certs { grid-template-columns: repeat(2, 1fr); }
+      .about-idea .idea-body .idea-slogan { font-size: 1.25rem; letter-spacing: 4px; }
+    }
+    @media (max-width: 480px) {
+      .about-honor .honor-certs { grid-template-columns: 1fr; }
+      .about-business .biz-card .biz-body { padding: 20px 18px 22px; }
+      .about-method .method-body .method-slogan { font-size: 1.15rem; letter-spacing: 2px; }
+    }
+
+    /* ---- 底部号召 ---- */
+    .about-cta {
+      padding: 48px 0 56px;
+      text-align: center;
+      background: #fafafa;
+      border-top: 1px solid #f0f0f0;
+    }
+    .about-cta .cta-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.06);
+      padding: 5px 28px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.01);
+      margin-bottom: 14px;
+    }
+    .about-cta h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+    }
+    .about-cta h2 span {
+      color: var(--red);
+    }
+    .about-cta p {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 12px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .about-intro .intro-header h2 { font-size: 1.8rem; }
+      .about-intro .intro-cards { grid-template-columns: 1fr; }
+      .about-stats .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .about-features .feature-header h2 { font-size: 1.8rem; }
+      .about-honor .honor-header h2 { font-size: 1.8rem; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .about-intro { padding: 40px 0; }
+      .about-intro .intro-header h2 { font-size: 1.5rem; }
+      .about-intro .intro-card { padding: 22px 20px; border-radius: 12px; }
+      .about-intro .intro-card p { font-size: 0.95rem; line-height: 1.9; }
+
+      .about-stats { padding: 40px 0; }
+      .about-stats .stats-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .about-stats .stat-item { padding: 20px 12px 18px; }
+      .about-stats .stat-item .stat-num { font-size: 2rem; }
+
+      .about-features { padding: 40px 0; }
+      .about-features .feature-header h2 { font-size: 1.5rem; }
+      .about-features .feature-grid { grid-template-columns: 1fr; gap: 16px; }
+      .about-features .feature-card { padding: 22px 20px; gap: 16px; }
+
+      .about-honor { padding: 40px 0; }
+      .about-honor .honor-header h2 { font-size: 1.5rem; }
+
+      .about-cta { padding: 32px 0 40px; }
+      .about-cta h2 { font-size: 1.5rem; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .about-intro .intro-header h2 { font-size: 1.3rem; }
+      .about-intro .intro-card { padding: 18px 16px; }
+      .about-intro .intro-card p { font-size: 0.85rem; line-height: 1.8; }
+      .about-stats .stats-grid { grid-template-columns: 1fr; }
+      .about-features .feature-header h2 { font-size: 1.3rem; }
+      .about-honor .honor-header h2 { font-size: 1.3rem; }
+      .about-cta h2 { font-size: 1.3rem; }
+      .about-cta p { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="jingdiananli.html">经典案例</a></li>
+        <li><a href="news.html">新闻中心</a></li>
+        <li><a href="zhishi.html">挚识</a></li>
+        <li><a href="guanyuwomen.html" class="active">关于我们</a></li>
+        <li><a href="recruit.html">人才招聘</a></li>
+        <li><a href="lianxiwomen.html">联系我们</a></li>
+        <li><a href="hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 关于我们栏目页 ===== -->
+  <main class="about-page">
+    <!-- 炫彩动画Banner -->
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>关于<span>我们</span></h1>
+        <p>深耕国资品牌文化塑造 · 立足西南 · 服务全国</p>
+      </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section class="about-intro">
+      <div class="container">
+        <div class="intro-header">
+          <span class="badge">ABOUT US</span>
+          <h2>三希堂<span>品牌管理</span></h2>
+        </div>
+        <div class="intro-cards">
+          <div class="intro-card">
+            <p>
+              <span class="desc-icon"><i class="fas fa-quote-left"></i></span>
+              <span class="brand-highlight">三希堂品牌管理</span> 始创于
+              <span class="keyword">2013</span> 年，主创人员由具有十年以上品牌咨询、营销策划、公关传播的专家学者和资深媒体人构成，旗下汇聚了
+              <span class="keyword">50+</span> 既具有扎实理论功底又具有实践操作经验的资深品牌管理顾问，是一家以品牌战略咨询为核心提供
+              <span class="keyword">“策略+创意+传播”</span> 全链条解决方案的品牌管理公司。
+            </p>
+          </div>
+          <div class="intro-card">
+            <p>
+              <span class="desc-icon"><i class="fas fa-quote-left"></i></span>
+              作为品牌文化一体化塑造<span class="brand-highlight">领航者</span>，三希堂历经十余年发展形成了<span class="keyword">深耕西南、服务全国</span>的发展格局，累计服务政府与企事业单位客户超
+              <span class="keyword">300+</span>，持续为客户的品牌文化决策提供最佳的思想、理论、方法、工具。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 数据统计 -->
+    <section class="about-stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-num">2013</div>
+            <div class="stat-label">公司创立时间（年）</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">主创团队行业经验（年）</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">资深品牌管理顾问</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">300+</div>
+            <div class="stat-label">服务政府与企事业单位客户</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 核心业务 -->
+    <section class="about-business">
+      <div class="container">
+        <div class="biz-header">
+          <span class="badge">核心业务</span>
+          <h2>以战略驱动 <span>品牌增长</span></h2>
+        </div>
+        <div class="biz-grid">
+          <div class="biz-card">
+            <div class="biz-media">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11818/23635242_1775101001.png" alt="增长战略咨询" />
+            </div>
+            <div class="biz-body">
+              <h3>核心业务 — <span>增长战略咨询</span></h3>
+              <p>成熟的战略体系解决方案：通过十年的积累，形成了一套成熟的战略体系解决方案，从帮助客户找到井口开始，到把井挖透。</p>
+            </div>
+          </div>
+          <div class="biz-card">
+            <div class="biz-media">
+              <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11818/23635376_1775101185.png" alt="品牌营销全案" />
+            </div>
+            <div class="biz-body">
+              <h3>核心业务 — <span>品牌营销全案</span></h3>
+              <p>深度体系化建立具有驱动性、持续化的商业致胜品牌，为品牌构建完整的营销闭环。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 核心特色 -->
+    <section class="about-features">
+      <div class="container">
+        <div class="feature-header">
+          <span class="badge">核心能力</span>
+          <h2>我们的<span>特色</span></h2>
+        </div>
+        <p class="feature-lead"><span>站在决策层角度看问题</span>，思考问题以帮助客户取得竞争胜利为最终目的</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-gem"></i></div>
+            <div class="feature-body">
+              <div class="feature-title">成熟的<span>战略体系解决方案</span></div>
+              <p>通过十年的积累，形成了一套成熟的战略体系解决方案，从帮助客户找到井口开始，到把井挖透。</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="feature-body">
+              <div class="feature-title"><span>有战略落地</span>保证体系</div>
+              <p>高效落地，长期跟踪，不仅仅是份报告，而是一套战略体系和落地解决方案，报告完成是项目的开始。</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
+            <div class="feature-body">
+              <div class="feature-title">数字化传播营销<span>有独到的经验</span></div>
+              <p>8000+数字化营销战略渠道，融通国际传播视野，构建数字化战略全面配称。</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <div class="feature-body">
+              <div class="feature-title">团队拥有<span>丰富的实战背景</span></div>
+              <p>主创人员由具有十年以上品牌战略咨询、企业文化咨询服务经验的专家学者和资深媒体人构成，旗下汇聚超百位资深咨询顾问。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 三希堂核心方法论 -->
+    <section class="about-method">
+      <div class="container">
+        <div class="method-header">
+          <span class="badge">方法论</span>
+          <h2>三希堂核心<span>方法论</span></h2>
+        </div>
+        <div class="method-body">
+          <div class="method-figure">
+            <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11818/23635664_1775101488.png" alt="三希堂核心方法论" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 文化理念 -->
+    <section class="about-idea">
+      <div class="container">
+        <div class="idea-header">
+          <span class="badge">文化理念</span>
+          <h2>文化<span>理念</span></h2>
+        </div>
+        <div class="idea-body">
+          <div class="idea-slogan"><span>以终为始</span> 正道诚信</div>
+          <div class="idea-slogan" style="color:#c41a1a;">策略破冰 创意开路</div>
+          <div class="idea-figure">
+            <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8504/17006721_1711942711.png" alt="三希堂文化理念" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 资质荣誉 -->
+    <section class="about-honor">
+      <div class="container">
+        <div class="honor-header">
+          <span class="badge">资质荣誉</span>
+          <h2>资质<span>荣誉</span></h2>
+        </div>
+        <div class="honor-list">
+          <div class="honor-item">
+            <div class="honor-icon"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11817/23632840_1775098430.png" alt="中国企业联合会管理咨询委员会执行委员单位" /></div>
+            <div class="honor-name">中国企业联合会管理咨询委员会</div>
+            <div class="honor-sub">执行委员单位</div>
+          </div>
+          <div class="honor-item">
+            <div class="honor-icon"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11817/23632891_1775098480.png" alt="中国文化管理协会文化品牌一体化牵头单位" /></div>
+            <div class="honor-name">中国文化管理协会</div>
+            <div class="honor-sub">文化品牌一体化牵头单位</div>
+          </div>
+          <div class="honor-item">
+            <div class="honor-icon"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11817/23632998_1775098585.png" alt="四川省广告协会理事单位" /></div>
+            <div class="honor-name">四川省广告协会</div>
+            <div class="honor-sub">理事单位</div>
+          </div>
+        </div>
+        <div class="honor-certs">
+          <div class="honor-cert"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11817/23633420_1775099120.jpg" alt="资质荣誉证书" /></div>
+          <div class="honor-cert"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11817/23633467_1775099160.jpg" alt="资质荣誉证书" /></div>
+          <div class="honor-cert"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11817/23633824_1775099469.png" alt="资质荣誉证书" /></div>
+          <div class="honor-cert"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11817/23633890_1775099536.png" alt="资质荣誉证书" /></div>
+          <div class="honor-cert"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11817/23633932_1775099581.jpg" alt="资质荣誉证书" /></div>
+          <div class="honor-cert"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11818/23634040_1775099689.png" alt="资质荣誉证书" /></div>
+          <div class="honor-cert"><img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/11818/23634208_1775099852.png" alt="资质荣誉证书" /></div>
+          <div class="honor-cert"><img src="https://aimg8.dlssyht.cn/u/2261410/ev_user_module_content_tmp/10816/21631983_1757643633.png" alt="三希堂资质荣誉" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 底部号召 -->
+    <section class="about-cta">
+      <div class="container">
+        <div class="cta-badge">与杰出品牌共性兴</div>
+        <h2>以战略视角 <span>塑造品牌文化</span></h2>
+        <p>三希堂以战略视角输出品牌文化体系，协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>028-60786535 / 13551315662</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>周一至周五（9:30 - 18:00）</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>四川省成都市武侯区二环路莱蒙都会3栋11层</span>
+        </div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label">
+          <i class="fab fa-weixin"></i> 关注微信公众号
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单交互 ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+          }
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          });
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          }
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

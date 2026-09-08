@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>服务项目 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 (免费版) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       服务项目页
+       ================================================================ */
+    .services-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #ffffff;
+    }
+
+    /* ---- 炫彩动画Banner (高度280px，上移55px) ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px; /* 上移55px */
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 服务区块 ---- */
+    .service-block {
+      padding: 48px 0;
+      background: #ffffff;
+    }
+
+    .service-block .service-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .service-block .service-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .service-block .service-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196, 26, 26, 0.08);
+      padding: 4px 18px;
+      border-radius: 30px;
+      background: rgba(196, 26, 26, 0.02);
+      margin-bottom: 8px;
+    }
+    .service-block .service-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .service-block .service-header h2 span {
+      color: var(--red);
+    }
+
+    .service-block .service-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background: transparent;
+    }
+    .service-block .service-image img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    }
+
+    .service-block .service-content {
+      padding: 0 20px;
+    }
+    .service-block .service-content .desc-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 32px 36px;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+    .service-block .service-content .desc-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .service-block .service-content .desc-card p {
+      font-size: 1.05rem;
+      color: #3a3a3a;
+      line-height: 2;
+      margin-bottom: 0;
+      letter-spacing: 0.5px;
+    }
+    .service-block .service-content .desc-card p .brand-highlight {
+      color: var(--red);
+      font-weight: 700;
+      position: relative;
+    }
+    .service-block .service-content .desc-card p .brand-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(196,26,26,0.15);
+      border-radius: 2px;
+    }
+    .service-block .service-content .desc-card p .keyword {
+      display: inline-block;
+      background: rgba(196,26,26,0.06);
+      padding: 0 8px;
+      border-radius: 4px;
+      color: var(--red);
+      font-weight: 500;
+    }
+    .service-block .service-content .desc-card .desc-icon {
+      display: inline-block;
+      font-size: 1.2rem;
+      color: var(--red);
+      opacity: 0.3;
+      margin-right: 6px;
+    }
+
+    .service-block .service-content .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+    .service-block .service-content .tags .tag {
+      background: rgba(0,0,0,0.02);
+      border: 1px solid rgba(0,0,0,0.04);
+      padding: 4px 16px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: #666;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .service-block .service-content .tags .tag:hover {
+      background: rgba(196, 26, 26, 0.04);
+      border-color: rgba(196, 26, 26, 0.1);
+      color: var(--red);
+    }
+
+    /* ---- 通栏广告 (浅色 + 炫彩动画背景，高度300px) ---- */
+    .section-divider-ad {
+      width: 100%;
+      height: 300px;
+      background: #f5f2ed; /* 浅色基底 */
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+    }
+    /* 炫彩动画背景 */
+    .section-divider-ad .ad-bg-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 15% 30%, rgba(196,26,26,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 70%, rgba(212,168,75,0.06) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(196,26,26,0.05) 0%, transparent 45%),
+        radial-gradient(circle at 30% 90%, rgba(255,200,100,0.04) 0%, transparent 35%);
+      background-size: 300% 300%;
+      animation: adGradientShift 10s ease-in-out infinite alternate;
+    }
+    /* 额外流动光效 */
+    .section-divider-ad .ad-flow {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: repeating-linear-gradient(
+        60deg,
+        transparent,
+        transparent 60px,
+        rgba(196,26,26,0.02) 60px,
+        rgba(196,26,26,0.02) 61px
+      );
+      animation: adFlowMove 15s linear infinite;
+      opacity: 0.6;
+    }
+    /* 浮动粒子 (浅色) */
+    .section-divider-ad .ad-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .section-divider-ad .ad-particles span {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(196,26,26,0.08);
+      border-radius: 50%;
+      animation: adParticleFloat 7s ease-in-out infinite alternate;
+    }
+    .section-divider-ad .ad-particles span:nth-child(1) { left: 10%; top: 25%; animation-delay: 0s; width: 8px; height: 8px; }
+    .section-divider-ad .ad-particles span:nth-child(2) { left: 25%; top: 70%; animation-delay: 1.5s; }
+    .section-divider-ad .ad-particles span:nth-child(3) { left: 45%; top: 15%; animation-delay: 0.8s; width: 10px; height: 10px; background: rgba(212,168,75,0.06); }
+    .section-divider-ad .ad-particles span:nth-child(4) { left: 60%; top: 80%; animation-delay: 2.2s; }
+    .section-divider-ad .ad-particles span:nth-child(5) { left: 78%; top: 30%; animation-delay: 1.0s; width: 7px; height: 7px; }
+    .section-divider-ad .ad-particles span:nth-child(6) { left: 90%; top: 60%; animation-delay: 1.8s; }
+
+    @keyframes adGradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes adFlowMove {
+      0% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(30px) translateY(-10px); }
+      100% { transform: translateX(-20px) translateY(10px); }
+    }
+    @keyframes adParticleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.1; }
+      50% { transform: translateY(-30px) scale(1.3); opacity: 0.4; }
+      100% { transform: translateY(15px) scale(0.9); opacity: 0.15; }
+    }
+
+    .section-divider-ad .ad-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .section-divider-ad .ad-content .ad-icon-big {
+      font-size: 2.4rem;
+      color: var(--red);
+      opacity: 0.15;
+      margin-bottom: 4px;
+    }
+    .section-divider-ad .ad-content .ad-text-main {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #2a2a2a;
+      letter-spacing: 6px;
+    }
+    .section-divider-ad .ad-content .ad-text-main span {
+      color: var(--red);
+    }
+    .section-divider-ad .ad-content .ad-text-sub {
+      font-size: 0.85rem;
+      color: #999;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .section-divider-ad .ad-content .ad-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 4px 0;
+    }
+    .section-divider-ad .ad-content .ad-divider .line {
+      width: 50px;
+      height: 1px;
+      background: rgba(196,26,26,0.15);
+    }
+    .section-divider-ad .ad-content .ad-divider .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(196,26,26,0.2);
+    }
+
+    /* ---- 底部项目制服务模式 ---- */
+    .service-cta {
+      padding: 48px 0 56px;
+      text-align: center;
+      background: #fafafa;
+      border-top: 1px solid #f0f0f0;
+    }
+    .service-cta .cta-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.06);
+      padding: 5px 28px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.01);
+      margin-bottom: 14px;
+    }
+    .service-cta h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+    }
+    .service-cta h2 span {
+      color: var(--red);
+    }
+    .service-cta p {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 12px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .service-block .service-header h2 { font-size: 1.8rem; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+      .section-divider-ad { height: 240px; }
+      .section-divider-ad .ad-content .ad-text-main { font-size: 1.3rem; letter-spacing: 4px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .service-block {
+        padding: 32px 0;
+      }
+      .service-block .service-inner {
+        gap: 20px;
+      }
+      .service-block .service-header h2 { font-size: 1.5rem; }
+      .service-block .service-content {
+        padding: 0 0;
+      }
+      .service-block .service-content .desc-card {
+        padding: 22px 20px;
+        border-radius: 12px;
+      }
+      .service-block .service-content .desc-card p {
+        font-size: 0.95rem;
+        line-height: 1.9;
+      }
+
+      .section-divider-ad {
+        height: 200px;
+      }
+      .section-divider-ad .ad-content .ad-text-main {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+      }
+      .section-divider-ad .ad-content .ad-text-sub {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+      }
+      .section-divider-ad .ad-content .ad-icon-big {
+        font-size: 1.8rem;
+      }
+
+      .service-cta {
+        padding: 32px 0 40px;
+      }
+      .service-cta h2 { font-size: 1.5rem; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .service-block .service-header h2 { font-size: 1.3rem; }
+      .service-block .service-content .desc-card {
+        padding: 18px 16px;
+      }
+      .service-block .service-content .desc-card p {
+        font-size: 0.85rem;
+        line-height: 1.8;
+      }
+      .section-divider-ad {
+        height: 160px;
+      }
+      .section-divider-ad .ad-content .ad-text-main {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+      }
+      .section-divider-ad .ad-content .ad-text-sub {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+      }
+      .section-divider-ad .ad-content .ad-icon-big {
+        font-size: 1.4rem;
+      }
+      .service-cta h2 { font-size: 1.3rem; }
+      .service-cta p { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="#">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#">首页</a></li>
+        <li><a href="#" class="active">服务项目</a></li>
+        <li><a href="jingdiananli.html">经典案例</a></li>
+        <li><a href="news.html">新闻中心</a></li>
+        <li><a href="zhishi.html">挚识</a></li>
+        <li><a href="#">关于我们</a></li>
+        <li><a href="recruit.html">人才招聘</a></li>
+        <li><a href="#">联系我们</a></li>
+        <li><a href="#">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 服务项目栏目页 ===== -->
+  <main class="services-page">
+    <!-- 炫彩动画Banner -->
+    <section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1>服务<span>项目</span></h1>
+        <p>全链路品牌文化构建 · 一站式解决方案</p>
+      </div>
+    </section>
+
+    <!-- 服务1: 品牌战略咨询 -->
+    <section class="service-block">
+      <div class="container">
+        <div class="service-inner">
+          <div class="service-header">
+            <span class="badge"><i class="fas fa-flag" style="margin-right: 6px;"></i> 战略 · 定位</span>
+            <h2>品牌<span>战略咨询</span></h2>
+          </div>
+          <div class="service-image">
+            <img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1715569311172557.png" alt="品牌战略咨询" />
+          </div>
+          <div class="service-content">
+            <div class="desc-card">
+              <p>
+                <span class="desc-icon"><i class="fas fa-quote-left"></i></span>
+                <span class="brand-highlight">三希堂品牌战略咨询</span> 专注于高价值品牌建设，精准聚焦企业品牌建设薄弱环节，深入理解品牌战略与企业战略之间的互动关系。为企业制定品牌战略目标，分解阶段目标，形成实施路径及关键举措，科学设置品牌架构，建立企业切实的品牌发展策略，打造品牌视觉系统，规范品牌管理制度，将企业品牌战略落实到企业各业务单元的执行层面，帮助客户积累体系化、系统化的品牌管控能力，进一步提升企业核心竞争力。
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">品牌策划</span>
+              <span class="tag">品牌定位</span>
+              <span class="tag">品牌架构</span>
+              <span class="tag">视觉系统</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 通栏广告 (浅色 + 炫彩动画背景，高度300px) ===== -->
+    <div class="section-divider-ad">
+      <div class="ad-bg-glow"></div>
+      <div class="ad-flow"></div>
+      <div class="ad-particles">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="ad-content">
+        <div class="ad-icon-big"><i class="fas fa-gem"></i></div>
+        <div class="ad-divider">
+          <span class="line"></span>
+          <span class="dot"></span>
+          <span class="line"></span>
+        </div>
+        <div class="ad-text-main">三希堂 · <span>品牌文化全案服务</span></div>
+        <div class="ad-text-sub">策略先导 · 体系致胜 · 一以贯之</div>
+        <div class="ad-divider">
+          <span class="line"></span>
+          <span class="dot"></span>
+          <span class="line"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 服务2: 传播策划 -->
+    <section class="service-block">
+      <div class="container">
+        <div class="service-inner">
+          <div class="service-header">
+            <span class="badge"><i class="fas fa-bullhorn" style="margin-right: 6px;"></i> 传播 · 数字化</span>
+            <h2>传播<span>策划</span></h2>
+          </div>
+          <div class="service-image">
+            <img src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1715571621347045.png" alt="传播策划" />
+          </div>
+          <div class="service-content">
+            <div class="desc-card">
+              <p>
+                <span class="desc-icon"><i class="fas fa-quote-left"></i></span>
+                <span class="brand-highlight">三希堂品牌战略咨询</span> 站在减少传播浪费、提高传播效应角度，围绕品牌传播的链条，从传播目标出发，锚定传播主题，匹配传播渠道与链路，构思传播创意，形成具有品牌化的传播策划。我们致力于让每一次传播都精准触达，让品牌声音在嘈杂的市场中脱颖而出，实现品效合一的传播价值。
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">传播策划</span>
+              <span class="tag">公关活动</span>
+              <span class="tag">影视制作</span>
+              <span class="tag">数字化传播</span>
+              <span class="tag">广告创意</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 底部项目制服务模式 -->
+    <section class="service-cta">
+      <div class="container">
+        <div class="cta-badge">项目制服务模式</div>
+        <h2>全链路 <span>品牌文化</span> 构建</h2>
+        <p>从战略咨询到传播落地，三希堂提供一体化品牌解决方案，助力国资品牌塑造核心能力。</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>028-60786535 / 13551315662</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>周一至周五（9:30 - 18:00）</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>四川省成都市武侯区二环路莱蒙都会3栋11层</span>
+        </div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label">
+          <i class="fab fa-weixin"></i> 关注微信公众号
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单交互 ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+          }
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          });
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+              icon.classList.add('fa-bars');
+              icon.classList.remove('fa-times');
+            }
+          }
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

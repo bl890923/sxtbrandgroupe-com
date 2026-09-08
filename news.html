@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新闻中心 · 三希堂品牌战略咨询</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+
+    /* ===== 全局重置 & 黑红变量 ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    :root {
+      --black: #0b0b0b;
+      --red: #c41a1a;
+      --red-dark: #a01414;
+      --red-glow: rgba(196, 26, 26, 0.25);
+      --gold: #d4a84b;
+      --white: #f5f5f5;
+      --gray: #888;
+      --gray-light: #eaeaea;
+    }
+
+    /* ===== 导航 ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196, 26, 26, 0.3);
+      padding: 14px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(1.05);
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-menu li a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ccc;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-menu li a:hover {
+      color: #fff;
+    }
+    .nav-menu li a:hover::after {
+      width: 60%;
+    }
+    .nav-menu li a.active {
+      color: #fff;
+    }
+    .nav-menu li a.active::after {
+      width: 60%;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+    }
+
+    /* ===== 品牌标签 (通栏) ===== */
+    .brand-tag {
+      background: #0b0b0b;
+      padding: 16px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.2);
+    }
+    .brand-tag p {
+      font-size: 0.9rem;
+      color: #ccc;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+    .brand-tag p span {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ================================================================
+       经典案例页
+       ================================================================ */
+    .case-page {
+      padding-top: 76px; /* 导航占位 */
+      background: #fafafa;
+    }
+
+    /* ---- 炫彩动画Banner ---- */
+    .hero-banner {
+      width: 100%;
+      height: 280px;
+      margin-top: -55px;
+      background: #0b0b0b;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(196, 26, 26, 0.08);
+    }
+    .hero-banner .banner-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0b0b0b 0%, #1a0a0a 30%, #2d0a0a 60%, #0b0b0b 100%);
+      z-index: 0;
+    }
+    .hero-banner .banner-glow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(196,26,26,0.35) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(255,200,50,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(196,26,26,0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(255,100,100,0.15) 0%, transparent 40%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-stripe {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(196,26,26,0.04) 40px,
+        rgba(196,26,26,0.04) 41px
+      );
+      animation: stripeMove 12s linear infinite;
+    }
+    .hero-banner .banner-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .banner-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(196,26,26,0.2);
+      border-radius: 50%;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+    }
+    .hero-banner .banner-particles span:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; }
+    .hero-banner .banner-particles span:nth-child(2) { left: 18%; top: 60%; animation-delay: 1.2s; width: 6px; height: 6px; }
+    .hero-banner .banner-particles span:nth-child(3) { left: 35%; top: 15%; animation-delay: 0.6s; }
+    .hero-banner .banner-particles span:nth-child(4) { left: 50%; top: 70%; animation-delay: 2s; width: 8px; height: 8px; background: rgba(255,200,50,0.15); }
+    .hero-banner .banner-particles span:nth-child(5) { left: 65%; top: 25%; animation-delay: 1.8s; }
+    .hero-banner .banner-particles span:nth-child(6) { left: 78%; top: 65%; animation-delay: 0.3s; }
+    .hero-banner .banner-particles span:nth-child(7) { left: 90%; top: 30%; animation-delay: 2.4s; width: 5px; height: 5px; }
+    .hero-banner .banner-particles span:nth-child(8) { left: 45%; top: 40%; animation-delay: 1.5s; width: 3px; height: 3px; }
+
+    .hero-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-banner .banner-content h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 6px;
+      text-shadow: 0 0 40px rgba(196,26,26,0.3);
+    }
+    .hero-banner .banner-content h1 span {
+      color: var(--red);
+    }
+    .hero-banner .banner-content p {
+      font-size: 1rem;
+      color: #aaa;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes stripeMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(60px); }
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(10px) scale(0.9); opacity: 0.3; }
+    }
+
+    /* ---- 案例栏目 ---- */
+    .case-section {
+      padding: 56px 0 64px;
+      position: relative;
+    }
+    .case-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 0 20px var(--red-glow);
+    }
+    .case-section.bg-cream {
+      background: #f5f1ea;
+    }
+    .case-section.bg-white {
+      background: #fafafa;
+    }
+    .case-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .case-header .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,26,26,0.08);
+      padding: 5px 24px;
+      border-radius: 30px;
+      background: rgba(196,26,26,0.02);
+      margin-bottom: 10px;
+    }
+    .case-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    .case-header h2 span {
+      color: var(--red);
+    }
+    .case-header p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .case-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(196, 26, 26, 0.18);
+      box-shadow: 0 14px 40px rgba(196, 26, 26, 0.08);
+    }
+    .case-card .case-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .case-card .case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-thumb img {
+      transform: scale(1.06);
+    }
+    .case-card .case-thumb .case-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 11, 0.55) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .case-card:hover .case-thumb .case-overlay {
+      opacity: 1;
+    }
+    .case-card .case-overlay .more {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .case-card .case-info {
+      padding: 18px 20px 20px;
+    }
+    .case-card .case-info .case-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .case-card .case-info .case-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(196, 26, 26, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .case-card .case-info .case-tag {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    .case-card .case-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      line-height: 1.55;
+      transition: color 0.3s ease;
+    }
+    .case-card:hover .case-info h3 {
+      color: var(--red);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer-main {
+      padding: 60px 0 40px;
+      background: #0b0b0b;
+      border-top: 1px solid rgba(196, 26, 26, 0.1);
+      position: relative;
+    }
+    .footer-main .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-main .footer-brand .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-main .footer-brand .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .footer-main .footer-brand .brand-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.8;
+      max-width: 300px;
+    }
+    .footer-main .footer-contact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .footer-main .footer-contact .contact-item {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-main .footer-contact .contact-item i {
+      color: var(--red);
+      width: 18px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-main .footer-contact .contact-item a {
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    .footer-main .footer-contact .contact-item a:hover {
+      color: #fff;
+    }
+    .footer-main .footer-qr {
+      text-align: center;
+    }
+    .footer-main .footer-qr .qr-code {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0 auto 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .footer-main .footer-qr .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-main .footer-qr .qr-label {
+      font-size: 0.8rem;
+      color: #777;
+      letter-spacing: 2px;
+    }
+    .footer-main .footer-qr .qr-label i {
+      color: var(--red);
+      margin-right: 6px;
+    }
+    .footer-bottom {
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .case-header h2 { font-size: 1.8rem; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .footer-main .container { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-main .footer-qr { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(11, 11, 11, 0.98);
+        padding: 20px 0 16px;
+        gap: 4px;
+        border-top: 1px solid rgba(196, 26, 26, 0.2);
+        margin-top: 12px;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li a {
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .nav-menu li a::after { display: none; }
+      .navbar .container { flex-wrap: wrap; }
+      .nav-logo img { height: 38px; }
+
+      .hero-banner {
+        height: 200px;
+        margin-top: -77px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .case-section { padding: 40px 0 48px; }
+      .case-header h2 { font-size: 1.5rem; }
+      .case-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+      .footer-main .container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-main .footer-brand .brand-desc { max-width: 100%; margin: 0 auto; }
+      .footer-main .footer-contact .contact-item { justify-content: center; }
+      .footer-main .footer-qr .qr-code { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        height: 160px;
+        margin-top: -67px;
+      }
+      .hero-banner .banner-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .hero-banner .banner-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+      }
+      .case-header h2 { font-size: 1.3rem; }
+      .case-header p { font-size: 0.85rem; }
+      .case-grid { grid-template-columns: 1fr; }
+      .case-card .case-info h3 { font-size: 0.95rem; }
+    }
+  
+
+    /* ===== 案例详情页 ===== */
+    .case-detail-page { padding-top: 76px; background: #fafafa; }
+    .detail-section { padding: 44px 0 76px; position: relative; }
+    .detail-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 3px; background: var(--red); box-shadow: 0 0 20px var(--red-glow);
+    }
+    .breadcrumb { font-size: 0.85rem; color: #888; margin: 6px 0 26px; letter-spacing: 0.5px; }
+    .breadcrumb a { color: #666; transition: color .25s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { color: var(--red); }
+    .detail-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+      padding: 48px 60px; box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+    }
+    .detail-title { font-size: 1.9rem; font-weight: 700; color: #141414; line-height: 1.45; letter-spacing: 1px; margin-bottom: 14px; }
+    .detail-attr {
+      font-size: 0.82rem; color: #999; letter-spacing: 2px; padding-bottom: 20px;
+      border-bottom: 1px solid #eee; margin-bottom: 30px; display: flex; gap: 10px 28px; flex-wrap: wrap;
+    }
+    .detail-attr i { color: var(--red); margin-right: 6px; }
+    .detail-body { font-size: 1.02rem; color: #444; line-height: 2.05; word-break: break-word; }
+    .detail-body p { margin: 0 0 18px; }
+    .detail-body h2, .detail-body h3, .detail-body h4 { color: #141414; margin: 30px 0 14px; font-weight: 700; letter-spacing: 0.5px; }
+    .detail-body h2 { font-size: 1.4rem; }
+    .detail-body h3 { font-size: 1.18rem; }
+    .detail-body h4 { font-size: 1.05rem; }
+    .detail-body img {
+      max-width: 100% !important; height: auto !important; width: auto !important;
+      display: block; margin: 10px auto 24px; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .detail-body strong { color: #262626; }
+    .detail-body ul, .detail-body ol { margin: 0 0 18px 1.6em; }
+    .detail-body li { margin-bottom: 6px; }
+    .detail-body hr { border: none; border-top: 1px solid #e8e8e8; margin: 26px 0; }
+    .detail-nav { margin-top: 36px; text-align: center; }
+    .detail-nav .back-btn {
+      display: inline-block; padding: 13px 48px; background: var(--red); color: #fff;
+      border-radius: 6px; font-size: 0.95rem; letter-spacing: 3px; transition: all .3s ease;
+    }
+    .detail-nav .back-btn:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 10px 24px var(--red-glow); }
+    @media (max-width: 768px) {
+      .detail-card { padding: 30px 24px; }
+      .detail-title { font-size: 1.3rem; }
+      .detail-section { padding: 28px 0 52px; }
+      .detail-body { font-size: 0.98rem; }
+    }
+    @media (max-width: 480px) {
+      .detail-card { padding: 24px 18px; }
+      .detail-title { font-size: 1.15rem; }
+      .breadcrumb { font-size: 0.78rem; }
+    }
+
+  
+    /* ===== 新闻/招聘新增样式 ===== */
+    .news-thumb {
+      position: relative; width: 100%; aspect-ratio: 16/9.5;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a0d0d 55%, #3a1010 100%);
+      overflow: hidden;
+    }
+    .news-thumb::before {
+      content: ''; position: absolute; width: 120px; height: 120px;
+      border: 1px solid rgba(196,26,26,0.4); transform: rotate(45deg);
+    }
+    .news-thumb i { font-size: 2rem; color: rgba(212,168,75,0.85); margin-bottom: 8px; }
+    .news-thumb .nt-txt { color: #d4a84b; font-size: 0.8rem; letter-spacing: 3px; }
+    .case-desc {
+      margin-top: 8px; font-size: 0.86rem; color: #888;
+      line-height: 1.5; display: -webkit-box;
+      -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .recruit-card {
+      display: flex; gap: 26px; flex-wrap: wrap;
+      background: #fff; border-radius: 12px; padding: 34px;
+      border-left: 4px solid var(--red); margin-bottom: 26px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    }
+    .recruit-head { width: 220px; flex-shrink: 0; }
+    .recruit-head h3 { font-size: 1.45rem; color: #0b0b0b; margin-bottom: 8px; }
+    .recruit-head .r-tag { display:inline-block; background: var(--red); color:#fff;
+      font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; }
+    .recruit-body { flex: 1; min-width: 260px; }
+    .recruit-body h4 { color: var(--red); font-size: 1.02rem; margin: 10px 0 8px; }
+    .recruit-body ul { padding-left: 20px; margin: 0 0 6px; }
+    .recruit-body li { color: #444; font-size: 0.95rem; margin-bottom: 6px; line-height: 1.7; }
+    .recruit-contact { background:#0b0b0b; border-radius: 12px; margin-top: 10px;
+      padding: 28px 34px; color: #eaeaea; }
+    .recruit-contact h3 { color:#d4a84b; margin-bottom: 12px; }
+    .recruit-contact p { color:#ccc; font-size: 0.95rem; margin-bottom: 6px; }
+    .recruit-contact i { color: var(--red); margin-right: 8px; }
+
+      .news-thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .news-thumb .nt-txt { color:#8a8a8a; font-size:0.72rem; letter-spacing:2px; }
+
+  </style>
+</head>
+<body>
+  <!-- ===== 导航 ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/10816/21631941_1757643523.png" alt="公司LOGO" />
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航">
+        <i class="fas fa-bars"></i>
+      </button>
+            <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="fuwuxiangmu.html">服务项目</a></li>
+        <li><a href="jingdiananli.html">经典案例</a></li>
+        <li><a href="news.html" class="active">新闻中心</a></li>
+        <li><a href="zhishi.html">挚识</a></li>
+        <li><a href="guanyuwomen.html">关于我们</a></li>
+        <li><a href="recruit.html">人才招聘</a></li>
+        <li><a href="lianxiwomen.html">联系我们</a></li>
+        <li><a href="hezuodayi.html">合作答疑</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== 品牌标签 (通栏) ===== -->
+  <div class="brand-tag">
+    <div class="container">
+      <p><span>三希堂品牌战略咨询</span> 专注差异化品牌价值塑造</p>
+    </div>
+  </div>
+
+  <!-- ===== 案例详情 ===== -->
+  <main class="case-page">
+<section class="hero-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-stripe"></div>
+      <div class="banner-particles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="banner-content">
+        <h1><h1>新闻<span>中心</span></h1></h1>
+        <p>三希堂新闻资讯</p>
+      </div>
+    </section>
+  <section class="case-section bg-white">
+    <div class="container">
+      <div class="case-header">
+        <span class="badge">全部资讯</span>
+        <h2>品牌洞察<span>动态</span>资讯</h2>
+        <p>共 63 条新闻资讯，点击卡片阅读详情</p>
+      </div>
+      <div class="case-grid">
+          <a class="case-card" href="news/doc_27713444.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709796048820353.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">01</span> <span class="case-tag">新闻</span></div>
+              <h3>2024未来展望：半导体市场面临挑战，前景黯淡还是迎来新挑战？</h3>
+              <p class="case-desc">2023年全球半导体市场面临通胀加剧和市场需求疲软等挑战，整体市场呈现下滑趋势，但2024年因下游需求复苏将会有所反弹。 未来半导体企业将重点投入在研发、供应链稳定以及人才培养等方面。 尽管市场面临诸</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29677006.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747645240958437.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">02</span> <span class="case-tag">新闻</span></div>
+              <h3>3杯奶茶的故事：5分钟带你读懂品牌</h3>
+              <p class="case-desc">由一杯奶茶谈起：品牌即「熟悉的味道」 当您路过商业街想要购买奶茶时，「喜茶」「奈雪」「蜜雪冰城」这三个招牌会引发截然不同的联想：前两者者代表轻奢打卡之处，后者则是性价比极高的选择。这种条件反射式的认知</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713443.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709793303467521.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">03</span> <span class="case-tag">新闻</span></div>
+              <h3>ChatGPT与人工智能技术发展报告</h3>
+              <p class="case-desc">全球及中国人工智能市场规模 近年来，随着计算机技术的不断进步和应用领域的扩大，全球人工智能市场正在快速发展。据预测，到 2022 年，该市场规模已达 1290 亿美元，其中中国市场规模预计达到130.</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27945036.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1712827111461769.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">04</span> <span class="case-tag">新闻</span></div>
+              <h3>“4.0 时代”的城市品牌传播</h3>
+              <p class="case-desc">建构于人类技术文明的城市发展历程已历经了三个重要转型阶段，并正在面临更深刻的转型。当前的城市化已由传统的空间扩张转化为建立在数字技术的信息内爆。当今中国城市由于发展的不平衡性几乎同时经历这几个阶段。在</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29679129.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747707698177569.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">05</span> <span class="case-tag">新闻</span></div>
+              <h3>“企业的隐形引擎：3个被低估的品牌设计价值”</h3>
+              <p class="case-desc">“品牌设计不就是做个Logo吗？ ” 这是许多企业主的真实想法。但你可能不知道：头部企业品牌设计投入通常占营销预算15-25%，而中小企业平均设计预算不到营收的0.5%。 深夜加班的白领习惯性点了一杯</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29677315.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747646238656459.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">06</span> <span class="case-tag">新闻</span></div>
+              <h3>《哪吒2》的魔童美学、《小丑2》的癫狂色彩：光影魔术师如何让电影封神？</h3>
+              <p class="case-desc">一、以光影为笔，书写银幕魔法 电影摄影是导演的第二支笔，是雕刻时空的魔杖。在每秒24帧的方寸之间，四大造型手段——光学、光线、运动、色彩——构建起电影的视觉基因。斯托拉罗曾说：“电影是用光线书写的文学</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29679952.html">
+            <div class="case-thumb"><div class="news-thumb"><i class="fas fa-newspaper"></i><span class="nt-txt">暂无配图</span></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">07</span> <span class="case-tag">新闻</span></div>
+              <h3>《小预算也能出高级感：中小企业低成本打造高质感VI的实战指南》</h3>
+              <p class="case-desc">——三希堂教你用“巧劲”，花小钱办大事—— 前篇说到中小企业平均设计预算不到营收的0.5%，是中小企不想花钱吗？不是的。 中小企业主最常问我们： “预算有限，品牌视觉能不能既省钱又有档次？” 答案很肯</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29681177.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747726908515911.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">08</span> <span class="case-tag">新闻</span></div>
+              <h3>《工程企业宣传片升级指南：从“施工流水账”到品牌价值传递的5个关键帧》</h3>
+              <p class="case-desc">痛点诊断：为什么你的宣传片成了 “无效流水账” 说到工程企业的宣传片，是不是经常遇到这样的尴尬：片子一放，领导点头，观众打哈欠；画面全是钢筋水泥，解说词堆满“国际领先”，但合作方看完只记住 “你们挺忙</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29681612.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747730803765992.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">09</span> <span class="case-tag">新闻</span></div>
+              <h3>《调色手记：当色彩成为宣传片的第二剧本》&#8203;</h3>
+              <p class="case-desc">调色工程是当代炼金术的祭坛。这里没有烧杯与硫磺，但色轮旋转间，金属质感的蓝能凝结成冰川，浑浊的灰可蒸腾出硝烟。 调色从来不是后期工序里的美容师，而是潜伏在成片基因里的导演。它掌握着三重致命权力： 1.</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_28135294.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1716170166445911.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">10</span> <span class="case-tag">新闻</span></div>
+              <h3>【案例】某市互联网行业党建品牌</h3>
+              <p class="case-desc">近年来，安庆市互联网行业党委坚持以习近平新时代中国特色社会主义思想为指导，深入学习宣传贯彻党的二十大精神，积极探索互联网企业党建工作新路径，勇于创新、全面总结，坚持一手抓工作落实一手抓品牌建设，互联网</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713445.html">
+            <div class="case-thumb"><div class="news-thumb"><i class="fas fa-newspaper"></i><span class="nt-txt">暂无配图</span></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">11</span> <span class="case-tag">新闻</span></div>
+              <h3>一个优秀党建品牌LOGO应具备这些要素！</h3>
+              <p class="case-desc">当下党建品牌建设越来越受到重视，而一个好的党建品牌LOGO则是品牌形象的重要组成部分，它不仅能够传达品牌的理念和精神，还能够增强品牌的辨识度和影响力。那么，一个好的党建品牌LOGO设计应该注意什么呢？</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29808199.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1750663769342715.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">12</span> <span class="case-tag">新闻</span></div>
+              <h3>三希堂助力四川路桥桥梁公司荣获第二届“红钥匙杯”党建赋能企业经营管理案例比武一等奖</h3>
+              <p class="case-desc">6月12日，由中国文化管理协会企业党建与企业文化工作委员会主办的 第二届“红钥匙杯”党建赋能企业经营管理案例比武决赛在成都成功举办，专家评委、参赛团队、会员企业代表及成都高校师生代表1200余人线上线</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_30129205.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1757667749236969.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">13</span> <span class="case-tag">新闻</span></div>
+              <h3>三希堂呈现 | 2025年全国交通重大工程采风活动暨“看蜀道变迁”</h3>
+              <p class="case-desc">6月27日，交通运输部组织的2025年全国交通重大工程采风活动暨“看蜀道变迁”在四川 川汶高速建设现场 举行，三希堂品牌管理公关活动中心幕后助力活动顺利开展。 川汶高速起于阿坝藏族羌族自治州松潘县川主</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29807568.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1750658276142767.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">14</span> <span class="case-tag">2025年6月4</span></div>
+              <h3>三希堂呈现 | 蜀道集团2025年度重点建设项目劳动竞赛启动仪式</h3>
+              <p class="case-desc">2025年6月4日，在四川首个高原高海拔高速公路产业工人园区--康新高速“蜀道家园”，一场主题为“建功交通强省 奋进蜀道征程”的劳动竞赛启动仪式隆重开启。该活动由蜀道投资集团有限责任公司主办、四川路桥</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29807638.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1750659049723807.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">15</span> <span class="case-tag">新闻</span></div>
+              <h3>三希堂品牌管理参与崇州市与中欧协会飞行高铁与爆轰发动机项目交流座谈</h3>
+              <p class="case-desc">2025 年 6 月 5 日，四川崇州市领导一行莅临中欧成都办 事 处，就飞行高铁与爆轰发动机项目展开交流座谈。 在崇州市市长饶程的周密安排与部署下，由副市长陈翔宇率队前往北京 中国科学院 实验室进行</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29808566.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1750664355303434.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">16</span> <span class="case-tag">2025年6月15</span></div>
+              <h3>三希堂品牌管理双奖闪耀品牌影响力大会：“品牌文化一体化”实践获权威点赞</h3>
+              <p class="case-desc">2025年6月15日，以“打造品牌影响力 赋能高质量发展”为主题的2025（第十二届）品牌影响力发展大会在北京全国人大会议中心隆重举行。 本次大会由中国品牌影响力评价办公室、《发现品牌》栏目组、《中国</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_30129165.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1757667055235944.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">17</span> <span class="case-tag">2025年6月27</span></div>
+              <h3>三希堂荣誉再+1，2025品牌强国发展高峰论坛暨第八届品牌强国人物大会隆重召开</h3>
+              <p class="case-desc">2025年6月27-28日，以“多元驱动 品牌新程”为主题的2025品牌强国发展高峰论坛暨第八届品牌强国人物大会在京隆重召开。大会由中国商报社、中国工业报社共同主办，华夏商邦俱乐部、北京工业大学品牌研</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27962424.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1713173622284138.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">18</span> <span class="case-tag">新闻</span></div>
+              <h3>中国企业管理之道：古典文化，恒久弥香</h3>
+              <p class="case-desc">中国历史，浩浩荡荡；古典文化，恒久弥香。自远古三皇五帝到新中国改革开放，上下五千年所传播出的传统思想至今仍让人如痴如醉。尤其是春秋战国时期的百家争鸣，不仅给中国、也给世界带来了璀璨的文明之光和恒久的思</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27961952.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1713168707119877.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">19</span> <span class="case-tag">新闻</span></div>
+              <h3>中国石化胜利油田：来看！这项工作讲透了</h3>
+              <p class="case-desc">还记得1月份，油田印发了 《胜利油田进一步加强三基工作实施方案》 多年来，不论形势发生怎样变化 不论企业体制机制怎样调整 油田始终传承大抓三基的优良传统 这到底是因为啥呢？ 企管法规部（三基工作办公室</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29682233.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747731642744019.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">20</span> <span class="case-tag">新闻</span></div>
+              <h3>像素≠画质？看懂摄影机性能参数</h3>
+              <p class="case-desc">在数字摄影机基础知识单元中，我们拆解了感光元件、拜耳滤色镜、镜头接环、叶子板与曝光方式的技术内核。当三希堂的摄影师们完成这场“机械解剖”后，新的战场已悄然转移——本文将带您闯入新的单元摄影机主要性能指</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29680627.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://res.wx.qq.com/t/wx_fed/we-emoji/res/assets/Expression/Expression_80@2x.png?tp=webp&wxfrom=5&wx_lazy=1" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">21</span> <span class="case-tag">新闻</span></div>
+              <h3>党建品牌不是口号，而是看得见的战斗力</h3>
+              <p class="case-desc">——三希堂与伙伴的“双向奔赴”—— 各位伙伴，您是否遇到过这样的困惑： 党建工作投入不少，结果就是 领导很重视，中层没热情，基层没人理 ？ 主题党日活动办了又办，年轻党员参与度却越来越低？宁愿窝宿舍打</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_28135266.html">
+            <div class="case-thumb"><div class="news-thumb"><i class="fas fa-newspaper"></i><span class="nt-txt">暂无配图</span></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">22</span> <span class="case-tag">新闻</span></div>
+              <h3>党建品牌创建更出成效，这些误区要避开</h3>
+              <p class="case-desc">创建党建品牌不仅是提升基层党组织形象的重要途径，更是凝聚党心、汇聚民心，增强党组织战斗力的重要手段。然而，在创建程中，或多或少存在一些误区需要我们警惕和避免。 首先，创建党建品牌的一个常见误区是形式主</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27946383.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1712886022235746.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">23</span> <span class="case-tag">新闻</span></div>
+              <h3>党建品牌建设之持续性分析</h3>
+              <p class="case-desc">创建一个有影响力的党建品牌是提升党组织凝聚力和战斗力的关键举措。然而，不少基层党组织在品牌创建过程中却面临着一个普遍问题：品牌建设缺乏持续性和深入性。有的党建品牌创建过程中，常有起初热情高涨、活动频繁</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_28135382.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1716170469193683.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">24</span> <span class="case-tag">新闻</span></div>
+              <h3>利用次级联想创建品牌资产</h3>
+              <p class="case-desc">凯文.凯勒在《战略品牌管理》中提到，创建品牌资产的方法有三个： 1、通过选择品牌元素创建品牌资产； 2、通过整合营销活动及营销传播策略创建品牌资产； 3、利用次级品牌联想创建品牌资产。 今天学习怎么利</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29677455.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747647806611146.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">25</span> <span class="case-tag">新闻</span></div>
+              <h3>别让好工程烂在深山里！品牌传播的4个硬核真相</h3>
+              <p class="case-desc">为什么那些知名的工程企业都在抢着 “晒项目工地”？ ——三希堂解码工程项目品牌传播系列一— 工地上焊花四溅时，品牌战争已经打响！ 当同行还在比谁家塔吊更高时，聪明的企业早就把钢筋水泥玩成了流量密码。 </p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713441.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709791069425635.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">26</span> <span class="case-tag">新闻</span></div>
+              <h3>品牌公关是干什么的？</h3>
+              <p class="case-desc">提到“品牌公关”，我们要先了解一下，什么是“品牌公关”。打开百度词条：品牌公关是指企业在处理企业与社会、公众、媒体关系时，充分利用公共关系的职能为企业塑造良好的品牌形象，提高企业的品牌价值。 我们举个</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_30129358.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1757669527481751.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">27</span> <span class="case-tag">新闻</span></div>
+              <h3>品牌共同体：从交易到共生的连接革命</h3>
+              <p class="case-desc">在这个信息过载的时代，消费者每天要面对 5000+品牌触点，却只有7秒决定是否停留。当流量成本涨破天际，传统的 广告轰炸+明星代言 模式已然失效。作为深耕品牌 管理近 15年的 我见证了太多企业在 做</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29679944.html">
+            <div class="case-thumb"><div class="news-thumb"><i class="fas fa-newspaper"></i><span class="nt-txt">暂无配图</span></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">28</span> <span class="case-tag">新闻</span></div>
+              <h3>品牌决胜负于"隐形的战场"：三希堂解码宣传片战略级价值系列｜后期篇</h3>
+              <p class="case-desc">引言：看不见的战场，看得见的胜负 一支成功的品牌宣传片，观众记住的或许是震撼的镜头、动人的故事，或是直击人心的文案。但鲜少有人意识到，这些 “高光时刻”的背后，往往藏着一场无声的战役—— 后期制作 。</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29679904.html">
+            <div class="case-thumb"><div class="news-thumb"><i class="fas fa-newspaper"></i><span class="nt-txt">暂无配图</span></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">29</span> <span class="case-tag">新闻</span></div>
+              <h3>品牌决胜负于"隐形的战场"：三希堂解码宣传片战略级价值系列｜拍摄篇</h3>
+              <p class="case-desc">——从镜头到心智：三希堂解码品牌视觉资产—— 在三希堂，我们将一个片子的制作，比作烹饪的不同步骤： 前期策划是勾勒战略蓝图的“菜品研发 ，拍摄阶段是掌控火候的“掌勺烹炒 ，后期制作则是注入灵魂的 风味</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29679897.html">
+            <div class="case-thumb"><div class="news-thumb"><i class="fas fa-newspaper"></i><span class="nt-txt">暂无配图</span></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">30</span> <span class="case-tag">新闻</span></div>
+              <h3>品牌决胜负于"隐形的战场"：三希堂解码宣传片战略级价值系列｜策划篇</h3>
+              <p class="case-desc">为什么顶尖品牌管理公司都把宣传片策划视为战略级工程？ 很多客户第一次找我们做宣传片时都会说：“帮我写个文案，拍点高大上的画面就行 。但今天必须掏心窝子告诉大家：宣传片策划要是这么简单，全成都遍地都是品</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29744817.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1749111917794406.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">31</span> <span class="case-tag">新闻</span></div>
+              <h3>品牌对话三希堂品牌管理梅小龙：赋能国资品牌的思与行</h3>
+              <p class="case-desc">2025 年 5 月 25 日，第九届中国品牌博鳌峰会暨 2025 博鳌文化产业品牌论坛 在 海南隆重举行，本次会议以 “献礼 510 中国品牌日 共筑品牌发展新未来 ”为主题，部委领导、政府领导、经</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713449.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709779574666001.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">32</span> <span class="case-tag">新闻</span></div>
+              <h3>品牌热衷的情感营销大法，究竟有多上头？</h3>
+              <p class="case-desc">“心价比”，近几年一个新的营销概念，是指消费者愿意为产品给自己带来的“感受与体验”支付溢价。现代营销学之父菲利普·科特勒将消费者行为的成长分为量的消费、质的消费和情感消费三个阶段，在第三消费阶段需由品</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29126434.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1735119367616376.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">33</span> <span class="case-tag">新闻</span></div>
+              <h3>国企改革深化提升行动明年收官，将谋划新一轮改革方案</h3>
+              <p class="case-desc">2025年是新一轮国有企业改革深化提升行动的收官之年，中央经济工作会议对完成情况提出了“高质量”的要求。 日前召开的中央经济工作会议指出，发挥经济体制改革牵引作用，推动标志性改革举措落地见效。 高质量</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29126403.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1735118987123273.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">34</span> <span class="case-tag">新闻</span></div>
+              <h3>国务院国资委最新要求！确保明年完成国企改革深化提升行动</h3>
+              <p class="case-desc">12月13日，国务院国资委党委召开专题会议。会议提出，要推动中央企业提升改革攻坚突破能力，突出抓好国企改革深化提升行动，确保明年年底前全面完成，取得经得起检验的改革成果；突出抓好新一轮改革方案谋划，释</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29126356.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1735118235818250.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">35</span> <span class="case-tag">新闻</span></div>
+              <h3>国资委最新定调！2025年央企投资重点将发生哪些变化？</h3>
+              <p class="case-desc">2025年是新一轮国有企业改革深化提升行动的收官之年，新一轮改革方案已部署。 12月23日至24日，国务院国资委召开中央企业负责人会议（以下简称“会议”），总结2024年国资央企工作，研究部署2025</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713442.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709792504489996.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">36</span> <span class="case-tag">新闻</span></div>
+              <h3>城市社区重生的交通试验：波浪栈道</h3>
+              <p class="case-desc">很难想像在这个栈道建成前，这里只是平平无奇的狭窄水泥人行道。 “纪念宴会和人行道上的社会生活的核心之处正在于它们都是一种公共活动。它们把互不相似的人聚集在一起，这些人并不能够在不公开的、私下的方式中互</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713446.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709802035522298.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">37</span> <span class="case-tag">新闻</span></div>
+              <h3>如何做好企业的战略品牌管理？</h3>
+              <p class="case-desc">品牌是一个企业软实力的重要体现，好的品牌对内可以凝聚发展共识，提高企业的管理效能；对外可以树立良好的形象，得到公众的理解和支持。 那么一个企业如何做好战略品牌管理？本文章是对《战略品牌管理》中战略品牌</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713447.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709802914503956.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">38</span> <span class="case-tag">新闻</span></div>
+              <h3>如何制定品牌战略？</h3>
+              <p class="case-desc">伟大的品牌绝非偶然，而是缜密计划和创造的结果。一个企业不论是创建品牌，还是管理品牌，首先要设计出可执行的品牌战略与战术。 如何制定企业的品牌战略，本文做了一些思考和总结，内容分为两部分， 什么是品牌战</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27965036.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1713247291929630.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">39</span> <span class="case-tag">新闻</span></div>
+              <h3>如何发展战略性新兴产业和未来产业？国资央企代表委员这样说</h3>
+              <p class="case-desc">内容来源 | 新华财经 战略性新兴产业和未来产业是形成新质生产力的主阵地，代表新一轮科技革命和产业变革的方向。 新质生产力、战略性新兴产业、未来产业……这些词无疑成为了今年两会的重点和热点词汇。在5日</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29680606.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747721875941200.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">40</span> <span class="case-tag">新闻</span></div>
+              <h3>小米SU7 Ultra的品牌跃迁：从颠覆者到规则制定者的三重跃升</h3>
+              <p class="case-desc">小米通过SU7 Ultra发布会完成了从「性价比挑战者」到「高端规则制定者」的质变。其核心策略是通过 技术平权化 和 体验民主化 ，在传统豪车品牌的价值链上撕开缺口 。 品牌定位跃迁：重构豪车市场的价</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_30129341.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1757669259175271.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">41</span> <span class="case-tag">新闻</span></div>
+              <h3>工业品牌传播不是技术参数的堆砌，客户需要场景翻译器</h3>
+              <p class="case-desc">你有没有过这样的经历？打开一个工业品牌的官网或者宣传册，密密麻麻的数据、参数、技术术语扑面而来，像一本天书，看得人眼花缭乱，却一头雾水，完全不知道这个产品到底能解决什么问题，又该如何应用到自己的场景中</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_28565491.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723715373629223.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">42</span> <span class="case-tag">新闻</span></div>
+              <h3>干货必读丨4步创建你的「品牌接触点轮盘」</h3>
+              <p class="case-desc">企业品牌建设是企业发展战略的关键，是成就企业基业长青的基础支撑。随着市场化的不断深入，人们越来越强烈的认识到品牌建设在企业经营中的突出作用，对于品牌建设也在不断的探索。 品牌，对于一企业来说是非常重要</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29681095.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747726625523815.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">43</span> <span class="case-tag">新闻</span></div>
+              <h3>当山水遇上镜头：三希堂 带你解码中国式视觉美学的叙事密码</h3>
+              <p class="case-desc">在短视频时代，一段5分钟的宣传片足以让一片山水成为千万人的“诗与远方”。但为何有的风景宣传片让人过目难忘，有的却沦为平庸的“PPT翻页”？视觉语言，正是这场无声叙事中的灵魂。今天，我们以 《千里江山图</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29744999.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1749114820347219.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">44</span> <span class="case-tag">新闻</span></div>
+              <h3>当疯狂出圈者闯入中国次元：一场商业基因的链式反应</h3>
+              <p class="case-desc">旅游产业： 引爆文旅消费新势能 0 1 政策与市场双轮驱动 甲亢哥行程覆盖的上海、成都、重庆等地景点搜索量激增200%-500%，少林寺、宽窄巷子等传统文旅项目因直播互动焕发新生。 中国驻美大使馆及外</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713440.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1709781950984199.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">45</span> <span class="case-tag">新闻</span></div>
+              <h3>怎么成为品牌营销“专家”？</h3>
+              <p class="case-desc">了解品牌需要具备哪些理论知识，以及品牌营销人需要具备的能力，成为品牌营销“专家”，需要恶补哪些？ 知识储备 品牌营销人需具备知识 品牌涉及到方方面面的知识，心理学、社会学、传播学、新闻学、美学、金融学</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_28567581.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1723788099454067.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">46</span> <span class="case-tag">新闻</span></div>
+              <h3>您的成果值得入编！《新时代企业党建与企业文化创新成果选编》第六辑征集开启</h3>
+              <p class="case-desc">自2018年以来， 《新时代企业党建与企业文化创新成果选编》 已连续出版5部主题成果集， 收录企业成果400余部。 集全国各大央企、国企之力， 以先进的实践做法、实际成效、成功经验， 为新征程国有企业</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29744919.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1749113832713755.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">47</span> <span class="case-tag">新闻</span></div>
+              <h3>惊天黑幕！数字摄影机如何‘偷’走现实世界的色彩？</h3>
+              <p class="case-desc">在之前的文章《像素≠画质？看懂摄影机性能参数》文章中，我们解码了摄影机中的像素、分辨率与动态范围等主要性能指标。接下来三希堂的摄影师们将显微镜对准了最蛊惑人心的性能指标——色彩。这不是艺术家的感性游戏</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27713448.html">
+            <div class="case-thumb"><div class="news-thumb"><i class="fas fa-newspaper"></i><span class="nt-txt">暂无配图</span></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">48</span> <span class="case-tag">2023年11月30</span></div>
+              <h3>抢占电动市场，奔驰宝马也得抱团</h3>
+              <p class="case-desc">北京市商务局消息，3月4日，梅赛德斯-奔驰（下称“奔驰”）与宝马合资成立的北京逸安启新能源科技有限公司（下称“合资公司”）正式落户北京市朝阳区，将在中国市场运营超级充电网络。 新的合资公司源于2023</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_30129318.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1757668546410893.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">49</span> <span class="case-tag">新闻</span></div>
+              <h3>捧回亚洲首个“阿巴&#12539;利希滕斯坦奖”的工程背后的宣传构思</h3>
+              <p class="case-desc">北京时间 7月16日，2025年国际桥梁大会在美国匹兹堡举行，由宜宾市公路局投资建设、四川公路院设计、四川路桥桥梁公司特种工程分公司施工的“宜宾市岷江大桥加固改造工程”荣获阿巴 利希滕斯坦奖。阿巴 利</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29680979.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747725313568269.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">50</span> <span class="case-tag">新闻</span></div>
+              <h3>数字摄影机光电密码：三希堂“像素级职业病”</h3>
+              <p class="case-desc">在之前《胶片摄影机与数字摄影机》的两篇文章中，我们学习了胶片摄影机与数字摄影机的原理、区别和各自应用的电影，这篇文章我们聊聊光学系统中的数字摄影机的基础知识。 在成都三希堂品牌管理有限公司的创作手册扉</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29680867.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747724062574777.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">51</span> <span class="case-tag">新闻</span></div>
+              <h3>新主流电影的品牌化之路</h3>
+              <p class="case-desc">品牌核心价值的构建 新主流电影在品牌塑造的过程中，通过“去神性化叙事”重构品牌基因，这一策略有效地将家国情怀转化为观众可触达的情感资产。相较于传统主旋律作品的宏大叙事，新主流电影采用“微观史诗”手法，</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27962365.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1713172828160990.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">52</span> <span class="case-tag">新闻</span></div>
+              <h3>新时代下基层工人管理与企业文化建设</h3>
+              <p class="case-desc">新时代，中国经济进入高质量发展阶段，经济结构和产业布局发生深刻变革。基层工人是企业生产力的重要来源和管理中关键的一环，面临巨大挑战和机遇。因此，我们需要重新构建适应新时代的基层工人管理模式。同时，企业</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_28135655.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1716173187526062.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">53</span> <span class="case-tag">新闻</span></div>
+              <h3>湖北出台18条举措 加快培育新质生产力</h3>
+              <p class="case-desc">湖北省印发《关于加快培育新质生产力推动高质量发展的实施意见》。 内容来源 | 湖 北日报 加快培育新质生产力，“新”在哪里，如何向“新”？ 4月28日，《省人民政府办公厅关于加快培育新质生产力推动高质</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29681852.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747731203453045.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">54</span> <span class="case-tag">新闻</span></div>
+              <h3>用工业微电影把冷技术讲出温度</h3>
+              <p class="case-desc">——让硬核技术成为客户心中的“白月光” 在这个信息如潮水般涌来的时代，硬核技术常常因其高深莫测的专业性和错综复杂的细节，被贴上了“高冷”的标签，似乎总是遥不可及，难以触动大众内心最柔软的部分。 作为企</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29680569.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747721423495457.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">55</span> <span class="case-tag">新闻</span></div>
+              <h3>用微纪录片开启国企IP宇宙：一场新时代的品牌觉醒</h3>
+              <p class="case-desc">在短视频称王的时代，国企的传播方式正面临一场革命。当Z世代成为社会主流人群，传统的宣传片、年报、发布会已难以穿透年轻圈层。如何用更轻盈、更鲜活的姿态讲好国企故事？微纪录片，这个自带流量基因的传播形态，</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29682486.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747733146214043.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">56</span> <span class="case-tag">新闻</span></div>
+              <h3>用真实镜头，让责任被看见</h3>
+              <p class="case-desc">引言 提起“大型国企”，很多人脑海中会浮现高耸的塔吊、轰鸣的机械，或是密密麻麻的工程图纸.......... 但鲜少有人知道，这些企业如何用责任担当守护绿水青山，如何用技术突破改写城市面貌，又如何用暖</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_28135472.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1716171038437646.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">57</span> <span class="case-tag">新闻</span></div>
+              <h3>盘点营销传播手段有哪些？</h3>
+              <p class="case-desc">概念 什么是营销传播 营销传播 是公司就自己出售的品牌，直接或者间接告诉、说服并提醒消费者的手段。 某种意义上讲， 营销传播是品牌的“声音”，是与消费者对话和建立关系的手段。 营销传播的目的是通过建立</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29680733.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747722827821834.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">58</span> <span class="case-tag">新闻</span></div>
+              <h3>胶片摄影机与数字摄影机：光影战场和未来预言</h3>
+              <p class="case-desc">在之前《胶片摄影机与数字摄影机：光影载体的百年博弈》文章中，我们展现了摄影机的进化史、胶片与数字摄影机的对比以及数字中间片DI的知识，这篇文章我们继续聊聊光学系统中的胶片摄影机和数字摄影机，了解一下它</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29680455.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1747719243477529.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">59</span> <span class="case-tag">新闻</span></div>
+              <h3>胶片摄影机与数字摄影机：光影载体的百年博弈</h3>
+              <p class="case-desc">——从视觉魔法到技术解剖—— 在之前探讨电影摄影四大造型手段的文章中（《小丑2》的癫狂色彩、《哪吒2》的魔童美学：光影魔术师如何让电影封神？），我们揭示了摄影师通过“光学、光线、运动和色彩”构建视觉美</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_28135931.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1716173935433049.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">60</span> <span class="case-tag">新闻</span></div>
+              <h3>良心企业创造共同价值的四大原则</h3>
+              <p class="case-desc">有良知的企业文化是一股强大的力量和稳定的源泉，确保目标和核心价值观不随时间的推移和领导层的转变而变化。 有良知的企业文化能够自然地从企业的承诺逐步发展到崇高的目标、相互依存的利益相关者和良心领导者。 </p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_29744486.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1749110423741363.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">61</span> <span class="case-tag">2025年5月25</span></div>
+              <h3>荣耀加冕 | 三希堂品牌管理获第九届中国品牌博鳌峰会两项大奖</h3>
+              <p class="case-desc">2025年5月25日，以“献礼5.10中国品牌日 共筑品牌发展新未来”为主题的第九届中国品牌博鳌峰会在海南海口 隆重举行。 第十一届全国政协经济委员会副主任、商务部原副部长张志刚，副部级国务院特殊津贴</p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27984484.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1713250560658922.png" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">62</span> <span class="case-tag">新闻</span></div>
+              <h3>荣耀时刻丨三希堂品牌战略咨询荣获MUSE Creative Awards金奖</h3>
+              <p class="case-desc">近日，全球最重要的广告大奖之一 缪斯创意奖（Muse Creative Awards） 获奖 名单正式公布，由三希堂品牌战略咨询出品的贵州省观山湖区招商引业服务中心品牌形象设计荣获2024年MUSE </p>
+            </div>
+          </a>
+          <a class="case-card" href="news/doc_27965004.html">
+            <div class="case-thumb"><div class="news-thumb"><img loading="lazy" src="https://aimg8.dlssyht.cn/u/2261410/ueditor/image/1131/2261410/1713246410428053.jpg" alt="" /></div></div>
+            <div class="case-info">
+              <div class="case-meta"><span class="case-num">63</span> <span class="case-tag">新闻</span></div>
+              <h3>重庆新一轮国企改革“难在哪？新在哪？”</h3>
+              <p class="case-desc">内容来源 | 经济参考报 重庆此轮国企改革难在哪？新在哪？又用了哪些关键招数？ 春日融融，带起重庆国资国企领域的十足干劲儿：签署《打赢国企改革攻坚战目标责任书》，召开2024年重庆国资国企工作会议部署</p>
+            </div>
+          </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <!-- ===== 公司尾部 ===== -->
+  <footer class="footer-main" id="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="brand-name">成都三希堂品牌管理有限公司</div>
+        <div class="brand-tagline">塑造国资品牌，当然三希堂</div>
+        <p class="brand-desc">
+          深耕国资品牌文化塑造10+年，以战略视角输出品牌文化体系，
+          协助客户完成重大品牌文化决策，持续提供最佳的思想、理论、方法、工具。
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>联系方式</h4>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>028-60786535 / 13551315662</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i><span>周一至周五（9:30 - 18:00）</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:BD@sxtbrandgroupe.com">BD@sxtbrandgroupe.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>四川省成都市武侯区二环路莱蒙都会3栋11层</span></div>
+      </div>
+      <div class="footer-qr">
+        <div class="qr-code">
+          <img src="https://aimg8.dlssyht.cn/u/2261410/module/simplepicbackground/8419/16836536_1710225170.png" alt="微信公众号二维码" />
+        </div>
+        <div class="qr-label"><i class="fab fa-weixin"></i> 关注微信公众号</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 成都三希堂品牌管理有限公司 · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- ===== 移动端菜单 ===== -->
+  <script>
+    (function() {
+      'use strict';
+      const toggleBtn = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navMenu.classList.toggle('open');
+          const icon = this.querySelector('i');
+          if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          });
+        });
+      }
+      document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('open')) {
+          const target = e.target;
+          if (!navMenu.contains(target) && !toggleBtn.contains(target)) {
+            navMenu.classList.remove('open');
+            const icon = toggleBtn.querySelector('i');
+            if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
